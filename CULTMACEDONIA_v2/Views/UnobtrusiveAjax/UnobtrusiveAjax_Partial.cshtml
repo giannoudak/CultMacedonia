@@ -1,0 +1,37 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using Models = CULTMACEDONIA_v2.Models.CultMacedoniaModel;
+
+@*@model IPagedList<PagedList.Mvc4.Example.Models.Point>*@
+
+
+
+<div class="row" id="names">
+    @foreach (var i in @ViewBag.Points)
+    {
+        CULTMACEDONIA_v2.Models.CultMacedoniaModel.Point p = @i;
+
+
+        <div class="col-md-4">
+            @p.PointName
+            @foreach (Models.PointImage pic in p.PointImage)
+            {
+                
+            }
+
+        </div>
+    }
+</div>
+@*@Html.PagedListPager((IPagedList)@ViewBag.Points, page => Url.Action("Index", new { page }),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "unobtrusive", OnComplete = "PagedOnComplete" }))*@
+
+
+
+@Html.PagedListPager(
+    (IPagedList)@ViewBag.Points,
+    page => Url.Action("Index", new { page }),
+    PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(
+                new PagedListRenderOptions() { DisplayLinkToIndividualPages = false, },
+                new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "unobtrusive", OnComplete = "PagedOnComplete" }
+    ))
+

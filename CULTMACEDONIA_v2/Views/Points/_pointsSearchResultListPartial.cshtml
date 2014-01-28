@@ -1,0 +1,80 @@
+﻿@model List<CULTMACEDONIA_v2.Models.CultMacedoniaModel.Point>
+
+
+
+@{
+    int groupSize = 6;
+    int total = Model.Count;
+    int groups = total / groupSize;
+
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <!-- carousel indicators -->
+
+    <ol class="carousel-indicators pointPageCarousel">
+
+        @for (int c = 0; c <= groups; c++)
+        {
+
+            <li class="indicator @(c == 0? "active": "")" data-slide-to=@c data-target="#myCarousel"
+                data-placement="top"
+                data-toggle="tooltip"
+                data-original-title="Go to Page @c">
+
+            </li>
+        }
+
+    </ol>
+
+
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+
+        @for (int i = 0; i <= groups; i++)
+        {
+
+            if (i == 0)
+            {
+                <div class="item active">
+                    @foreach (var item in Model.Skip(i * groupSize).Take(groupSize))
+                    {
+
+                        <a href="#" class="itmpoint list-group-item" data-x="@item.PointX" data-y="@item.PointY">
+                            <h5 class="list-group-item-heading">@item.PointName</h5>
+                            <p class="list-group-item-text">
+                                @item.PointAddress
+                            </p>
+
+                        </a>
+
+
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="item">
+                    @foreach (var item in Model.Skip(i * groupSize).Take(groupSize))
+                    {
+
+                        <a href="#" class="itmpoint list-group-item" data-x="@item.PointX" data-y="@item.PointY" >
+                            <h5 class="list-group-item-heading">@item.PointName</h5>
+                            <p class="list-group-item-text">
+                                @item.PointAddress
+                            </p>
+                            
+                        </a>
+
+                    }
+                </div>
+            }
+
+        }
+
+    </div>
+
+
+
+</div><!-- myCarousels ends-->

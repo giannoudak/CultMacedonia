@@ -1,0 +1,7 @@
+﻿@using CULTMACEDONIA_v2.Helpers;
+
+@model List<CULTMACEDONIA_v2.Models.PointMapViewModel>
+
+@{ int? width = 1000;}
+
+@Html.GoogleMap(@Model, width, 300)

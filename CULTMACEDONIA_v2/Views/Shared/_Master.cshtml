@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/bundles/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+    <script src="http://192.69.216.111/themes/preview/ace/assets/js/ace-extra.min.js"></script>
+    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false'></script>
+    <script src="~/Scripts/jquery.pagifymvc-1.0.0.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+</head>
+
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+
+
+        <div class="jumbotron" id="map_canvas">
+            @Html.Partial("vMapPartial")
+        </div>
+        
+        
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container container-relativ">
+            @RenderBody()
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
+                    <h2>Heading</h2>
+                    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
+                    <h2>Heading</h2>
+                    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
+                    <h2>Heading</h2>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-responsive" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAANIUlEQVR4nO3dvW4a2wKA0fP+j5ICyZILS5ELSy6QKChoqOhoeQVucW4iMt6DISE3ud+sYlWB8bBTfLP3/P1zOp3OAMD/t3/+9A4AAL9O0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNABIEDQASBA0AEgQNAB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IOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQIOgAECDoABAg6AAQ8B9cNAHAmvVtfwAAAABJRU5ErkJggg==" alt="Generic placeholder image">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-5">
+                    <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+                </div>
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+                    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="jumbotron white">
+                    <h1>Marketing stuff!</h1>
+                    <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
+                    <p>
+                        <a class="btn btn-lg btn-success" role="button" href="#">Get started today</a>
+                    </p>
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- /END THE FEATURETTES -->
+            <!-- FOOTER -->
+            <footer>
+                <p class="pull-right"><a href="#">Back to top</a></p>
+                <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            </footer>
+
+        </div><!-- /.container -->
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <script src="~/Scripts/cult.macedonia.points.js"></script>
+
+        @RenderSection("scripts", required: false)
+
+</body>
+</html>
