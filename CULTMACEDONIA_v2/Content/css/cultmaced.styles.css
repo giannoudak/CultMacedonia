@@ -9,6 +9,9 @@
     background-color:#fff;
 }
 
+.test{
+    color:red;
+}
 
 /* styles for validation helpers */
 .field-validation-error {
