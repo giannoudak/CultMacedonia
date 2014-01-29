@@ -71,32 +71,7 @@ namespace CULTMACEDONIA_v2.Controllers
 
             return Json(new { retValue = retValue, sent = sent }, JsonRequestBehavior.AllowGet);
 
-            //    //Update your SMTP server credentials
-            //    using (var client = new SmtpClient { Host = "smtp.gmail.com", Port = 587, EnableSsl = true,
-            //        Credentials = new NetworkCredential("giannoudak@gmail.com", "d@taforc3"),
-            //        DeliveryMethod = SmtpDeliveryMethod.Network})
-            //    {
-            //        var mail = new MailMessage();
-            //        mail.To.Add("giannoudak@gmail.com,stavroulakis06157@gmail.com"); // Update your email address
-            //        mail.From = new MailAddress(form.Email, form.Name);
-            //        mail.Subject = String.Format("Request to Contact from {0}", form.Name);
-            //        mail.Body = form.Message;
 
-            //        mail.IsBodyHtml = false;
-            //        try
-            //        {
-            //            client.UseDefaultCredentials = true;
-            //            client.Send(mail);
-            //            retValue = @CultResources.Shared.ContactSendSuccess;
-            //        }
-            //        catch (Exception)
-            //        {
-         
-            //            throw;
-            //        }
-            //    }
-            //}
-            //return Json(retValue, JsonRequestBehavior.AllowGet);
         }
     }
 	
