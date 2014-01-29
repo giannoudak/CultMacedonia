@@ -63,10 +63,6 @@ namespace CULTMACEDONIA_v2.Controllers
                     retValue = @CultResources.Shared.ContactSendFailure + " Error: " + ex.Message;
                     sent = false;
                 }
-
-               
-
-
             }
 
             return Json(new { retValue = retValue, sent = sent }, JsonRequestBehavior.AllowGet);
