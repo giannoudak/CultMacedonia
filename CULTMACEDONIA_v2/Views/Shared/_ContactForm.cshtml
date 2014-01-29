@@ -1,0 +1,60 @@
+﻿
+@model CULTMACEDONIA_v2.Models.ContactFormViewModel
+
+
+
+
+@using (Ajax.BeginForm("SendMail", "Contact",null, new AjaxOptions
+           {
+               InsertionMode = InsertionMode.Replace,
+               HttpMethod = "POST",
+               UpdateTargetId = "status",
+               OnFailure = "mailFailed()",
+               OnSuccess = "mailSucceded(data)",
+               LoadingElementId = "divLoading"
+           }, new { id = "contactForm" }))
+{
+
+
+        <div class="row">
+            <div class="form-group col-lg-4">
+                <label for="input1">@CultResources.View.username</label>
+                @Html.TextBoxFor(model => model.Name, new { @name = "contact_name", @class = "form-control" }) @Html.ValidationMessageFor(model => model.Name)
+
+            </div>
+
+            <div class="form-group col-lg-4">
+                <label for="input2">@CultResources.View.email</label>
+                @Html.TextBoxFor(model => model.Email, new { @type = "email", @name = "contact_email", @class = "form-control" }) @Html.ValidationMessageFor(model => model.Email)
+
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="form-group col-lg-12">
+                <label for="input4">@CultResources.View.message</label>
+                @Html.TextAreaFor(model => model.Message, new { @rows = 13, @cols = 20, @name = "contact_message", @class = "form-control" }) @Html.ValidationMessageFor(model => model.Message)
+               
+
+            </div>
+            <div class="form-group col-lg-12">
+                <input type="hidden" value="contact" name="save">
+                <button class="btn btn-primary" type="submit">@CultResources.View.submit</button>
+
+                <span id="divLoading" style="display: none;" class="col-md-12">
+                    <img alt="Loading" src="@Url.Content("~/Content/images/ajax-loader.gif")" />
+                </span>
+                <br />
+
+                <div id="status"></div>
+            </div>
+        </div>
+
+
+}
+
+
+
+
+
+
+

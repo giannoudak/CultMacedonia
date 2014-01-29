@@ -1,0 +1,80 @@
+﻿@model bool
+
+@using CULTMACEDONIA_v2.Helpers;
+
+
+
+<div id="favorite" class="col-md-12">
+    @{int pid = @ViewBag.pointId; }
+
+    @if (Request.IsAuthenticated)
+    {
+
+        @* Στο partial View περνάμε μια Boolean μεταβλητή για το Αν ειναι ή οχι favorite το συγκεκριμένο αξιοθέατο *@
+        if (@Model)
+        {
+            @*αν το μοντελο ειναι true τότε δείχνουμε οτι το αξιοθέατο ειναι favorite*@
+            <p>
+                <a data-toggle="tooltip" data-placement="right" class="tlp" title="" data-original-title="@CultResources.View.isFavorite">
+                    <span class="fa fa-star yellow glyphicon-large"></span>
+                </a>
+            </p>
+        }
+        else
+        {
+
+
+
+            @Ajax.RawActionLink("<span class='fa fa-star-o yellow glyphicon-large'></span>",
+            "Favorite", "Points", new { id = pid },
+        new AjaxOptions
+        {
+            UpdateTargetId = "panelFavorite",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "POST",
+            OnSuccess = "onFavoriteAdded",
+            OnFailure = "onFavoriteFailed",
+            LoadingElementId = "divLoading"
+
+        }, new { @data_toggle = "tooltip", @data_placement = "right", @class = "tlp", @data_original_title = @CultResources.View.AddToFavoritesText })
+
+
+        }
+    }
+</div>
+
+<div id="divLoading" style="display: none;" class="col-md-12">
+    <img alt="Loading" src="@Url.Content("~/Content/images/ajax-loader.gif")" />
+</div>
+
+
+
+
+<div id="favorite-msg-panel" class="alert alert-success alert-dismissable col-md-10" style="display:none;">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <p class="favorite-msg"></p>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    function onFavoriteAdded() {
+        $("#favorite-msg-panel").show();
+        $(".favorite-msg").html("Το αξιοθέατο έγινε αγαπημένο!");
+    }
+
+    function onFavoriteFailed(ajaxContext) {
+
+        var response = ajaxContext.get_response();
+        var statusCode = response.get_statusCode();
+        $("#favorite-msg-panel").show();
+        $(".favorite-msg").html("Η προσθήκη στα αγαπημένα απέτυχε! Κωδικός σφάλματος: " + statusCode);
+    }
+
+
+
+</script>
+
+

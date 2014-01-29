@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddToFavoritesText" xml:space="preserve">
+    <value>Προσθήκη στα Αγαπημένα</value>
+  </data>
+  <data name="BorderlessText" xml:space="preserve">
+    <value>Χωρίς περίγραμα</value>
+  </data>
+  <data name="CommentPanelText" xml:space="preserve">
+    <value>Σχόλια Χρηστών</value>
+  </data>
+  <data name="FullScreenText" xml:space="preserve">
+    <value>Πλήρη οθόνη</value>
+  </data>
+  <data name="InfoPanelText" xml:space="preserve">
+    <value>Γενικές Πληροφορίες</value>
+  </data>
+  <data name="isFavorite" xml:space="preserve">
+    <value>Σας αρέσει!</value>
+  </data>
+  <data name="LaunchGalleryText" xml:space="preserve">
+    <value>Προβολή</value>
+  </data>
+  <data name="PhotoPanelGalleryText" xml:space="preserve">
+    <value>Φωτογραφίες</value>
+  </data>
+  <data name="RatingsPanelText" xml:space="preserve">
+    <value>Βαθμολογίες</value>
+  </data>
+  <data name="VideoPanelGalleryText" xml:space="preserve">
+    <value>Βίντεο</value>
+  </data>
+  <data name="LabelPointDescription" xml:space="preserve">
+    <value>Περιγραφή</value>
+  </data>
+  <data name="LabelPointName" xml:space="preserve">
+    <value>Όνομα μνημείου</value>
+  </data>
+  <data name="PointDescrRequired" xml:space="preserve">
+    <value>Η περιγραφή δεν μπορεί να είναι κενή!</value>
+  </data>
+  <data name="PointNameRequired" xml:space="preserve">
+    <value>Το όνομα δεν μπορεί να είναι κενό!</value>
+  </data>
+  <data name="DropFiles" xml:space="preserve">
+    <value>Μετακινήστε αρχεία</value>
+  </data>
+  <data name="ImageFile" xml:space="preserve">
+    <value>Διαγραφή Εικόνας</value>
+  </data>
+  <data name="orclick" xml:space="preserve">
+    <value>ή κάντε κλικ</value>
+  </data>
+  <data name="ToUpload" xml:space="preserve">
+    <value>για ανέβασμα</value>
+  </data>
+  <data name="Monuments" xml:space="preserve">
+    <value>Αξιοθέατα</value>
+  </data>
+  <data name="NewActionText" xml:space="preserve">
+    <value>Νέα Καταχώρηση</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Αρχική</value>
+  </data>
+  <data name="CloseToMe" xml:space="preserve">
+    <value>Κοντά σε μένα...</value>
+  </data>
+  <data name="CreateDialogTitle" xml:space="preserve">
+    <value>Αποτελέσματα Καταχώρησης Αξιοθέατου</value>
+  </data>
+  <data name="CreateResultSuccess" xml:space="preserve">
+    <value>Το αξιοθέατο {0} καταχωρήθηκε επιτυχώς. Η καταχώρησή σας θα πρέπει να ενεργοποιηθεί από τους διαχειριστές! Κλείστε τον διάλογο για να μεταφερθείτε αυτόματα στην προβολή του!</value>
+  </data>
+  <data name="DialogClose" xml:space="preserve">
+    <value>Κλείσιμο</value>
+  </data>
+  <data name="EditDialogTitle" xml:space="preserve">
+    <value>Αποτέλεσμα Επεξεργασίας Αξιοθέατου</value>
+  </data>
+  <data name="EditResultSuccess" xml:space="preserve">
+    <value>Η ενημέρωση του αξιοθέατου {0} έγινε επιτυχώς. Κλείστε τον διάλογο για να μεταφερθείτε αυτόματα στην ανανεωμένη προβολή!</value>
+  </data>
+  <data name="Radius" xml:space="preserve">
+    <value>δώσε ακτίνα</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Αναζήτηση</value>
+  </data>
+  <data name="SearchCriteria" xml:space="preserve">
+    <value>Κριτήρια Αναζήτησης</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Αποτελέσματα Αναζήτησης</value>
+  </data>
+  <data name="UseCriteria" xml:space="preserve">
+    <value>Χρησιμοποιείστε τα παραπάνω κριτήρια για να αναζητήσετε αξιοθέατα</value>
+  </data>
+  <data name="When" xml:space="preserve">
+    <value>Πρίν/Μετά</value>
+  </data>
+  <data name="WhenAfter" xml:space="preserve">
+    <value>Μετά</value>
+  </data>
+  <data name="WhenBefore" xml:space="preserve">
+    <value>Πριν</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Χρονολογία</value>
+  </data>
+  <data name="CategoryCaption" xml:space="preserve">
+    <value>Χρήση αρχικής ή κύριας φάσης</value>
+  </data>
+  <data name="CategoryRequired" xml:space="preserve">
+    <value>Η επιλογή κατηγορίας είναι υποχρεωτική!</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Επικοινωνία</value>
+  </data>
+  <data name="ContactInfo" xml:space="preserve">
+    <value>Στοιχεία Επικοινωνίας</value>
+  </data>
+  <data name="ContactSmall" xml:space="preserve">
+    <value>θα θέλαμε να σας ακούσουμε</value>
+  </data>
+  <data name="CreateFailure" xml:space="preserve">
+    <value>Η Καταχώρηση Αξιοθέατου Απέτυχε! Παρακαλώ διορθώστε τα παρακάτω σφάλματα.</value>
+  </data>
+  <data name="CreateResultFailure" xml:space="preserve">
+    <value>Η καταχώρηση του νέου αξιοθέατου απέτυχε. Παρακαλώ διορθώστε το παρακάτω σφάλμα.</value>
+  </data>
+  <data name="EditActionText" xml:space="preserve">
+    <value>Επεξεργασία Αξιοθέατου</value>
+  </data>
+  <data name="EditFailure" xml:space="preserve">
+    <value>Η Επεξεργασία του Αξιοθέατου Απέτυχε! Παρακαλώ διορθώστε τα παρακάτω σφάλματα.</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Το Email σας </value>
+  </data>
+  <data name="EraCaption" xml:space="preserve">
+    <value>Χρονολογικά πλαίσια</value>
+  </data>
+  <data name="EraRequired" xml:space="preserve">
+    <value>Η επιλογή χρονολογικής περιόδου ειναι υποχρεωτική!</value>
+  </data>
+  <data name="EthnologicalCaption" xml:space="preserve">
+    <value>Εθνολογική ταυτότητα</value>
+  </data>
+  <data name="EthnologicalRequired" xml:space="preserve">
+    <value>Η επιλογή εθνολογικής ταυτότητας είναι υποχρεωτικη!</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Αρχή</value>
+  </data>
+  <data name="labelYear" xml:space="preserve">
+    <value>Χρονολογία</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Τέλος</value>
+  </data>
+  <data name="message" xml:space="preserve">
+    <value>Αφήστε κείμενο</value>
+  </data>
+  <data name="mobilesmall" xml:space="preserve">
+    <value>όλα από το κινητό σας!</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Επόμενη</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>από</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Σελίδα</value>
+  </data>
+  <data name="phdrAddress" xml:space="preserve">
+    <value>δώστε διεύθυνση και πατήστε geocode</value>
+  </data>
+  <data name="phdrLat" xml:space="preserve">
+    <value>latitude...</value>
+  </data>
+  <data name="phdrLong" xml:space="preserve">
+    <value>longitude...</value>
+  </data>
+  <data name="phdrmail" xml:space="preserve">
+    <value>e-mail</value>
+  </data>
+  <data name="phdrphone" xml:space="preserve">
+    <value>τηλέφωνο</value>
+  </data>
+  <data name="phdrweb" xml:space="preserve">
+    <value>ιστοσελίδα</value>
+  </data>
+  <data name="PlaceAndAddress" xml:space="preserve">
+    <value>Νομός/Τοποθεσία &amp; Διεύθυνση</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>Προγηγούμενη</value>
+  </data>
+  <data name="PropectionCaption" xml:space="preserve">
+    <value>Καθεστώς προστασίας</value>
+  </data>
+  <data name="PropertyCaption" xml:space="preserve">
+    <value>Ιδιοκτησιακό καθεστώς</value>
+  </data>
+  <data name="PropertyRequired" xml:space="preserve">
+    <value>Η επιλογή ιδιοκτησιακού καθεστώτος ειναι υποχρεωτική!</value>
+  </data>
+  <data name="ProtectionRequired" xml:space="preserve">
+    <value>Η επιλογή καθεστώτος προστασίας είναι υποχρεωτική!</value>
+  </data>
+  <data name="ReligionCaption" xml:space="preserve">
+    <value>Θρησκευτική ταυτότητα</value>
+  </data>
+  <data name="ReligionRequired" xml:space="preserve">
+    <value>Η επιλογή θρησκευτικής ταυτότητας είναι υποχρεωτική!</value>
+  </data>
+  <data name="ShowcaseofallMonuments" xml:space="preserve">
+    <value>Προβολή όλων των αξιοθέατων</value>
+  </data>
+  <data name="submit" xml:space="preserve">
+    <value>Αποστολή!</value>
+  </data>
+  <data name="UploadDialogTitle" xml:space="preserve">
+    <value>Αποτέλεσμα Μεταφόρτωσης Φωτογραφίας</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Το όνομά σας</value>
+  </data>
+  <data name="ViewMonument" xml:space="preserve">
+    <value>Προβολή</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Διαγραφή</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Επεξεργασία</value>
+  </data>
+  <data name="pagesize" xml:space="preserve">
+    <value>Μέγεθος Σελίδας:</value>
+  </data>
+  <data name="PlaceAddress" xml:space="preserve">
+    <value>Διεύθυνση</value>
+  </data>
+  <data name="PlaceNomos" xml:space="preserve">
+    <value>Τοποθεσία Νομός</value>
+  </data>
+  <data name="view" xml:space="preserve">
+    <value>Προβολή</value>
+  </data>
+</root>

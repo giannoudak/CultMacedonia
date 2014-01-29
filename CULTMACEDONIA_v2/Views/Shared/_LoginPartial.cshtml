@@ -1,0 +1,74 @@
+﻿@using Microsoft.AspNet.Identity
+@using Facebook
+
+
+
+        @using Microsoft.AspNet.Identity
+        @if (Request.IsAuthenticated)
+        {
+            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+            {
+                @Html.AntiForgeryToken()
+
+                @*<ul class="nav navbar-nav navbar-right">
+                    <li>
+                        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = CultResources.Shared.AccountManage })
+                    </li>
+                    
+                </ul>*@
+            
+                <ul class="nav navbar-nav">
+                    <li class="">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">@CultResources.Shared.Hello @User.Identity.GetUserName()! <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+
+                            @if (User.IsInRole("CultMacedoniaUser"))
+                            {
+                                <li><a href="#">@CultResources.Shared.MyPoints</a></li>
+                                <li><a href="#">@CultResources.Shared.MyFavorites</a></li>
+                                <li><a href="#">@CultResources.Shared.AddNew</a></li>
+                                <li class="divider"></li>
+                            }
+                            else if (User.IsInRole("CultMacedoniaAdmin"))
+                            {
+                                <li role="presentation" class="dropdown-header">@CultResources.View.Monuments</li>
+                                <li><a href="@Url.Action("Points","Admin")"><i class="fa fa-dot-circle-o"></i> @CultResources.Admin.PointsAll</a></li>
+                                <li><a href="@Url.Action("Points", "Admin", new { enabled = false })"><i class=" fa fa-check-square-o"></i> @CultResources.Admin.PointsNeedApproval</a></li>
+                                <li class="divider"></li>
+                                
+                                <li role="presentation" class="dropdown-header">@CultResources.Admin.UserManagement</li>
+                                <li><a href="#"><i class="fa fa-users"></i> @CultResources.Admin.UserList</a></li>
+                                
+                                <li class="divider"></li>
+                                
+                                <li role="presentation" class="dropdown-header">@CultResources.Admin.SystemParameters</li>
+                                <li><a href="@Url.Action("settings","Admin")"><i class="fa fa-cogs"></i> @CultResources.Admin.SystemParameters</a></li>
+                                
+                                
+                                <li class="divider"></li>
+                                
+                                
+                                
+                            }
+
+                            
+                            
+                            
+                            <li>@Html.ActionLink(CultResources.Shared.AccountManage, "Manage", "Account", routeValues: null, htmlAttributes: null)</li>
+                            <li><a href="javascript:document.getElementById('logoutForm').submit()">@CultResources.Shared.AppLogout</a></li>
+
+                        </ul>
+
+                    </li>
+                </ul>
+            }
+        }
+        else
+        {
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink(CultResources.Shared.AppRegister, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink(CultResources.Shared.AppLogin, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            </ul>
+        }
+
+

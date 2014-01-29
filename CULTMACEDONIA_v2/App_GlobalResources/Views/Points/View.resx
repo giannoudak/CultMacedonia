@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddToFavoritesText" xml:space="preserve">
+    <value>Favorite this!</value>
+  </data>
+  <data name="BorderlessText" xml:space="preserve">
+    <value>Borderless</value>
+  </data>
+  <data name="CommentPanelText" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="FullScreenText" xml:space="preserve">
+    <value>Fullscreen</value>
+  </data>
+  <data name="InfoPanelText" xml:space="preserve">
+    <value>General Info</value>
+  </data>
+  <data name="isFavorite" xml:space="preserve">
+    <value>You like this!</value>
+  </data>
+  <data name="LaunchGalleryText" xml:space="preserve">
+    <value>Launch Image Gallery</value>
+  </data>
+  <data name="PhotoGalleryPanelText" xml:space="preserve">
+    <value>Photos</value>
+  </data>
+  <data name="RatingsPanelText" xml:space="preserve">
+    <value>Ratings</value>
+  </data>
+  <data name="VideoGalleryPanelText" xml:space="preserve">
+    <value>Videos</value>
+  </data>
+  <data name="LabelPointDescription" xml:space="preserve">
+    <value>Place Description</value>
+  </data>
+  <data name="LabelPointName" xml:space="preserve">
+    <value>Place Name</value>
+  </data>
+  <data name="PointDescrRequired" xml:space="preserve">
+    <value>Monument's description is required!</value>
+  </data>
+  <data name="PointNameRequired" xml:space="preserve">
+    <value>Monument's name is required!</value>
+  </data>
+  <data name="DropFiles" xml:space="preserve">
+    <value>Drop files</value>
+  </data>
+  <data name="ImageFile" xml:space="preserve">
+    <value>Delete Image</value>
+  </data>
+  <data name="orclick" xml:space="preserve">
+    <value>or click</value>
+  </data>
+  <data name="ToUpload" xml:space="preserve">
+    <value>to upload</value>
+  </data>
+  <data name="Monuments" xml:space="preserve">
+    <value>Monuments</value>
+  </data>
+  <data name="NewActionText" xml:space="preserve">
+    <value>Add New</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="CloseToMe" xml:space="preserve">
+    <value>Close to me...</value>
+  </data>
+  <data name="CreateDialogTitle" xml:space="preserve">
+    <value>New Monument Submit Result</value>
+  </data>
+  <data name="CreateResultSuccess" xml:space="preserve">
+    <value>New Monument {0} successfully submited. Your submission must be  verified by the Administrator. Close the dialog to preview the newly added monument!</value>
+  </data>
+  <data name="DialogClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="EditDialogTitle" xml:space="preserve">
+    <value>Monument Edit Result</value>
+  </data>
+  <data name="EditResultSuccess" xml:space="preserve">
+    <value>Monument {0} editing was successfull. Close the dialog to view the updated monument!</value>
+  </data>
+  <data name="Radius" xml:space="preserve">
+    <value>enter radius here</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchCriteria" xml:space="preserve">
+    <value>Search Criteria</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Search Results</value>
+  </data>
+  <data name="UseCriteria" xml:space="preserve">
+    <value>Use the criteria above to search for monuments!</value>
+  </data>
+  <data name="When" xml:space="preserve">
+    <value>When</value>
+  </data>
+  <data name="WhenAfter" xml:space="preserve">
+    <value>After</value>
+  </data>
+  <data name="WhenBefore" xml:space="preserve">
+    <value>Before</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="CategoryRequired" xml:space="preserve">
+    <value>Category selection is required!</value>
+  </data>
+  <data name="CreateFailure" xml:space="preserve">
+    <value>Monument submit failed! Please correct the above errors.</value>
+  </data>
+  <data name="EditFailure" xml:space="preserve">
+    <value>Monument edit failed! Please correct the above errors.</value>
+  </data>
+  <data name="EraRequired" xml:space="preserve">
+    <value>Era property selection is required!</value>
+  </data>
+  <data name="EthnologicalRequired" xml:space="preserve">
+    <value>Ethnological type selection is required!</value>
+  </data>
+  <data name="PropertyRequired" xml:space="preserve">
+    <value>Property type selection is required!</value>
+  </data>
+  <data name="ProtectionRequired" xml:space="preserve">
+    <value>Protection level selection is required!</value>
+  </data>
+  <data name="ReligionRequired" xml:space="preserve">
+    <value>Religiont selection is required!</value>
+  </data>
+  <data name="UploadDialogTitle" xml:space="preserve">
+    <value>Image Upload Result</value>
+  </data>
+  <data name="CategoryCaption" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="ContactInfo" xml:space="preserve">
+    <value>Contact info</value>
+  </data>
+  <data name="ContactSmall" xml:space="preserve">
+    <value>we love to hear from you</value>
+  </data>
+  <data name="CreateResultFailure" xml:space="preserve">
+    <value>Monument Submit failed! Please correct the following.</value>
+  </data>
+  <data name="EditActionText" xml:space="preserve">
+    <value>Monument Edit</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="EraCaption" xml:space="preserve">
+    <value>Era</value>
+  </data>
+  <data name="EthnologicalCaption" xml:space="preserve">
+    <value>Ethnological</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="labelYear" xml:space="preserve">
+    <value>Υear</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="mobilesmall" xml:space="preserve">
+    <value>when you are on the road!</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="phdrAddress" xml:space="preserve">
+    <value>enter monument address and try to geocode!</value>
+  </data>
+  <data name="phdrLat" xml:space="preserve">
+    <value>latitude...</value>
+  </data>
+  <data name="phdrLong" xml:space="preserve">
+    <value>longitude...</value>
+  </data>
+  <data name="phdrmail" xml:space="preserve">
+    <value>enter e-mail address</value>
+  </data>
+  <data name="phdrphone" xml:space="preserve">
+    <value>enter phone number</value>
+  </data>
+  <data name="phdrweb" xml:space="preserve">
+    <value>enter web site</value>
+  </data>
+  <data name="PlaceAndAddress" xml:space="preserve">
+    <value>Place and Address</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>Prev</value>
+  </data>
+  <data name="PropectionCaption" xml:space="preserve">
+    <value>Protection Level</value>
+  </data>
+  <data name="PropertyCaption" xml:space="preserve">
+    <value>Property Type</value>
+  </data>
+  <data name="ReligionCaption" xml:space="preserve">
+    <value>Religion</value>
+  </data>
+  <data name="ShowcaseofallMonuments" xml:space="preserve">
+    <value>Showcase of all Monuments</value>
+  </data>
+  <data name="submit" xml:space="preserve">
+    <value>mail us!</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ViewMonument" xml:space="preserve">
+    <value>View Monument</value>
+  </data>
+  <data name="PlaceAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="PlaceNomos" xml:space="preserve">
+    <value>Place</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="pagesize" xml:space="preserve">
+    <value>Page Size:</value>
+  </data>
+  <data name="view" xml:space="preserve">
+    <value>View </value>
+  </data>
+</root>

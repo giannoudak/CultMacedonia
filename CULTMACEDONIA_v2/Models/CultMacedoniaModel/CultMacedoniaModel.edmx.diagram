@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e2103ffe61c24e529ea4944dd05a11be" Name="Diagram1">
+        <EntityTypeShape EntityType="CultMacedoniaDBModel.PointImage" Width="1.5" PointX="6.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CultMacedoniaDBModel.Category" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CultMacedoniaDBModel.Era" Width="1.5" PointX="0.625" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CultMacedoniaDBModel.Ethnological" Width="1.5" PointX="0.625" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CultMacedoniaDBModel.Property" Width="1.5" PointX="0.625" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CultMacedoniaDBModel.ProtectionLevel" Width="1.5" PointX="0.625" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CultMacedoniaDBModel.Religion" Width="1.5" PointX="0.625" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CultMacedoniaDBModel.PointOfUser" Width="1.5" PointX="6" PointY="7.5" />
+        <EntityTypeShape EntityType="CultMacedoniaDBModel.PointVideo" Width="1.5" PointX="6" PointY="2.75" />
+        <EntityTypeShape EntityType="CultMacedoniaDBModel.UserFavorites" Width="1.5" PointX="6" PointY="5.125" />
+        <EntityTypeShape EntityType="CultMacedoniaDBModel.AspNetUsers" Width="1.5" PointX="9.5" PointY="5.125" />
+        <AssociationConnector Association="CultMacedoniaDBModel.R_FavoritesOfUser" />
+        <AssociationConnector Association="CultMacedoniaDBModel.R_UserOfPoint" />
+        <EntityTypeShape EntityType="CultMacedoniaDBModel.Point" Width="1.5" PointX="2.875" PointY="2.5" />
+        <AssociationConnector Association="CultMacedoniaDBModel.R_FavoritePoints" />
+        <AssociationConnector Association="CultMacedoniaDBModel.R_ImagesOfPoint" />
+        <AssociationConnector Association="CultMacedoniaDBModel.R_PointCategory" />
+        <AssociationConnector Association="CultMacedoniaDBModel.R_PointEra" />
+        <AssociationConnector Association="CultMacedoniaDBModel.R_PointEthnological" />
+        <AssociationConnector Association="CultMacedoniaDBModel.R_PointOfUser" />
+        <AssociationConnector Association="CultMacedoniaDBModel.R_PointProperty" />
+        <AssociationConnector Association="CultMacedoniaDBModel.R_PointProtectionLevel" />
+        <AssociationConnector Association="CultMacedoniaDBModel.R_PointReligion" />
+        <AssociationConnector Association="CultMacedoniaDBModel.R_VideosOfPoint" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

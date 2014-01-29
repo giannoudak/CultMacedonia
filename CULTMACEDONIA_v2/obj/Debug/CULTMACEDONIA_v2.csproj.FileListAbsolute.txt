@@ -1,0 +1,9 @@
+C:\Users\giannoudak\Desktop\cultmacedonia_git\CULTMACEDONIA_v2\obj\Debug\CULTMACEDONIA_v2.csprojResolveAssemblyReference.cache
+C:\Users\giannoudak\Desktop\cultmacedonia_git\CULTMACEDONIA_v2\obj\Debug\CULTMACEDONIA_v2.App_GlobalResources.Views.Points.View.resources
+C:\Users\giannoudak\Desktop\cultmacedonia_git\CULTMACEDONIA_v2\obj\Debug\CULTMACEDONIA_v2.App_GlobalResources.Views.Admin.Admin.resources
+C:\Users\giannoudak\Desktop\cultmacedonia_git\CULTMACEDONIA_v2\obj\Debug\CULTMACEDONIA_v2.App_GlobalResources.Views.Shared.Shared.resources
+C:\Users\giannoudak\Desktop\cultmacedonia_git\CULTMACEDONIA_v2\obj\Debug\CULTMACEDONIA_v2.Migrations.Initial.resources
+C:\Users\giannoudak\Desktop\cultmacedonia_git\CULTMACEDONIA_v2\obj\Debug\CULTMACEDONIA_v2.App_GlobalResources.Views.Admin.Admin.el-gr.resources
+C:\Users\giannoudak\Desktop\cultmacedonia_git\CULTMACEDONIA_v2\obj\Debug\CULTMACEDONIA_v2.App_GlobalResources.Views.Points.View.el-gr.resources
+C:\Users\giannoudak\Desktop\cultmacedonia_git\CULTMACEDONIA_v2\obj\Debug\CULTMACEDONIA_v2.App_GlobalResources.Views.Shared.Shared.el-gr.resources
+C:\Users\giannoudak\Desktop\cultmacedonia_git\CULTMACEDONIA_v2\obj\Debug\CULTMACEDONIA_v2.csproj.GenerateResource.Cache

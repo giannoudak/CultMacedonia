@@ -1,0 +1,36 @@
+﻿
+@model List<CULTMACEDONIA_v2.Models.CultMacedoniaModel.Point>
+
+
+@foreach (var item in Model)
+{
+    
+    
+    <div class="row">
+
+        <div class="col-lg-6 col-md-6 height">
+            <a href="#"><img src=@item.PointImage.Take(1).Select(y=>y.ImageFilePath).SingleOrDefault() class="img-itm-list"></a>
+
+            
+
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <h3>@item.PointName</h3>
+            <h4>@item.PointAddress</h4>
+            <p>@item.PointDescription.Substring(0, item.PointDescription.Length > 200 ? 200 : 10)...</p>
+
+            
+            <a href=@Url.Action("View", "Points", new { id = item.PointId }) class="btn btn-primary">@CultResources.View.ViewMonument! <span class="fa fa-chevron-right"></span></a>
+        </div>
+    </div>
+    <hr>
+    
+    
+    
+    
+    
+    
+    
+    
+  
+}

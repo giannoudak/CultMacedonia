@@ -1,0 +1,35 @@
+﻿
+@using CULTMACEDONIA_v2.Helpers;
+
+@*@model List<CULTMACEDONIA_v2.Models.PointMapViewModel>*@
+
+
+
+<div class="jumbotron" id="map_canvas">
+</div>
+
+<div id="over_map">
+    <h2>cult</h2>
+    <h1>macedonia</h1>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $.ajax({
+            url: '@Url.Action("GetPoints","Points")',
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+
+                showPointsInMap(data);
+            }
+        })
+
+        
+    });
+    
+
+</script>
+

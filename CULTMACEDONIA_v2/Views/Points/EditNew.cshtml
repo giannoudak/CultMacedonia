@@ -1,0 +1,224 @@
+﻿
+@{
+    ViewBag.Title = "EditNew";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+@using CULTMACEDONIA_v2.Helpers;
+@using CULTMACEDONIA_v2.Models;
+
+@model CULTMACEDONIA_v2.Models.PointFullViewModel
+
+
+@{
+    ViewBag.Title = "View";
+}
+
+@section styles {
+    <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link href="~/Content/css/bootstrap-image-gallery.css" rel="stylesheet" />
+    <link href="~/Content/css/demo.css" rel="stylesheet" />
+    <link href="~/Content/css/cultmaced.sidebar.css" rel="stylesheet" />
+}
+
+<div class="container offset-top">
+
+
+    <div class="row ">
+
+
+        <div class="col-lg-12">
+            <h1 class="page-header">Monuments <small>Edit</small></h1>
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Edit</li>
+            </ol>
+        </div>
+
+            
+
+        <!-- Point main view container-->
+        <div class="container col-lg-12 ">
+            <div class="">
+
+                <!-- MainInfo -->
+                <div class="panel panel-default pointMainInfo">
+
+                    <div class="panel-body pointMainInfoPanel">
+                        <div class="media row">
+                            
+                            <div class="media-body mainInfo row col-lg-10">
+
+
+                                <h4 class="media-heading pointName">
+                                    
+                                    <div class="col-xs-12"><label>point name</label></div>
+                                    <div class="col-xs-6">
+                                        <input type="text" placeholder="point name" class="form-control input-sm "/>
+                                    </div>
+                                </h4>
+
+
+
+
+
+
+                            </div>
+                        </div>
+                        
+                        <div class="details row col-lg-12">
+                            
+                            <div class="col-lg-4">
+                                
+                                <div class="input-group input-group-sm col-md-12">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-phone-alt"></span></span>
+                                    <input type="text" placeholder="phone" class="form-control">
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="input-group input-group-sm col-md-12">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                                    <input type="text" placeholder="mail" class="form-control">
+                                </div>
+
+                                
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="input-group input-group-sm col-md-12">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
+                                    <input type="text" placeholder="website" class="form-control">
+                                </div>
+                                
+                            </div>
+
+                            
+                            
+                            
+                        </div>
+
+                        <div class="description">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">description</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="point description">
+                            </div>
+                        </div>
+
+                        <div class="description">
+                            <div class="row col-lg-7">
+                                <label for="exampleInputEmail1">Place And Address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="place-nomos">
+                            </div>
+
+
+                            <div class="row col-lg-12" role="form">
+
+                                <div class="col-lg-6 nopadd">
+                                    <div class="form-group col-lg-10 nopadd">
+
+                                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="give address">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-default">geocode</button>
+                                </div>
+                                <div class="col-lg-6 ">
+
+                                    <form role="form" class="form-inline pull-right">
+                                        <div class="form-group">
+                                            
+                                            <input type="email" placeholder="pointx" id="exampleInputEmail2" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            
+                                            <input type="password" placeholder="pointy" id="exampleInputPassword2" class="form-control">
+                                        </div>
+
+                                    </form>
+
+
+                                   
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="details contact">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="row attrrow">
+                                        <div class="col-lg-3 attrKey"><label>Χρονολογία</label></div>
+                                        <div class="col-lg-3 input-sm attrValue"><input class="form-control input-sm " id="exampleInputEmail2" placeholder="year"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="row attrrow">
+                                        <div class="col-lg-7 attrKey"><label>Χρήση αρχικής ή κύριας φάσης</label></div>
+                                        <div class="col-lg-5 attrValue"><select class="form-control input-sm">...</select></div>
+                                    </div>
+
+                                    <div class="row attrrow">
+                                        <div class="col-lg-7 attrKey"><label>Χρονολογικά πλαίσια</label></div>
+                                        <div class="col-lg-5 attrValue"><select class="form-control input-sm">...</select></div>
+                                    </div>
+
+                                    <div class="row attrrow">
+                                        <div class="col-lg-7 attrKey"><label>Καθεστώς προστασίας</label></div>
+                                        <div class="col-lg-5 attrValue"><select class="form-control input-sm">...</select></div>
+
+                                    </div>
+
+                                    <div class="row attrrow">
+                                        <div class="col-lg-7 attrKey"><label>Ιδιοκτησιακό καθεστώς</label></div>
+                                        <div class="col-lg-5 attrValue"><select class="form-control input-sm">...</select></div>
+                                    </div>
+
+                                    <div class="row attrrow">
+                                        <div class="col-lg-7 attrKey"><label>Εθνολογική ταυτότητα</label></div>
+                                        <div class="col-lg-5 attrValue"><select class="form-control input-sm">...</select></div>
+                                    </div>
+
+                                    <div class="row attrrow">
+                                        <div class="col-lg-7 attrKey"><label>Θρησκευτική ταυτότητα</label></div>
+                                        <div class="col-lg-5 attrValue"><select class="form-control input-sm">...</select></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- MainInfo Panel ends here -->
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+@section scripts {
+
+
+    <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="~/Content/scripts/bootstrap-image-gallery.js"></script>
+    <script src="~/Content/scripts/demo.js"></script>
+}
+
+
+
+
+

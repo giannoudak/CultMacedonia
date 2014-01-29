@@ -1,0 +1,257 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="commonMessage"></div>
+
+
+
+<div id="params">
+
+    <div class="row">
+        <div class="col-md-11">
+            <div class="col-md-4" id="admin_categories">
+                @Html.Action("vCategoryListPartial")
+            </div>
+            <div class="col-md-4" id="admin-protectionlevels">
+                @Html.Action("vProtectionLevelListPartial")
+            </div>
+            <div class="col-md-4" id="admin-property">
+                @Html.Action("vPropertyListPartial")
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-11">
+            <div class="col-md-4" id="admin_ethnological">
+                @Html.Action("vEthnologicalListPartial")
+            </div>
+            <div class="col-md-4" id="admin_religion">
+                @Html.Action("vReligionListPartial")
+            </div>
+            <div class="col-md-4" id="admin_era">
+                @Html.Action("vEraListPartial")
+            </div>
+        </div>
+    </div>
+
+</div>
+    
+
+<div id="cfrm" class="modal fade" tabindex="-2" role="dialog" aria-labelledby="myModalconfirm" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Delete?</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you wish to delete?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn btn-primary btn-ok">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+    $(document).on('submit', '.edit', function (e) {
+        // prevent default browser action
+        e.preventDefault();
+        // do manual ajax post
+        postAjaxForm(e.target);
+
+    });
+
+    $(document).on('submit', '.create', function (e) {
+        // prevent default browser action
+        e.preventDefault();
+        // do manual ajax post
+        postAjaxForm(e.target);
+
+    });
+
+    $(document).ready(function () {
+
+        // find the modal dialog div tha will show the form
+        var $dlgContainer = $("#dialogDiv");
+        // find the modal confirm window
+        var $modalconfirm = $('#cfrm');
+
+        // bind click event delegates for each GET/ create modal/action
+        // in params section of admin panel
+        $("#params").on("click", ".create", function () {
+
+
+            // this is the validator and parse dialog for data-
+            // unobtrusive validators
+            var $jQval = $.validator;
+            $jQval.unobtrusive.parse($dlgContainer);
+
+            // Here we read action and element to update
+            var actionName = $(this).data("actionname");
+            
+            $.ajax({
+                url: "Admin/" + actionName,
+                type: 'GET',
+                dataType: "html",
+                success: function (data) {
+
+                    $("#dialogDiv .modal-dialog .modal-content").html(data);
+                    $dlgContainer.modal('show');
+                    var $form = $dlgContainer.find("form");
+                    $.validator.unobtrusive.parse($form);
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+
+                }
+            });
+        });
+
+        // bind click event delegates for each GET/ edit modal/action
+        // in params section of admin panel
+        $("#params").on("click", ".edit", function () {
+
+
+            var id = $(this).data("id");
+            var $jQval = $.validator; // this is the validator
+
+            $jQval.unobtrusive.parse($dlgContainer);
+
+            // Here we read action and element to update
+            var actionName = $(this).data("actionname");
+
+            $.ajax({
+                url: "Admin/" + actionName,
+                type: 'GET',
+                data: { id: id },
+                dataType: "html",
+                success: function (data) {
+
+                    $("#dialogDiv .modal-dialog .modal-content").html(data);
+                    $dlgContainer.modal('show');
+                    var $form = $dlgContainer.find("form");
+                    $.validator.unobtrusive.parse($form);
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+
+                }
+            });
+
+        });
+
+        // bind click event delegates for each GET/ delete modal/action
+        // in params section of admin panel
+        $("#params").on("click", ".delete", function () {
+
+
+            var id = $(this).data("id");
+            var tr = $(this).closest("tr");
+
+            var name = $(tr).find("td.item-value").html();
+
+            // Here we read action and element to update
+            var actionName = $(this).data("actionname");
+
+
+
+
+            $modalconfirm.modal('show');
+
+            // find closest row div to update
+            var div2update = $(this).closest("div.col-md-4").attr("id");
+
+
+            //$("#output").html("");
+            $(".modal-body").html("Θέλετε σίγουρα να διαγράψετε την κατηγορία με όνομα " + name + " {id:" + id + "} ?")
+
+            $modalconfirm.on("click", ".btn-ok", function () {
+
+
+
+                // do ajax delete
+                $.ajax({
+                    url: "Admin/" + actionName,
+                    type: 'POST',
+                    data: { id: id },
+                    dataType: "html",
+                    success: function (data) {
+
+                        onSuccess(data, "#" + div2update, $modalconfirm);
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+
+                    }
+                });
+
+
+            });
+        });
+
+
+
+
+    });
+
+    $('body').on('hidden.bs.modal', '.modal', function () {
+
+        $(this).removeData('bs.modal');
+    });
+
+    // functions
+    var postAjaxForm = function (form) {
+
+        // function for ajax submit a form
+        // loaded in modal partial view
+        var updateElement = $(form).data('ajax-update');
+        var dlgContainer = $("#dialogDiv");
+        if ($(form).valid()) {
+
+            
+
+            $.ajax({
+                type: $(form).attr('method'),
+                url: $(form).attr('action'),
+                data: $(form).serialize(),
+                success: function (data) {
+
+
+                    onSuccess(data, updateElement, dlgContainer);
+
+
+                },
+                error: function (xhr, stats, errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+        }
+        return true;
+    }
+    var onSuccess = function (data, _frmargsId, modal) {
+
+        $(modal).modal('hide');
+        $.ajaxSetup({ cache: false });
+        $(_frmargsId).html(data);
+
+        $('#commonMessage').html("Η ενημέρωση εγινε επιτυχώς");
+        $('#commonMessage').delay(100).slideDown(400).delay(3000).slideUp(400);
+    }
+
+
+    
+    
+
+
+</script>
+
+
