@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CultMacedoniaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="UserEmail" Type="nvarchar(max)" />
+    <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Point">
+    <Key>
+      <PropertyRef Name="PointId" />
+    </Key>
+    <Property Name="PointId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PointName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PointDescription" Type="nvarchar(max)" />
+    <Property Name="PointX" Type="decimal" Precision="8" Scale="6" />
+    <Property Name="PointY" Type="decimal" Precision="8" Scale="6" />
+    <Property Name="PointYear" Type="int" />
+    <Property Name="PointPlaceNomos" Type="nvarchar(max)" />
+    <Property Name="PointAddress" Type="nvarchar(max)" />
+    <Property Name="PointEmail" Type="nvarchar(max)" />
+    <Property Name="PointPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="PointProtectionId" Type="int" Nullable="false" />
+    <Property Name="PointCategoryId" Type="int" Nullable="false" />
+    <Property Name="PointEraId" Type="int" Nullable="false" />
+    <Property Name="PointPropertyId" Type="int" Nullable="false" />
+    <Property Name="PointEthnologicalId" Type="int" Nullable="false" />
+    <Property Name="PointReligionId" Type="int" Nullable="false" />
+    <Property Name="PointWeb" Type="nvarchar(max)" />
+    <Property Name="PointLocalization" Type="nvarchar" MaxLength="4" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PointImage">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageFileName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImageFilePath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ImageTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PointId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PointOfUser">
+    <Key>
+      <PropertyRef Name="PointId" />
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="PointOfUserId" />
+    </Key>
+    <Property Name="PointId" Type="int" Nullable="false" />
+    <Property Name="isActivated" Type="tinyint" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="DateActivated" Type="datetime" />
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PointOfUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PointVideo">
+    <Key>
+      <PropertyRef Name="VideoId" />
+    </Key>
+    <Property Name="VideoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PointId" Type="int" Nullable="false" />
+    <Property Name="VideoFilePath" Type="nvarchar(max)" />
+    <Property Name="VideoTitle" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UserFavorites">
+    <Key>
+      <PropertyRef Name="FavoriteId" />
+      <PropertyRef Name="PointId" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="FavoriteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PointId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Era">
+    <Key>
+      <PropertyRef Name="EraId" />
+    </Key>
+    <Property Name="EraId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EraName" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ethnological">
+    <Key>
+      <PropertyRef Name="EthnologicalId" />
+    </Key>
+    <Property Name="EthnologicalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EthnologicalName" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Property">
+    <Key>
+      <PropertyRef Name="PropertyId" />
+    </Key>
+    <Property Name="PropertyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PropertyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProtectionLevel">
+    <Key>
+      <PropertyRef Name="ProtectionId" />
+    </Key>
+    <Property Name="ProtectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProtectionName" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Religion">
+    <Key>
+      <PropertyRef Name="ReligionId" />
+    </Key>
+    <Property Name="ReligionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReligionName" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="R_FavoritePoints">
+    <End Role="Point" Type="Self.Point" Multiplicity="1" />
+    <End Role="UserFavorites" Type="Self.UserFavorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Point">
+        <PropertyRef Name="PointId" />
+      </Principal>
+      <Dependent Role="UserFavorites">
+        <PropertyRef Name="PointId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_FavoritesOfUser">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="UserFavorites" Type="Self.UserFavorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserFavorites">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_ImagesOfPoint">
+    <End Role="Point" Type="Self.Point" Multiplicity="1" />
+    <End Role="PointImage" Type="Self.PointImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Point">
+        <PropertyRef Name="PointId" />
+      </Principal>
+      <Dependent Role="PointImage">
+        <PropertyRef Name="PointId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointCategory">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Point" Type="Self.Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PointCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointEra">
+    <End Role="Era" Type="Self.Era" Multiplicity="1" />
+    <End Role="Point" Type="Self.Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Era">
+        <PropertyRef Name="EraId" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PointEraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointEthnological">
+    <End Role="Ethnological" Type="Self.Ethnological" Multiplicity="1" />
+    <End Role="Point" Type="Self.Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ethnological">
+        <PropertyRef Name="EthnologicalId" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PointEthnologicalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointOfUser">
+    <End Role="Point" Type="Self.Point" Multiplicity="1" />
+    <End Role="PointOfUser" Type="Self.PointOfUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Point">
+        <PropertyRef Name="PointId" />
+      </Principal>
+      <Dependent Role="PointOfUser">
+        <PropertyRef Name="PointId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointProperty">
+    <End Role="Property" Type="Self.Property" Multiplicity="1" />
+    <End Role="Point" Type="Self.Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="PropertyId" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PointPropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointProtectionLevel">
+    <End Role="ProtectionLevel" Type="Self.ProtectionLevel" Multiplicity="1" />
+    <End Role="Point" Type="Self.Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProtectionLevel">
+        <PropertyRef Name="ProtectionId" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PointProtectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointReligion">
+    <End Role="Religion" Type="Self.Religion" Multiplicity="1" />
+    <End Role="Point" Type="Self.Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Religion">
+        <PropertyRef Name="ReligionId" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PointReligionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_UserOfPoint">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="PointOfUser" Type="Self.PointOfUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PointOfUser">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_VideosOfPoint">
+    <End Role="Point" Type="Self.Point" Multiplicity="1" />
+    <End Role="PointVideo" Type="Self.PointVideo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Point">
+        <PropertyRef Name="PointId" />
+      </Principal>
+      <Dependent Role="PointVideo">
+        <PropertyRef Name="PointId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CultMacedoniaDBModelStoreContainer">
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Point" EntityType="Self.Point" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PointImage" EntityType="Self.PointImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PointOfUser" EntityType="Self.PointOfUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PointVideo" EntityType="Self.PointVideo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserFavorites" EntityType="Self.UserFavorites" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="lut" store:Type="Tables" />
+    <EntitySet Name="Era" EntityType="Self.Era" Schema="lut" store:Type="Tables" />
+    <EntitySet Name="Ethnological" EntityType="Self.Ethnological" Schema="lut" store:Type="Tables" />
+    <EntitySet Name="Property" EntityType="Self.Property" Schema="lut" store:Type="Tables" />
+    <EntitySet Name="ProtectionLevel" EntityType="Self.ProtectionLevel" Schema="lut" store:Type="Tables" />
+    <EntitySet Name="Religion" EntityType="Self.Religion" Schema="lut" store:Type="Tables" />
+    <AssociationSet Name="R_FavoritePoints" Association="Self.R_FavoritePoints">
+      <End Role="Point" EntitySet="Point" />
+      <End Role="UserFavorites" EntitySet="UserFavorites" />
+    </AssociationSet>
+    <AssociationSet Name="R_FavoritesOfUser" Association="Self.R_FavoritesOfUser">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="UserFavorites" EntitySet="UserFavorites" />
+    </AssociationSet>
+    <AssociationSet Name="R_ImagesOfPoint" Association="Self.R_ImagesOfPoint">
+      <End Role="Point" EntitySet="Point" />
+      <End Role="PointImage" EntitySet="PointImage" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointCategory" Association="Self.R_PointCategory">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Point" EntitySet="Point" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointEra" Association="Self.R_PointEra">
+      <End Role="Era" EntitySet="Era" />
+      <End Role="Point" EntitySet="Point" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointEthnological" Association="Self.R_PointEthnological">
+      <End Role="Ethnological" EntitySet="Ethnological" />
+      <End Role="Point" EntitySet="Point" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointOfUser" Association="Self.R_PointOfUser">
+      <End Role="Point" EntitySet="Point" />
+      <End Role="PointOfUser" EntitySet="PointOfUser" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointProperty" Association="Self.R_PointProperty">
+      <End Role="Property" EntitySet="Property" />
+      <End Role="Point" EntitySet="Point" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointProtectionLevel" Association="Self.R_PointProtectionLevel">
+      <End Role="ProtectionLevel" EntitySet="ProtectionLevel" />
+      <End Role="Point" EntitySet="Point" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointReligion" Association="Self.R_PointReligion">
+      <End Role="Religion" EntitySet="Religion" />
+      <End Role="Point" EntitySet="Point" />
+    </AssociationSet>
+    <AssociationSet Name="R_UserOfPoint" Association="Self.R_UserOfPoint">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="PointOfUser" EntitySet="PointOfUser" />
+    </AssociationSet>
+    <AssociationSet Name="R_VideosOfPoint" Association="Self.R_VideosOfPoint">
+      <End Role="Point" EntitySet="Point" />
+      <End Role="PointVideo" EntitySet="PointVideo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

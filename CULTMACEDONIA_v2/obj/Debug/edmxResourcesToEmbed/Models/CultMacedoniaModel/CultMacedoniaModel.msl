@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CultMacedoniaDBModelStoreContainer" CdmEntityContainer="CultMacedoniaDBEntities">
+    <EntitySetMapping Name="PointImage">
+      <EntityTypeMapping TypeName="CultMacedoniaDBModel.PointImage">
+        <MappingFragment StoreEntitySet="PointImage">
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="ImageFileName" ColumnName="ImageFileName" />
+          <ScalarProperty Name="ImageFilePath" ColumnName="ImageFilePath" />
+          <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+          <ScalarProperty Name="PointId" ColumnName="PointId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="CultMacedoniaDBModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Era">
+      <EntityTypeMapping TypeName="CultMacedoniaDBModel.Era">
+        <MappingFragment StoreEntitySet="Era">
+          <ScalarProperty Name="EraId" ColumnName="EraId" />
+          <ScalarProperty Name="EraName" ColumnName="EraName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ethnological">
+      <EntityTypeMapping TypeName="CultMacedoniaDBModel.Ethnological">
+        <MappingFragment StoreEntitySet="Ethnological">
+          <ScalarProperty Name="EthnologicalId" ColumnName="EthnologicalId" />
+          <ScalarProperty Name="EthnologicalName" ColumnName="EthnologicalName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Property">
+      <EntityTypeMapping TypeName="CultMacedoniaDBModel.Property">
+        <MappingFragment StoreEntitySet="Property">
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProtectionLevel">
+      <EntityTypeMapping TypeName="CultMacedoniaDBModel.ProtectionLevel">
+        <MappingFragment StoreEntitySet="ProtectionLevel">
+          <ScalarProperty Name="ProtectionId" ColumnName="ProtectionId" />
+          <ScalarProperty Name="ProtectionName" ColumnName="ProtectionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Religion">
+      <EntityTypeMapping TypeName="CultMacedoniaDBModel.Religion">
+        <MappingFragment StoreEntitySet="Religion">
+          <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
+          <ScalarProperty Name="ReligionName" ColumnName="ReligionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PointOfUser">
+      <EntityTypeMapping TypeName="CultMacedoniaDBModel.PointOfUser">
+        <MappingFragment StoreEntitySet="PointOfUser">
+          <ScalarProperty Name="PointOfUserId" ColumnName="PointOfUserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateActivated" ColumnName="DateActivated" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="isActivated" ColumnName="isActivated" />
+          <ScalarProperty Name="PointId" ColumnName="PointId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PointVideo">
+      <EntityTypeMapping TypeName="CultMacedoniaDBModel.PointVideo">
+        <MappingFragment StoreEntitySet="PointVideo">
+          <ScalarProperty Name="VideoTitle" ColumnName="VideoTitle" />
+          <ScalarProperty Name="VideoFilePath" ColumnName="VideoFilePath" />
+          <ScalarProperty Name="PointId" ColumnName="PointId" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserFavorites">
+      <EntityTypeMapping TypeName="CultMacedoniaDBModel.UserFavorites">
+        <MappingFragment StoreEntitySet="UserFavorites">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PointId" ColumnName="PointId" />
+          <ScalarProperty Name="FavoriteId" ColumnName="FavoriteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="CultMacedoniaDBModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Point">
+      <EntityTypeMapping TypeName="CultMacedoniaDBModel.Point">
+        <MappingFragment StoreEntitySet="Point">
+          <ScalarProperty Name="PointLocalization" ColumnName="PointLocalization" />
+          <ScalarProperty Name="PointWeb" ColumnName="PointWeb" />
+          <ScalarProperty Name="PointReligionId" ColumnName="PointReligionId" />
+          <ScalarProperty Name="PointEthnologicalId" ColumnName="PointEthnologicalId" />
+          <ScalarProperty Name="PointPropertyId" ColumnName="PointPropertyId" />
+          <ScalarProperty Name="PointEraId" ColumnName="PointEraId" />
+          <ScalarProperty Name="PointCategoryId" ColumnName="PointCategoryId" />
+          <ScalarProperty Name="PointProtectionId" ColumnName="PointProtectionId" />
+          <ScalarProperty Name="PointPhone" ColumnName="PointPhone" />
+          <ScalarProperty Name="PointEmail" ColumnName="PointEmail" />
+          <ScalarProperty Name="PointAddress" ColumnName="PointAddress" />
+          <ScalarProperty Name="PointPlaceNomos" ColumnName="PointPlaceNomos" />
+          <ScalarProperty Name="PointYear" ColumnName="PointYear" />
+          <ScalarProperty Name="PointY" ColumnName="PointY" />
+          <ScalarProperty Name="PointX" ColumnName="PointX" />
+          <ScalarProperty Name="PointDescription" ColumnName="PointDescription" />
+          <ScalarProperty Name="PointName" ColumnName="PointName" />
+          <ScalarProperty Name="PointId" ColumnName="PointId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

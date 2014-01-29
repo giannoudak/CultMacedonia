@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CultMacedoniaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="PointImage">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageFilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PointId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_ImagesOfPoint" FromRole="PointImage" ToRole="Point" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointCategory" FromRole="Category" ToRole="Point" />
+  </EntityType>
+  <EntityType Name="Era">
+    <Key>
+      <PropertyRef Name="EraId" />
+    </Key>
+    <Property Name="EraId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EraName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointEra" FromRole="Era" ToRole="Point" />
+  </EntityType>
+  <EntityType Name="Ethnological">
+    <Key>
+      <PropertyRef Name="EthnologicalId" />
+    </Key>
+    <Property Name="EthnologicalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EthnologicalName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointEthnological" FromRole="Ethnological" ToRole="Point" />
+  </EntityType>
+  <EntityType Name="Property">
+    <Key>
+      <PropertyRef Name="PropertyId" />
+    </Key>
+    <Property Name="PropertyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PropertyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointProperty" FromRole="Property" ToRole="Point" />
+  </EntityType>
+  <EntityType Name="ProtectionLevel">
+    <Key>
+      <PropertyRef Name="ProtectionId" />
+    </Key>
+    <Property Name="ProtectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProtectionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointProtectionLevel" FromRole="ProtectionLevel" ToRole="Point" />
+  </EntityType>
+  <EntityType Name="Religion">
+    <Key>
+      <PropertyRef Name="ReligionId" />
+    </Key>
+    <Property Name="ReligionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReligionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointReligion" FromRole="Religion" ToRole="Point" />
+  </EntityType>
+  <EntityContainer Name="CultMacedoniaDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PointImage" EntityType="Self.PointImage" />
+    <EntitySet Name="Category" EntityType="Self.Category" />
+    <EntitySet Name="Era" EntityType="Self.Era" />
+    <EntitySet Name="Ethnological" EntityType="Self.Ethnological" />
+    <EntitySet Name="Property" EntityType="Self.Property" />
+    <EntitySet Name="ProtectionLevel" EntityType="Self.ProtectionLevel" />
+    <EntitySet Name="Religion" EntityType="Self.Religion" />
+    <EntitySet Name="PointOfUser" EntityType="CultMacedoniaDBModel.PointOfUser" />
+    <EntitySet Name="PointVideo" EntityType="CultMacedoniaDBModel.PointVideo" />
+    <EntitySet Name="UserFavorites" EntityType="CultMacedoniaDBModel.UserFavorites" />
+    <EntitySet Name="AspNetUsers" EntityType="CultMacedoniaDBModel.AspNetUsers" />
+    <AssociationSet Name="R_FavoritesOfUser" Association="CultMacedoniaDBModel.R_FavoritesOfUser">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="UserFavorites" EntitySet="UserFavorites" />
+    </AssociationSet>
+    <AssociationSet Name="R_UserOfPoint" Association="CultMacedoniaDBModel.R_UserOfPoint">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="PointOfUser" EntitySet="PointOfUser" />
+    </AssociationSet>
+    <EntitySet Name="Point" EntityType="CultMacedoniaDBModel.Point" />
+    <AssociationSet Name="R_FavoritePoints" Association="CultMacedoniaDBModel.R_FavoritePoints">
+      <End Role="Point" EntitySet="Point" />
+      <End Role="UserFavorites" EntitySet="UserFavorites" />
+    </AssociationSet>
+    <AssociationSet Name="R_ImagesOfPoint" Association="CultMacedoniaDBModel.R_ImagesOfPoint">
+      <End Role="Point" EntitySet="Point" />
+      <End Role="PointImage" EntitySet="PointImage" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointCategory" Association="CultMacedoniaDBModel.R_PointCategory">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Point" EntitySet="Point" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointEra" Association="CultMacedoniaDBModel.R_PointEra">
+      <End Role="Era" EntitySet="Era" />
+      <End Role="Point" EntitySet="Point" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointEthnological" Association="CultMacedoniaDBModel.R_PointEthnological">
+      <End Role="Ethnological" EntitySet="Ethnological" />
+      <End Role="Point" EntitySet="Point" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointOfUser" Association="CultMacedoniaDBModel.R_PointOfUser">
+      <End Role="Point" EntitySet="Point" />
+      <End Role="PointOfUser" EntitySet="PointOfUser" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointProperty" Association="CultMacedoniaDBModel.R_PointProperty">
+      <End Role="Property" EntitySet="Property" />
+      <End Role="Point" EntitySet="Point" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointProtectionLevel" Association="CultMacedoniaDBModel.R_PointProtectionLevel">
+      <End Role="ProtectionLevel" EntitySet="ProtectionLevel" />
+      <End Role="Point" EntitySet="Point" />
+    </AssociationSet>
+    <AssociationSet Name="R_PointReligion" Association="CultMacedoniaDBModel.R_PointReligion">
+      <End Role="Religion" EntitySet="Religion" />
+      <End Role="Point" EntitySet="Point" />
+    </AssociationSet>
+    <AssociationSet Name="R_VideosOfPoint" Association="CultMacedoniaDBModel.R_VideosOfPoint">
+      <End Role="Point" EntitySet="Point" />
+      <End Role="PointVideo" EntitySet="PointVideo" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PointOfUser">
+    <Key>
+      <PropertyRef Name="PointId" />
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="PointOfUserId" />
+    </Key>
+    <Property Name="PointId" Type="Int32" Nullable="false" />
+    <Property Name="isActivated" Type="Byte" Nullable="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateActivated" Type="DateTime" Precision="3" />
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PointOfUserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="AspNetUsers" Relationship="CultMacedoniaDBModel.R_UserOfPoint" FromRole="PointOfUser" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointOfUser" FromRole="PointOfUser" ToRole="Point" />
+  </EntityType>
+  <EntityType Name="PointVideo">
+    <Key>
+      <PropertyRef Name="VideoId" />
+    </Key>
+    <Property Name="VideoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PointId" Type="Int32" Nullable="false" />
+    <Property Name="VideoFilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VideoTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_VideosOfPoint" FromRole="PointVideo" ToRole="Point" />
+  </EntityType>
+  <EntityType Name="UserFavorites">
+    <Key>
+      <PropertyRef Name="FavoriteId" />
+      <PropertyRef Name="PointId" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="FavoriteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PointId" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="CultMacedoniaDBModel.R_FavoritesOfUser" FromRole="UserFavorites" ToRole="AspNetUsers" />
+    <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_FavoritePoints" FromRole="UserFavorites" ToRole="Point" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Discriminator" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserFavorites" Relationship="CultMacedoniaDBModel.R_FavoritesOfUser" FromRole="AspNetUsers" ToRole="UserFavorites" />
+    <NavigationProperty Name="PointOfUser" Relationship="CultMacedoniaDBModel.R_UserOfPoint" FromRole="AspNetUsers" ToRole="PointOfUser" />
+  </EntityType>
+  <Association Name="R_FavoritesOfUser">
+    <End Type="CultMacedoniaDBModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="CultMacedoniaDBModel.UserFavorites" Role="UserFavorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserFavorites">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_UserOfPoint">
+    <End Type="CultMacedoniaDBModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+    <End Type="CultMacedoniaDBModel.PointOfUser" Role="PointOfUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PointOfUser">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Point">
+    <Key>
+      <PropertyRef Name="PointId" />
+    </Key>
+    <Property Name="PointId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PointName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PointDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PointX" Type="Decimal" Precision="8" Scale="6" />
+    <Property Name="PointY" Type="Decimal" Precision="8" Scale="6" />
+    <Property Name="PointYear" Type="Int32" />
+    <Property Name="PointPlaceNomos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PointAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PointEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PointPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PointProtectionId" Type="Int32" Nullable="false" />
+    <Property Name="PointCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="PointEraId" Type="Int32" Nullable="false" />
+    <Property Name="PointPropertyId" Type="Int32" Nullable="false" />
+    <Property Name="PointEthnologicalId" Type="Int32" Nullable="false" />
+    <Property Name="PointReligionId" Type="Int32" Nullable="false" />
+    <Property Name="PointWeb" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PointLocalization" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserFavorites" Relationship="CultMacedoniaDBModel.R_FavoritePoints" FromRole="Point" ToRole="UserFavorites" />
+    <NavigationProperty Name="PointImage" Relationship="CultMacedoniaDBModel.R_ImagesOfPoint" FromRole="Point" ToRole="PointImage" />
+    <NavigationProperty Name="Category" Relationship="CultMacedoniaDBModel.R_PointCategory" FromRole="Point" ToRole="Category" />
+    <NavigationProperty Name="Era" Relationship="CultMacedoniaDBModel.R_PointEra" FromRole="Point" ToRole="Era" />
+    <NavigationProperty Name="Ethnological" Relationship="CultMacedoniaDBModel.R_PointEthnological" FromRole="Point" ToRole="Ethnological" />
+    <NavigationProperty Name="PointOfUser" Relationship="CultMacedoniaDBModel.R_PointOfUser" FromRole="Point" ToRole="PointOfUser" />
+    <NavigationProperty Name="Property" Relationship="CultMacedoniaDBModel.R_PointProperty" FromRole="Point" ToRole="Property" />
+    <NavigationProperty Name="ProtectionLevel" Relationship="CultMacedoniaDBModel.R_PointProtectionLevel" FromRole="Point" ToRole="ProtectionLevel" />
+    <NavigationProperty Name="Religion" Relationship="CultMacedoniaDBModel.R_PointReligion" FromRole="Point" ToRole="Religion" />
+    <NavigationProperty Name="PointVideo" Relationship="CultMacedoniaDBModel.R_VideosOfPoint" FromRole="Point" ToRole="PointVideo" />
+  </EntityType>
+  <Association Name="R_FavoritePoints">
+    <End Type="CultMacedoniaDBModel.Point" Role="Point" Multiplicity="1" />
+    <End Type="CultMacedoniaDBModel.UserFavorites" Role="UserFavorites" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Point">
+        <PropertyRef Name="PointId" />
+      </Principal>
+      <Dependent Role="UserFavorites">
+        <PropertyRef Name="PointId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_ImagesOfPoint">
+    <End Type="CultMacedoniaDBModel.Point" Role="Point" Multiplicity="1" />
+    <End Type="CultMacedoniaDBModel.PointImage" Role="PointImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Point">
+        <PropertyRef Name="PointId" />
+      </Principal>
+      <Dependent Role="PointImage">
+        <PropertyRef Name="PointId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointCategory">
+    <End Type="CultMacedoniaDBModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="CultMacedoniaDBModel.Point" Role="Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PointCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointEra">
+    <End Type="CultMacedoniaDBModel.Era" Role="Era" Multiplicity="1" />
+    <End Type="CultMacedoniaDBModel.Point" Role="Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Era">
+        <PropertyRef Name="EraId" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PointEraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointEthnological">
+    <End Type="CultMacedoniaDBModel.Ethnological" Role="Ethnological" Multiplicity="1" />
+    <End Type="CultMacedoniaDBModel.Point" Role="Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ethnological">
+        <PropertyRef Name="EthnologicalId" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PointEthnologicalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointOfUser">
+    <End Type="CultMacedoniaDBModel.Point" Role="Point" Multiplicity="1" />
+    <End Type="CultMacedoniaDBModel.PointOfUser" Role="PointOfUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Point">
+        <PropertyRef Name="PointId" />
+      </Principal>
+      <Dependent Role="PointOfUser">
+        <PropertyRef Name="PointId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointProperty">
+    <End Type="CultMacedoniaDBModel.Property" Role="Property" Multiplicity="1" />
+    <End Type="CultMacedoniaDBModel.Point" Role="Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Property">
+        <PropertyRef Name="PropertyId" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PointPropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointProtectionLevel">
+    <End Type="CultMacedoniaDBModel.ProtectionLevel" Role="ProtectionLevel" Multiplicity="1" />
+    <End Type="CultMacedoniaDBModel.Point" Role="Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProtectionLevel">
+        <PropertyRef Name="ProtectionId" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PointProtectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_PointReligion">
+    <End Type="CultMacedoniaDBModel.Religion" Role="Religion" Multiplicity="1" />
+    <End Type="CultMacedoniaDBModel.Point" Role="Point" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Religion">
+        <PropertyRef Name="ReligionId" />
+      </Principal>
+      <Dependent Role="Point">
+        <PropertyRef Name="PointReligionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="R_VideosOfPoint">
+    <End Type="CultMacedoniaDBModel.Point" Role="Point" Multiplicity="1" />
+    <End Type="CultMacedoniaDBModel.PointVideo" Role="PointVideo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Point">
+        <PropertyRef Name="PointId" />
+      </Principal>
+      <Dependent Role="PointVideo">
+        <PropertyRef Name="PointId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
