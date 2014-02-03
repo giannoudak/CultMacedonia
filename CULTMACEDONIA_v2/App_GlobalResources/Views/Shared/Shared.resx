@@ -175,7 +175,7 @@
     <value>Total Notifications</value>
   </data>
   <data name="PasswordPlhdr" xml:space="preserve">
-    <value>password</value>
+    <value>enter your password</value>
   </data>
   <data name="PoweredBy" xml:space="preserve">
     <value>Powered by</value>

@@ -65,6 +65,7 @@ namespace CULTMACEDONIA_v2.Controllers
                 }
             }
 
+
             return Json(new { retValue = retValue, sent = sent }, JsonRequestBehavior.AllowGet);
 
 

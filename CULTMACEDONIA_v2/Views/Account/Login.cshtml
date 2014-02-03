@@ -1,73 +1,45 @@
 ﻿@model CULTMACEDONIA_v2.Models.LoginViewModel
 
+
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = @CultResources.Shared.AppLogin;
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
 
-<div class="jumbotron">
-    <div class="container">
-        <section id="loginForm">
-            <h2>@ViewBag.Title.</h2>
-            <h4>@CultResources.Shared.UseLocalAccount</h4>
-            
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-inline row", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-         
-                @Html.ValidationSummary(true)
-                <div class="col-lg-9">
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 sr-only control-label" })
 
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = @CultResources.Shared.UserNamePlhdr })
-                        @Html.ValidationMessageFor(m => m.UserName)
 
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 sr-only control-label" })
+<div class="container ">
 
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = @CultResources.Shared.PasswordPlhdr })
-                        @Html.ValidationMessageFor(m => m.Password)
 
-                    </div>
-                </div>
-                <div class="col-lg-3 pull-right">
-                    <div class="form-group">
-                        
-                            <div class="checkbox">
-                                @Html.CheckBoxFor(m => m.RememberMe)
-                                @Html.LabelFor(m => m.RememberMe)
-                            </div>
-                        
-                    </div>
-                    <div class="form-group">
-                        
-                            <input type="submit" value="Log in" class="btn btn-default" />
-                        
-                    </div>
-                </div>
-            }
+
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signin cult-login-form", role = "form" }))
+    {
+        <h2 class="form-signin-heading">@ViewBag.Title</h2>
+        <h4>@CultResources.Shared.UseLocalAccount</h4>
+        
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
+   
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = @CultResources.Shared.UserNamePlhdr })
+                @Html.ValidationMessageFor(m => m.UserName)
+
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = @CultResources.Shared.PasswordPlhdr })
+                @Html.ValidationMessageFor(m => m.Password)
+
+                <label class="checkbox">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe)
+                </label>
+
+        <input type="submit" value="@CultResources.Shared.AppLogin" class="btn btn-lg btn-primary btn-block" />
+        <p>@Html.ActionLink("Register", "Register") if you don't have a local account.</p>
+        <section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
         </section>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-lg-8">
-                <p>
-                    @Html.ActionLink("Register", "Register") if you don't have a local account.
-                </p>
-            </div>
-            <div class="col-xs-6 col-lg-4">
-                <section id="socialLoginForm">
-                    @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
-                </section>
-            </div>
-
-        </div>
-
-
+    }
 
     </div>
+
     
-</div>
-@*@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@
