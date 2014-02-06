@@ -1,8 +1,27 @@
 ﻿@{
     ViewBag.Title = "About";
-    Layout = "~/Views/Shared/_Master.cshtml";
+   
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+
+<div id="myDropzone" style="width:500px;height:100px">
+    sdasdsadsa
+</div>
+
+<script src="~/Scripts/dropzone.js"></script>
+<script type="text/javascript">
+
+    Dropzone.options.myDropzone({
+      init: function() {
+        this.on("error", function(file, message) { alert(message); });
+      }
+    });
+        
+    // or if you need to access a Dropzone somewhere else:
+    var myDropzone = Dropzone.forElement("div#my-dropzone");
+    myDropzone.on("error", function (file, message) { alert(message); });
+
+</script>
