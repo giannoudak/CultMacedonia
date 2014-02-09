@@ -79,7 +79,7 @@ namespace CULTMACEDONIA_v2.Controllers
             return q;
         }
 
-        public IEnumerable<PointGridViewModel> Get(string term, string addr, int? year,byte? active)
+        public IEnumerable<PointGridViewModel> Get(string term, string addr, int? year,byte? active,int? when)
         {
             var q = from p in db.Point.Include("PointImage").Include("AspNetUsers")
                     join u in db.PointOfUser on p.PointId equals u.PointId
@@ -137,6 +137,21 @@ namespace CULTMACEDONIA_v2.Controllers
             {
                 q = q.Where(p => p.PlaceAddress.Contains(addr));
             }
+
+
+            if (year != null && when != null)
+            {
+                if (when == 1)
+                {
+                    q = q.Where(p => p.year > year);
+                }
+                else if (when == 0)
+                {
+                    q = q.Where(p => p.year < year);
+                }
+            }
+
+            
 
             return q;
         }

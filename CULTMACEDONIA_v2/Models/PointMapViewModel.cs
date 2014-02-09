@@ -14,7 +14,8 @@ namespace CULTMACEDONIA_v2.Models
         public decimal? GeoLong { get; set; }
         public string PlaceAddress { get; set; }
 
-        // ...
+        public string Category { get; set; }
+        public int PlaceId { get; set; }
         // ...
         // ...
     }

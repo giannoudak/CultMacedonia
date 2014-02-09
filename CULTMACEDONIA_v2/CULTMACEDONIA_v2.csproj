@@ -558,6 +558,9 @@
     <Content Include="Views\Admin\settings.cshtml" />
     <Content Include="Views\Shared\_MasterAdmin.cshtml" />
     <Content Include="Views\Shared\_ContactForm.cshtml" />
+    <Content Include="Scripts\ko-pointsgrid.min.js.map">
+      <DependentUpon>ko-pointsgrid.js</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -599,7 +602,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>4636</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

@@ -10,6 +10,7 @@ var viewModel = function () {
     $this.SearchTerm = '', // observable not needed, doesn't trigger any changes
     $this.AddressTerm = '',
     $this.year = '',
+    $this.when = '',
     //$this.categoryId = ko.observable();
     //$this.protectionId = ko.observable();
     //$this.propertyId = ko.observable();
@@ -75,7 +76,8 @@ var viewModel = function () {
                 term: self.SearchTerm,
                 addr: self.AddressTerm,
                 year: self.year,
-                active: _enabled 
+                active: _enabled,
+                when: self.when
                 //categoryId: self.categoryId,
                 //propertyId: self.propertyId,
                 //protectionId: self.protectionId,
@@ -93,7 +95,7 @@ var viewModel = function () {
             self.contacts(data);
             //ko.applyBindings(vm);
         }).error(function () {
-            alert('adasd');
+            alert('Σφάλμα κατά την αναζήτηση');
         });
 
 

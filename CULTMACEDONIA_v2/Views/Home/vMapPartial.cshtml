@@ -1,9 +1,6 @@
 ﻿
 @using CULTMACEDONIA_v2.Helpers;
 
-@*@model List<CULTMACEDONIA_v2.Models.PointMapViewModel>*@
-
-
 
 <div class="jumbotron" id="map_canvas">
 </div>
@@ -23,7 +20,65 @@
             dataType: 'json',
             success: function (data) {
 
-                showPointsInMap(data);
+                google.maps.visualRefresh = true;
+                var Liverpool = new google.maps.LatLng(40.63066, 22.94555);
+
+                var mapOptions = {
+                    zoom: 14,
+                    center: Liverpool,
+                    mapTypeControl: true,
+                    mapTypeControlOptions: {
+                        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+                    },
+
+                    zoomControl: true,
+                    zoomControlOptions: {
+                        style: google.maps.ZoomControlStyle.SMALL
+                    },
+
+                    mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+                };
+
+                var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+
+                $.each(data, function (i, item) {
+                    var marker = new google.maps.Marker({
+                        'position': new google.maps.LatLng(item.GeoLong, item.GeoLat),
+                        'map': map,
+                        'title': item.PlaceName
+                    });
+
+                    marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: "<div class='infoDiv'><h2>" +
+                          item.PlaceName + "</h2>" + "<div><h4>Διεύθυνση: " +
+                          item.PlaceAddress + "</h4></div></div>"
+                    });
+
+
+                    var infowindow = new google.maps.InfoWindow({
+                        content: "<div class='infoDiv'><h2><span class=\"infowin-label\">" + 
+                          '@CultResources.View.LabelPointName' + "</span>: " +item.PlaceName + "</h2>" + "<div><h2><span class=\"infowin-label\">" +
+                          '@CultResources.View.PlaceAddress' + "</span>: "  + item.PlaceAddress + "</h2></div><h2><span class=\"infowin-label\">" +
+                          '@CultResources.View.CategoryCaption' + "</span>: " + item.Category + "</h2></div>" + 
+                          "<a role=\"button\" href=\"@Url.Action("view", "points")/" + item.PlaceId + "\" class=\"btn btn-success btn-xs pull-right\">@CultResources.View.ViewMonument</a></div>"
+                    });
+
+
+
+                google.maps.event.addListener(marker, 'click', function () {
+                    infowindow.open(map, marker);
+                });
+
+            });
+
+
+
+
+
+                //showPointsInMap(data);
             }
         })
 

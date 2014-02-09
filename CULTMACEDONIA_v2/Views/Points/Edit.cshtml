@@ -374,6 +374,8 @@
             var pointy = jQuery('input[name=PointY]').val();
             jQuery('input[name=PointY]').val(pointy.replace(",", "."))
 
+           // var px = jQuery('input[name=PointX]').val();
+            // var py = jQuery('input[name=PointY]').val();
 
 
 
@@ -458,8 +460,10 @@
                     var data = form.serializeArray();
 
                     var px = jQuery('input[name=PointX]').val();
+                    //alert(px);
                     var py = jQuery('input[name=PointY]').val();
 
+                    //alert(py);
                     // read form data
                     var formData = {};
                     $.each(data, function (i, v) {
@@ -663,9 +667,7 @@
     </script>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 
 

@@ -309,7 +309,9 @@ namespace CULTMACEDONIA_v2.Controllers
                          
                          GeoLong = p.PointX,
                          GeoLat = p.PointY,
-                         PlaceAddress = p.PointAddress
+                         PlaceAddress = p.PointAddress,
+                         PlaceId = p.PointId,
+                         Category = p.Category.CategoryName
                      }).Take(15).ToList();
 
             return Json(q, JsonRequestBehavior.AllowGet);

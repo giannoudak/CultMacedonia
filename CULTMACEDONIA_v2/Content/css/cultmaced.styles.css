@@ -203,10 +203,24 @@ select {
 
 
 .infoDiv {
-    height: 200px;
+    height: 100px;
     width: 300px;
+    font-family:inherit!important;
     -webkit-user-select: none;
     background-color: white;
+    text-align:left;
+}
+
+.infoDiv h2{
+    font-size:14px;
+}
+.infoDiv h3{
+    font-size:12px;
+}
+
+.infowin-label{
+    font-weight:bold!important;
+    color:#428BCA;
 }
 
 

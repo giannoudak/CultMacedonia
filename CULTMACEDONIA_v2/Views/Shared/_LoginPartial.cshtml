@@ -24,9 +24,9 @@
 
                             @if (User.IsInRole("CultMacedoniaUser"))
                             {
-                                <li><a href="#">@CultResources.Shared.MyPoints</a></li>
-                                <li><a href="#">@CultResources.Shared.MyFavorites</a></li>
-                                <li><a href="#">@CultResources.Shared.AddNew</a></li>
+                                <li><a href="@Url.Action("points","user")">@CultResources.Shared.MyPoints</a></li>
+                                <li><a href="@Url.Action("favorites", "user")">@CultResources.Shared.MyFavorites</a></li>
+                                <li><a href="@Url.Action("new","points")">@CultResources.Shared.AddNew</a></li>
                                 <li class="divider"></li>
                             }
                             else if (User.IsInRole("CultMacedoniaAdmin"))

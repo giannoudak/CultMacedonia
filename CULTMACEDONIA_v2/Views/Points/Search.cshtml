@@ -138,9 +138,11 @@
 
             elem.addClass('active');
 
-            // read x,y data attributes
-            var lat = (elem.data("x")).replace(",", ".");
-            var long = (elem.data("y")).replace(",", ".");
+
+
+            var lat = elem.data("x");
+            var long = elem.data("y");
+            
 
             // create the coordinates
             var coords = new google.maps.LatLng(lat,long);
@@ -155,10 +157,17 @@
                 map: map
             });
 
+            var pointName = elem.find("h5.list-group-item-heading").html();
+            var pointAddr = elem.find("p.list-group-item-text").html();
+            var pointId = elem.data("id");
+            var pointCategory = elem.data("category");
+
             var infowindow = new google.maps.InfoWindow({
-                content: "<div class='infoDiv'><h2>" +
-                  item.PlaceName + "</h2>" + "<div><h4>Διεύθυνση: " +
-                  item.PlaceAddress + "</h4></div></div>"
+                content: "<div class='infoDiv'><h2><span class=\"infowin-label\">" + 
+                  '@CultResources.View.LabelPointName' + "</span>: " +pointName + "</h2>" + "<div><h2><span class=\"infowin-label\">" +
+                  '@CultResources.View.PlaceAddress' + "</span>: "  + pointAddr + "</h2></div><h2><span class=\"infowin-label\">" +
+                  '@CultResources.View.CategoryCaption' + "</span>: " + pointCategory + "</h2></div>" + 
+                  "<a role=\"button\" href=\"@Url.Action("view", "points")/" + pointId + "\" class=\"btn btn-success btn-xs pull-right\">@CultResources.View.ViewMonument</a></div>"
             });
 
 
@@ -194,7 +203,7 @@
                 datatype: 'json',
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
-                    //alert(data);
+                    
                     $('#searchResults').html(data);
                 },
                 error: function (request, status, err) {

@@ -6,6 +6,7 @@
 
 @{
     ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
 @section styles {
@@ -22,11 +23,22 @@
 
         
 
+        
 
         <!-- Point main view container-->
         <div class="col-xs-12 col-sm-9 contents">
             <div class="row pointInfoSection">
+                <div class="">
+                    <h1 class="page-header">@CultResources.View.Monuments <small>@CultResources.View.ViewMonument</small></h1>
 
+                    <ol class="breadcrumb">
+                        @CultResources.Shared.YouAreHere
+
+                        <li><a href="index.html">@CultResources.View.Home</a></li>
+                        <li class="active">@CultResources.View.ViewMonument</li>
+                        <p class="pull-right pntRditName">@Model.PointName</p>
+                    </ol>
+                </div>
                 <!-- MainInfo -->
                 <div class="panel panel-default pointMainInfo">
 

@@ -41,7 +41,7 @@
                     @foreach (var item in Model.Skip(i * groupSize).Take(groupSize))
                     {
 
-                        <a href="#" class="itmpoint list-group-item" data-x="@item.PointX" data-y="@item.PointY">
+                        <a href="#" class="itmpoint list-group-item" data-id="@item.PointId" data-category="@item.Category.CategoryName" data-x="@item.PointX" data-y="@item.PointY">
                             <h5 class="list-group-item-heading">@item.PointName</h5>
                             <p class="list-group-item-text">
                                 @item.PointAddress
@@ -57,17 +57,17 @@
             {
                 <div class="item">
                     @foreach (var item in Model.Skip(i * groupSize).Take(groupSize))
-                    {
+{
 
-                        <a href="#" class="itmpoint list-group-item" data-x="@item.PointX" data-y="@item.PointY" >
-                            <h5 class="list-group-item-heading">@item.PointName</h5>
-                            <p class="list-group-item-text">
-                                @item.PointAddress
-                            </p>
-                            
-                        </a>
+    <a href="#" class="itmpoint list-group-item" data-id="@item.PointId" data-category="@item.Category.CategoryName" data-x="@item.PointX" data-y="@item.PointY">
+        <h5 class="list-group-item-heading">@item.PointName</h5>
+        <p class="list-group-item-text">
+            @item.PointAddress
+        </p>
 
-                    }
+    </a>
+
+}
                 </div>
             }
 
