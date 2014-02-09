@@ -485,7 +485,7 @@ namespace CULTMACEDONIA_v2.Controllers
                             {
                                 Point = p,
                                 ImageFileName = s,
-                                ImageFilePath = Request.Url.GetLeftPart(UriPartial.Authority) + vpath + "/PointImages/" + s,
+                                ImageFilePath = "http://cult-macedonia.com/" + vpath + "/PointImages/" + s,
                                 ImageTitle = "title"
                             };
 
