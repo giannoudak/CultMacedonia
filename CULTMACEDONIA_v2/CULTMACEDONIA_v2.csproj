@@ -317,6 +317,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\bootstrap-image-gallery.css" />
+    <Content Include="Content\css\bootstrap-social.css" />
     <Content Include="Content\css\cultmaced.sidebar.css" />
     <Content Include="Content\css\cultmaced.theme.css" />
     <Content Include="Content\css\bootstrap.css" />

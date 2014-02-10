@@ -6,8 +6,10 @@
     if (loginProviders.Count() == 0)
     {
         <div>
-            <p>There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=313242">this article</a>
-            for details on setting up this ASP.NET application to support logging in via external services.</p>
+            <p>
+                There are no external authentication services configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=313242">this article</a>
+                for details on setting up this ASP.NET application to support logging in via external services.
+            </p>
         </div>
     }
     else
@@ -17,24 +19,41 @@
         using (Html.BeginForm(action, "Account", new { ReturnUrl = returnUrl }))
         {
             @Html.AntiForgeryToken()
-            <div id="socialLoginList">
-                <p>
+            <div id="socialLoginList" class="row">
+
                 @foreach (AuthenticationDescription p in loginProviders)
-{
-    <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">
+                {
 
-        @if (p.AuthenticationType.Equals("Google"))
-        {
-            
-            <img 
-                 src="data:image/png;base64,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" 
-                 width="24" height="24" />
-        }
 
-        Log in using @p.AuthenticationType
-    </button>
-}
-                </p>
+
+
+                    if (p.AuthenticationType.Equals("Google"))
+                    {
+                        <div class="col-xs-6">
+                            <button type="submit" class="btn btn-block btn-social btn-sm btn-google-plus col-lg-6" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType"
+                                    title="Log in using your @p.Caption account">
+                                <i class="fa fa-google-plus"></i> Sign in with Google
+                            </button>
+                        </div>
+
+
+                    }
+                    else if (p.AuthenticationType.Equals("Facebook"))
+                    {
+                        <div class="col-xs-6">
+                            <button type="submit" class="btn btn-block btn-social btn-sm btn-facebook col-lg-6" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType"
+                                    title="Log in using your @p.Caption account">
+                                <i class="fa fa-facebook"></i> Sign in with Facebook
+                            </button>
+                        </div>
+
+                    }
+
+
+
+
+                }
+
             </div>
         }
     }
