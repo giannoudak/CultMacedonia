@@ -142,6 +142,17 @@
 
             var lat = elem.data("x");
             var long = elem.data("y");
+
+            // for FF and IE lat and long float values have ',' instead of '.'
+            // so replace them..
+            // detection done with bowser plugin
+            if (bowser.msie || bowser.firefox) {
+                lat = lat.replace(",", ".");
+                long = long.replace(",", ".");
+
+            }
+
+            
             
 
             // create the coordinates

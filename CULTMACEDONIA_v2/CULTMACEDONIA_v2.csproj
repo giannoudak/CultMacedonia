@@ -475,6 +475,7 @@
     <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\cult-macedonia.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\CULT_MACEDONIAnew.pubxml" />
+    <Content Include="Scripts\bowser.min.js" />
     <Content Include="Scripts\cult.macedonia.points.min.js.map">
       <DependentUpon>cult.macedonia.points.js</DependentUpon>
     </Content>
