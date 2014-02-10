@@ -328,8 +328,8 @@
             </div>
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Αποθήκευση Αλλαγών!" class="btn btn-default" />
+                <div>
+                    <input type="submit" value="Αποθήκευση Αλλαγών!" class="btn btn-success" />
                 </div>
             </div>
 
@@ -495,9 +495,7 @@
                     formData["toDeleteImageList"] = $("#hdndelPImgIds").text();
                     formData["toInsertImageList"] = $("#hdnnewPImgIds").text();
 
-                    //formData["toDeleteImageList"] = todelete;
-
-                    //alert($("#hdndelPImgIds").text());
+    
 
                     // do the request
                     $.ajax({
