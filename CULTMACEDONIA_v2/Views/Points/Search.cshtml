@@ -147,8 +147,8 @@
             // so replace them..
             // detection done with bowser plugin
             if (bowser.msie || bowser.firefox) {
-                lat = lat.replace(",", ".");
-                long = long.replace(",", ".");
+                lat = lat;//.replace(",", ".");
+                long = long;//.replace(",", ".");
 
             }
 
@@ -180,6 +180,8 @@
                   '@CultResources.View.CategoryCaption' + "</span>: " + pointCategory + "</h2></div>" + 
                   "<a role=\"button\" href=\"@Url.Action("view", "points")/" + pointId + "\" class=\"btn btn-success btn-xs pull-right\">@CultResources.View.ViewMonument</a></div>"
             });
+
+            infowindow.open(map,marker);
 
 
             google.maps.event.addListener(marker, 'click', function () {

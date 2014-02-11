@@ -1,59 +1,50 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-
 @using CULTMACEDONIA_v2.Helpers;
 
-@*Index view για την εφαρμογη-Η αρχική σελίδα
-    εδώ έχουμε 2 fixed position full-container divs
-    για χάρτη και social links*@
 
-<div class="cm-fluid-container cm-fixed-map">
 
+
+
+<div class="intro-header map-points ">
     @Html.Partial("vMapPartial")
-
 </div>
-<div class="cm-fluid-container cm-fixed-social">
-    <div class="cm-social">
-        <div class="container">
-            <ul class="cm-social-buttons">
-                <li>
-                    <iframe width="100px" scrolling="0" height="20px" frameborder="0" allowtransparency="true"
-                             src="http://ghbtns.com/github-btn.html?user=twbs&amp;repo=bootstrap&amp;type=watch&amp;count=true" class="github-btn"></iframe>
-                </li>
-                <li>
-                    <iframe width="102px" scrolling="0" height="20px" frameborder="0" allowtransparency="true" 
-                            src="http://ghbtns.com/github-btn.html?user=twbs&amp;repo=bootstrap&amp;type=fork&amp;count=true" class="github-btn"></iframe>
-                </li>
-                <li class="follow-btn">
-                    <iframe scrolling="no" frameborder="0" id="twitter-widget-1" allowtransparency="true" 
-                            src="http://platform.twitter.com/widgets/follow_button.1383343979.html#_=1383735174013&amp;id=twitter-widget-1&amp;lang=en&amp;screen_name=cultmacedonia&amp;show_count=true&amp;show_screen_name=true&amp;size=m" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 242px; height: 20px;"></iframe>
-                </li>
-                <li class="tweet-btn">
-                    <iframe scrolling="no" frameborder="0" id="twitter-widget-0" allowtransparency="true" 
-                            src="http://platform.twitter.com/widgets/tweet_button.1383343979.html#_=1383735174010&amp;count=horizontal&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Fgetbootstrap.com%2F2.3.2%2F&amp;related=mdo%3ACreator%20of%20Twitter%20Bootstrap&amp;size=m&amp;text=Bootstrap&amp;url=http%3A%2F%2Ftwbs.github.com%2Fbootstrap%2F&amp;via=twbootstrap" class="twitter-share-button twitter-tweet-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 109px; height: 20px;"></iframe>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+<!-- /.intro-header -->
 
 
-<div id="restContent" class="cm-fluid-container cm-margin-top">
+<div class="banner content-section-a">
+
     <div class="container">
 
-        <div class="jumbotron cm-jumbotron">
-            <h1>Cult Macedonia!</h1>
-            <p class="lead">An online cultural tour in Central Macedonia.</p>
-            <p>
-                <a role="button" href=@Url.Action("Search","Points") class="btn btn-lg btn-primary">@CultResources.Shared.ViewPoints</a>
-                <a role="button" href=@Url.Action("New","Points") class="btn btn-lg btn-success">@CultResources.Shared.AddPoints</a>
-            </p>
+        <div class="row">
+            <div class="col-lg-6">
+                <h1>@CultResources.Shared.AppName @CultResources.Shared.AppSurname!</h1>
+                <h3>an online cultural tour in Central Macedonia.</h3>
+            </div>
+            <div class="col-lg-6">
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a role="button" href=@Url.Action("Search","Points") class="btn btn-lg btn-primary">@CultResources.Shared.ViewPoints</a>
+                    </li>
+                    <li>
+                        <a role="button" href=@Url.Action("New","Points") class="btn btn-lg btn-success">@CultResources.Shared.AddPoints</a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div id="points" class="row">
+    </div>
+    <!-- /.container -->
 
+</div>
+<!-- /.banner -->
+
+
+<div class="content-section-b">
+    <div class="container">
+
+        <div id="points" class="row">
             <h3 class="page-header">@CultResources.View.Monuments <small></small></h3>
 
             <div data-bind="foreach: Items">
@@ -91,19 +82,26 @@
                     </ul>
                 </div>
             </div>
-
-
-
-
         </div>
 
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.content-section-b -->
+
+<div class="content-section-a">
+    <div class="container">
 
         <div id="mobile" class="row">
-
-            <h3 class="page-header">Mobile<small> @CultResources.View.mobilesmall</small></h3>
-
-            <div class="col-lg-6">
-
+            <div class="col-lg-5 col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">
+                    One your mobile way
+                </h2>
+                <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+            </div>
+            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                 <div data-ride="carousel" class="carousel slide" id="carousel-example-captions">
                     <ol class="carousel-indicators">
                         <li class="active" data-slide-to="0" data-target="#carousel-example-captions"></li>
@@ -115,23 +113,23 @@
 
                             <img src="~/Content/images/cultmaced_mobapp_1.png" />
                             @*<div class="carousel-caption">
-                                <h3>First slide label</h3>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                            </div>*@
+                        <h3>First slide label</h3>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </div>*@
                         </div>
                         <div class="item">
                             <img src="~/Content/images/cultmaced_mobapp_2.png" />
                             @*<div class="carousel-caption">
-                                <h3>Second slide label</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>*@
+                        <h3>Second slide label</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>*@
                         </div>
                         <div class="item">
                             <img src="~/Content/images/cultmaced_mobapp_3.png" />
                             @*<div class="carousel-caption">
-                                <h3>Third slide label</h3>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                            </div>*@
+                        <h3>Third slide label</h3>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    </div>*@
                         </div>
                     </div>
                     <a data-slide="prev" href="#carousel-example-captions" class="left carousel-control">
@@ -141,88 +139,61 @@
                         <span class="fa fa-chevron-left"></span>
                     </a>
                 </div>
-
             </div>
-            <div class="col-lg-6">
-                <h2>One your mobile way</h2>
-                <p>Here is where you will introduce visitors to the business. Make sure to use clear and informative sentences. Use appropriate keywords here to make sure search engines can find the business.</p>
-                <p>
-                    When using this template, two decisions will be open to visitors. Decision one will be to use above-the-fold information to interact with the page. Decision two will be to scroll down and see the
-                    additional marketing boxes. Either way, the user will get the information they need!
-                </p>
-            </div>
-
         </div>
+
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.content-section-a -->
+
+<div class="content-section-b">
+    <div class="container">
 
         <div id="contact" class="row">
-
-
             <h3 class="page-header">@CultResources.View.Contact <small>@CultResources.View.ContactSmall</small></h3>
+            <div class="col-lg-7  col-sm-8">
+                
+                
+                    @{
 
-            <div class="col-sm-8">
-                @{
-                    
-                    var contact = new CULTMACEDONIA_v2.Models.ContactFormViewModel();
-                }
+                        var contact = new CULTMACEDONIA_v2.Models.ContactFormViewModel();
+                    }
 
-                @Html.Partial("_ContactForm", contact)
+                    @Html.Partial("_ContactForm", contact)
 
-                @*<form action="contact-form-submission.php" method="POST" role="form">
-                    <div class="row">
-                        <div class="form-group col-lg-4">
-                            <label for="input1">@CultResources.View.username</label>
-                            <input type="text" id="input1" class="form-control" name="contact_name">
-                        </div>
 
-                        <div class="form-group col-lg-4">
-                            <label for="input2">@CultResources.View.email</label>
-                            <input type="email" id="input2" class="form-control" name="contact_email">
-                        </div>
-
-                        <div class="clearfix"></div>
-                        <div class="form-group col-lg-12">
-                            <label for="input4">@CultResources.View.message</label>
-                            <textarea id="input4" rows="13" cols="20" class="form-control" name="contact_message"></textarea>
-                        </div>
-                        <div class="form-group col-lg-12">
-                            <input type="hidden" value="contact" name="save">
-                            <button class="btn btn-primary" type="submit">@CultResources.View.submit</button>
-                        </div>
-                    </div>
-                </form>*@
+               
+            
             </div>
+            <div class="col-lg-3   col-sm-4">
+                
+
+                    <h4>CultMacedonia</h4>
+                    <p>
+                        Βερανζέρου 1, Αθήνα 106 77<br>
+                    </p>
+                    <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: 210 3696 3696</p>
+                    <p><i class="fa fa-envelope-o"></i> <abbr title="Email">E</abbr>: <a href="mailto:feedback@startbootstrap.com">info@cultmacedonia.com</a></p>
+                    <ul class="list-unstyled list-inline list-social-icons">
+                        <li class="tooltip-social facebook-link"><a title="" data-placement="top" data-toggle="tooltip" href="#facebook-page" data-original-title="Facebook"><i class="fa fa-facebook-square fa-2x"></i></a></li>
+                        <li class="tooltip-social linkedin-link"><a title="" data-placement="top" data-toggle="tooltip" href="#linkedin-company-page" data-original-title="LinkedIn"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
+                        <li class="tooltip-social twitter-link"><a title="" data-placement="top" data-toggle="tooltip" href="#twitter-profile" data-original-title="Twitter"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                        <li class="tooltip-social google-plus-link"><a title="" data-placement="top" data-toggle="tooltip" href="#google-plus-page" data-original-title="Google+"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
+                    </ul>
 
 
-
-
-
-            <div class="col-sm-4">
-
-                <h4>CultMacedonia</h4>
-                <p>
-                    Βερανζέρου 1, Αθήνα 106 77<br>
-                </p>
-                <p><i class="fa fa-phone"></i> <abbr title="Phone">P</abbr>: 210 3696 3696</p>
-                <p><i class="fa fa-envelope-o"></i> <abbr title="Email">E</abbr>: <a href="mailto:feedback@startbootstrap.com">info@cultmacedonia.com</a></p>
-                <ul class="list-unstyled list-inline list-social-icons">
-                    <li class="tooltip-social facebook-link"><a title="" data-placement="top" data-toggle="tooltip" href="#facebook-page" data-original-title="Facebook"><i class="fa fa-facebook-square fa-2x"></i></a></li>
-                    <li class="tooltip-social linkedin-link"><a title="" data-placement="top" data-toggle="tooltip" href="#linkedin-company-page" data-original-title="LinkedIn"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
-                    <li class="tooltip-social twitter-link"><a title="" data-placement="top" data-toggle="tooltip" href="#twitter-profile" data-original-title="Twitter"><i class="fa fa-twitter-square fa-2x"></i></a></li>
-                    <li class="tooltip-social google-plus-link"><a title="" data-placement="top" data-toggle="tooltip" href="#google-plus-page" data-original-title="Google+"><i class="fa fa-google-plus-square fa-2x"></i></a></li>
-                </ul>
-
-
-                <iframe width="400" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                        src="https://maps.google.com/maps?t=m&amp;q=%CE%92%CE%B5%CF%81%CE%B1%CE%BD%CE%B6%CE%AD%CF%81%CE%BF%CF%85+1,+%CE%91%CE%B8%CE%AE%CE%BD%CE%B1,+%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1&amp;ie=UTF8&amp;hq=&amp;hnear=%CE%92%CE%B5%CF%81%CE%B1%CE%BD%CE%B6%CE%AD%CF%81%CE%BF%CF%85+1,+%CE%91%CE%B8%CE%AE%CE%BD%CE%B1,+%CE%9A%CE%B5%CE%BD%CF%84%CF%81%CE%B9%CE%BA%CF%8C%CF%82+%CE%A4%CE%BF%CE%BC%CE%AD%CE%B1%CF%82+%CE%91%CE%B8%CE%B7%CE%BD%CF%8E%CE%BD,+%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1&amp;ll=37.985069,23.731499&amp;spn=0.01353,0.034332&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small>
-                    <a href="https://maps.google.com/maps?t=m&amp;q=%CE%92%CE%B5%CF%81%CE%B1%CE%BD%CE%B6%CE%AD%CF%81%CE%BF%CF%85+1,+%CE%91%CE%B8%CE%AE%CE%BD%CE%B1,+%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1&amp;ie=UTF8&amp;hq=&amp;hnear=%CE%92%CE%B5%CF%81%CE%B1%CE%BD%CE%B6%CE%AD%CF%81%CE%BF%CF%85+1,+%CE%91%CE%B8%CE%AE%CE%BD%CE%B1,+%CE%9A%CE%B5%CE%BD%CF%84%CF%81%CE%B9%CE%BA%CF%8C%CF%82+%CE%A4%CE%BF%CE%BC%CE%AD%CE%B1%CF%82+%CE%91%CE%B8%CE%B7%CE%BD%CF%8E%CE%BD,+%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1&amp;ll=37.985069,23.731499&amp;spn=0.01353,0.034332&amp;z=14&amp;iwloc=A&amp;source=embed"
-                       style="color:#0000FF;text-align:left">Προβολή μεγαλύτερου χάρτη</a>
-                </small>
+                    <iframe width="400" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                            src="https://maps.google.com/maps?t=m&amp;q=%CE%92%CE%B5%CF%81%CE%B1%CE%BD%CE%B6%CE%AD%CF%81%CE%BF%CF%85+1,+%CE%91%CE%B8%CE%AE%CE%BD%CE%B1,+%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1&amp;ie=UTF8&amp;hq=&amp;hnear=%CE%92%CE%B5%CF%81%CE%B1%CE%BD%CE%B6%CE%AD%CF%81%CE%BF%CF%85+1,+%CE%91%CE%B8%CE%AE%CE%BD%CE%B1,+%CE%9A%CE%B5%CE%BD%CF%84%CF%81%CE%B9%CE%BA%CF%8C%CF%82+%CE%A4%CE%BF%CE%BC%CE%AD%CE%B1%CF%82+%CE%91%CE%B8%CE%B7%CE%BD%CF%8E%CE%BD,+%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1&amp;ll=37.985069,23.731499&amp;spn=0.01353,0.034332&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small>
+                        <a href="https://maps.google.com/maps?t=m&amp;q=%CE%92%CE%B5%CF%81%CE%B1%CE%BD%CE%B6%CE%AD%CF%81%CE%BF%CF%85+1,+%CE%91%CE%B8%CE%AE%CE%BD%CE%B1,+%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1&amp;ie=UTF8&amp;hq=&amp;hnear=%CE%92%CE%B5%CF%81%CE%B1%CE%BD%CE%B6%CE%AD%CF%81%CE%BF%CF%85+1,+%CE%91%CE%B8%CE%AE%CE%BD%CE%B1,+%CE%9A%CE%B5%CE%BD%CF%84%CF%81%CE%B9%CE%BA%CF%8C%CF%82+%CE%A4%CE%BF%CE%BC%CE%AD%CE%B1%CF%82+%CE%91%CE%B8%CE%B7%CE%BD%CF%8E%CE%BD,+%CE%95%CE%BB%CE%BB%CE%AC%CE%B4%CE%B1&amp;ll=37.985069,23.731499&amp;spn=0.01353,0.034332&amp;z=14&amp;iwloc=A&amp;source=embed"
+                           style="color:#0000FF;text-align:left">Προβολή μεγαλύτερου χάρτη</a>
+                    </small>
+                
             </div>
-
-
-
         </div>
+
     </div>
+    <!-- /.container -->
 </div>
 
 
@@ -271,7 +242,7 @@
 
                     var target = $(this.hash);
 
-                    var s = $("#restContent").offset().top;
+                    //var s = $("#restContent").offset().top;
 
 
                     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -280,7 +251,7 @@
 
                     if (target.length) {
                         $('html,body').animate({
-                            scrollTop: target.offset().top - s + 50
+                            scrollTop: target.offset().top -100 + 50
                         }, 1000);
                         return false;
                     }

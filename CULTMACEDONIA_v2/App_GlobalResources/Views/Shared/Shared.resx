@@ -133,13 +133,13 @@
     <value>Log Off</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>cult</value>
+    <value>Cult</value>
   </data>
   <data name="AppRegister" xml:space="preserve">
     <value>Register</value>
   </data>
   <data name="AppSurname" xml:space="preserve">
-    <value>macedonia</value>
+    <value>Macedonia</value>
   </data>
   <data name="ContactEmailaNotValid" xml:space="preserve">
     <value>Email field value is not valid</value>

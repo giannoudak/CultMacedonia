@@ -106,7 +106,7 @@ namespace CultResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to cult.
+        ///   Looks up a localized string similar to Cult.
         /// </summary>
         public static string AppName {
             get {
@@ -124,7 +124,7 @@ namespace CultResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to macedonia.
+        ///   Looks up a localized string similar to Macedonia.
         /// </summary>
         public static string AppSurname {
             get {

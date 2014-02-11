@@ -331,6 +331,7 @@
     <Content Include="Content\css\demo.css" />
     <Content Include="Content\css\demo_table.css" />
     <Content Include="Content\css\image-dropzone.css" />
+    <Content Include="Content\css\landing-page.css" />
     <Content Include="Content\css\simple-sidebar.css" />
     <Content Include="Content\font-awesome\font-awesome.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
