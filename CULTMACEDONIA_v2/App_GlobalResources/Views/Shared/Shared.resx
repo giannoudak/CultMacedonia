@@ -198,4 +198,7 @@
   <data name="YouAreHere" xml:space="preserve">
     <value>You are here :</value>
   </data>
+  <data name="AppSlogan" xml:space="preserve">
+    <value>an online cultural tour in Central Macedonia.</value>
+  </data>
 </root>

@@ -92,11 +92,22 @@
 	float: left;
 }
 
+
+
 .banner {
-	padding: 50px 0;
-	background-color: #f8f8f8;
-	background-size: cover;
+    padding: 100px 10px;
+    color: #f8f8f8;
+    background: url(../images/banner-bg.jpg)  no-repeat center 80%;
+    
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
+
+
+
+
 .banner .container {
     padding-left:0px;
     padding-right:0px;

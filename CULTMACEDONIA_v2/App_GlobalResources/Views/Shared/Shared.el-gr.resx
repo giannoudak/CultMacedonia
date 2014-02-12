@@ -133,13 +133,13 @@
     <value>Αποσύνδεση</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>cult</value>
+    <value>Cult</value>
   </data>
   <data name="AppRegister" xml:space="preserve">
     <value>Εγγραφή</value>
   </data>
   <data name="AppSurname" xml:space="preserve">
-    <value>macedonia</value>
+    <value>Macedonia</value>
   </data>
   <data name="ContactEmailaNotValid" xml:space="preserve">
     <value>Το email που συμπληρώσατε δεν είναι έγκυρο</value>
@@ -197,5 +197,8 @@
   </data>
   <data name="YouAreHere" xml:space="preserve">
     <value>Βρίσκεστε εδώ :</value>
+  </data>
+  <data name="AppSlogan" xml:space="preserve">
+    <value>online πολιστικός οδηγός στην Κεντρική Μακεδονία</value>
   </data>
 </root>
