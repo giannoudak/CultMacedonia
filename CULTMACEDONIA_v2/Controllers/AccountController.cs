@@ -81,7 +81,7 @@ namespace CULTMACEDONIA_v2.Controllers
 
             bool success = false;
 
-            var user = UserManager.FindAsync(username, password);
+            var user = UserManager.Find(username, password);
             
 
 
