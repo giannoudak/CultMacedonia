@@ -73,9 +73,10 @@ namespace CULTMACEDONIA_v2.Controllers
         }
 
 
-
+        // POST: /account/authuser
         [HttpPost]
-        public ActionResult AuthUser(string username, string password)
+        [AllowAnonymous]
+        public ActionResult authuser(string username, string password)
         {
 
             bool success = false;
