@@ -72,6 +72,29 @@ namespace CULTMACEDONIA_v2.Controllers
             return View(model);
         }
 
+
+
+        [HttpPost]
+        public ActionResult AuthUser(string username, string password)
+        {
+
+            bool success = false;
+
+            var user = UserManager.FindAsync(username, password);
+            
+
+
+            if (user!= null)
+                success = true;
+            else
+                success = false;
+
+            return Json(new { success = success });
+        }
+
+
+
+
         //
         // GET: /Account/Register
         [AllowAnonymous]

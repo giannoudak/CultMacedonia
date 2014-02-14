@@ -22,6 +22,20 @@ namespace CULTMACEDONIA_v2.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult test(string name, string password)
+        {
+            bool success = false;
+
+            
+
+            if (name == "giannoudak" && password == "123456")
+                success = true;
+            else
+                success = false;
+
+            return Json(new { success = success});
+        }
 
         
         public ActionResult About()
