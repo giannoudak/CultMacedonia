@@ -18,6 +18,13 @@ namespace CULTMACEDONIA_v2.Controllers
     {
 
 
+        private static string DATA_ASSETS = "myData";
+        private static string DATA_ASSETS_IMG = "img";
+        private static string DATA_ASSETS_VDS = "video";
+
+
+
+
         /// <summary>
         /// Τhe DataBase context
         /// </summary>
@@ -27,7 +34,7 @@ namespace CULTMACEDONIA_v2.Controllers
         /// The temp path.
         /// </summary>
         //private const string TempPath = @"C:\Temp\pipes";
-        private string TempPath = System.Web.HttpContext.Current.Server.MapPath(@"~/PointImages");
+        private string TempImgPath = System.Web.HttpContext.Current.Server.MapPath(@"~/myData/img");
         static System.Globalization.NumberFormatInfo ni = null;
 
 
@@ -479,14 +486,15 @@ namespace CULTMACEDONIA_v2.Controllers
                             if (!Request.IsLocal) //vpath = "/deploy"; 
                                 vpath = "";
                             
+                            
 
                             // Δημιουργία του PointImage Entity
                             PointImage pointImg = new PointImage
                             {
                                 Point = p,
                                 ImageFileName = s,
-                                ImageFilePath = "http://cult-macedonia.com/" + vpath + "/PointImages/" + s,
-                                ImageTitle = "title"
+                                ImageFilePath = "http://cult-macedonia.com/" + DATA_ASSETS + "/" + DATA_ASSETS_IMG +"/" + s,
+                                ImageTitle = s
                             };
 
                             // προσθήκη του PointImage Entity στο context
@@ -811,7 +819,7 @@ namespace CULTMACEDONIA_v2.Controllers
 
             foreach (HttpPostedFileBase file in files)
             {
-                string filePath = Path.Combine(TempPath, file.FileName);
+                string filePath = Path.Combine(TempImgPath, file.FileName);
                 try
                 {
                     System.IO.File.WriteAllBytes(filePath, this.ReadData(file.InputStream));
@@ -853,7 +861,8 @@ namespace CULTMACEDONIA_v2.Controllers
             foreach (HttpPostedFileBase file in files)
             {
                 myFile = file;
-                filePath = Path.Combine(TempPath, file.FileName);
+                
+                filePath = Path.Combine(TempImgPath, file.FileName);
                 try
                 {
                     System.IO.File.WriteAllBytes(filePath, this.ReadData(file.InputStream));
@@ -883,7 +892,7 @@ namespace CULTMACEDONIA_v2.Controllers
                         PointId = pointId,
                         ImageFileName = myFile.FileName,
                         ImageTitle = myFile.FileName,
-                        ImageFilePath = Request.Url.GetLeftPart(UriPartial.Authority) + (Request.IsLocal ? "":"") + "/PointImages/" + myFile.FileName,
+                        ImageFilePath = Request.Url.GetLeftPart(UriPartial.Authority) + (Request.IsLocal ? "":"") + "/"+ DATA_ASSETS +"/"+DATA_ASSETS_IMG +"/" + myFile.FileName,
 
                     };
 
@@ -949,7 +958,7 @@ namespace CULTMACEDONIA_v2.Controllers
         public ActionResult DeleteFile(string id)
         {
             var filename = id;
-            var filePath = Path.Combine(TempPath, filename);
+            var filePath = Path.Combine(TempImgPath, filename);
 
             if (System.IO.File.Exists(filePath))
             {
