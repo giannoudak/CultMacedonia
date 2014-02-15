@@ -90,7 +90,7 @@ namespace CULTMACEDONIA_v2.Controllers
             }
             else
             {
-                success = 1;
+                success = 0;
                 message = "Invalid Credentials!";
             }
                 
