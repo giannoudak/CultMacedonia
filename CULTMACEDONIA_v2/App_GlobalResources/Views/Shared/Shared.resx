@@ -201,4 +201,28 @@
   <data name="AppSlogan" xml:space="preserve">
     <value>an online cultural tour in Central Macedonia.</value>
   </data>
+  <data name="HomeView" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="ListAllView" xml:space="preserve">
+    <value>Sights Showcase</value>
+  </data>
+  <data name="LoginView" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="RegisterView" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="SearchView" xml:space="preserve">
+    <value>Search for sights</value>
+  </data>
+  <data name="SinglePointEdit" xml:space="preserve">
+    <value>Sight Edit</value>
+  </data>
+  <data name="SinglePointNew" xml:space="preserve">
+    <value>Sight Registration</value>
+  </data>
+  <data name="SinglePointView" xml:space="preserve">
+    <value>Sight Preview</value>
+  </data>
 </root>

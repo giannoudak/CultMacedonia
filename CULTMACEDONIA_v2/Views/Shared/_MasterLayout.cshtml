@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - @CultResources.Shared.AppName@CultResources.Shared.AppSurname </title>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,greek' rel='stylesheet' type='text/css'>
 
@@ -27,6 +27,7 @@
     <script src="~/Scripts/jquery.pagifymvc-1.0.0.js"></script>
     <script src="~/Scripts/dropzone.js"></script>
     <script src="~/Scripts/bowser.min.js"></script>
+
 
 
 
@@ -100,33 +101,6 @@
             </div>
         </div>
     </footer>
-
-    @*<div id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>
-                    
-                        
-                    </p>
-                    <p>
-                                               <iframe scrolling="no" frameborder="0" id="twitter-widget-3" allowtransparency="true" src="http://platform.twitter.com/widgets/follow_button.1389999802.html#_=1390489229441&amp;id=twitter-widget-3&amp;lang=en&amp;screen_name=SBootstrap&amp;show_count=false&amp;show_screen_name=true&amp;size=m" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 135px; height: 20px;"></iframe>
-                        <iframe scrolling="no" frameborder="0" id="twitter-widget-1" allowtransparency="true" src="http://platform.twitter.com/widgets/tweet_button.1389999802.html#_=1390489229438&amp;count=horizontal&amp;id=twitter-widget-1&amp;lang=en&amp;original_referer=http%3A%2F%2Fstartbootstrap.com%2F&amp;size=m&amp;text=Start%20Bootstrap%20-%20Free%20HTML%20Templates%20for%20Bootstrap%203&amp;url=http%3A%2F%2Fstartbootstrap.com&amp;via=SBootstrap" class="twitter-share-button twitter-tweet-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 109px; height: 20px;"></iframe>
-                        <br>
-                        <div style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 143px; height: 20px;" id="___follow_0"><iframe width="100%" scrolling="no" frameborder="0" hspace="0" marginheight="0" marginwidth="0" style="position: static; top: 0px; width: 143px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" id="I2_1390489230412" name="I2_1390489230412" src="https://apis.google.com/u/0/_/widget/render/follow?usegapi=1&amp;bsv=o&amp;rel=publisher&amp;height=20&amp;annotation=bubble&amp;origin=http%3A%2F%2Fstartbootstrap.com&amp;url=http%3A%2F%2Fplus.google.com%2F116841216196186745329&amp;gsrc=3p&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.el.lWJv2ZCo6PQ.O%2Fm%3D__features__%2Fam%3DIQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAItRSTNOA1T-PMdtMJ_MA1_RrgaJbAwPdA#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I2_1390489230412&amp;parent=http%3A%2F%2Fstartbootstrap.com&amp;pfname=&amp;rpctoken=41082251" data-gapiattached="true"></iframe></div>
-                        <div style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;" id="___plusone_0"><iframe width="100%" scrolling="no" frameborder="0" hspace="0" marginheight="0" marginwidth="0" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" id="I3_1390489230432" name="I3_1390489230432" src="https://apis.google.com/u/0/_/+1/fastbutton?usegapi=1&amp;bsv=o&amp;size=medium&amp;origin=http%3A%2F%2Fstartbootstrap.com&amp;url=http%3A%2F%2Fstartbootstrap.com%2F&amp;gsrc=3p&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.el.lWJv2ZCo6PQ.O%2Fm%3D__features__%2Fam%3DIQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAItRSTNOA1T-PMdtMJ_MA1_RrgaJbAwPdA#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I3_1390489230432&amp;parent=http%3A%2F%2Fstartbootstrap.com&amp;pfname=&amp;rpctoken=34832165" data-gapiattached="true" title="+1"></iframe></div>
-                        <br>
-                        <iframe scrolling="no" frameborder="0" allowtransparency="true" style="border:none; overflow:hidden; width:150px; height:21px;" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FIronSummitMedia&amp;width=450&amp;height=21&amp;colorscheme=light&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;send=false"></iframe>
-                    </p>
-                    <p>
-                        &copy; @DateTime.Now.Year <a href="http://www.cult-macedonia.com">Cult Macedonia</a><br>
-                        @CultResources.Shared.PoweredBy <a href="http://http://4-elements.org/" target="_blank" title="four ELEMENTS">four ELEMENTS</a>.<br>
-                        @CultResources.Shared.DevelopedBy <a href="http://www.apphub.gr" target="_blank" title="apphub - innovative apps today">apphub.gr</a>.<br>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>*@
 
 
 

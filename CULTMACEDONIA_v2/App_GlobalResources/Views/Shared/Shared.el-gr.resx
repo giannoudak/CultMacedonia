@@ -201,4 +201,28 @@
   <data name="AppSlogan" xml:space="preserve">
     <value>online πολιστικός οδηγός στην Κεντρική Μακεδονία</value>
   </data>
+  <data name="HomeView" xml:space="preserve">
+    <value>Αρχική</value>
+  </data>
+  <data name="ListAllView" xml:space="preserve">
+    <value>Παρουσίαση Αξιοθέατων</value>
+  </data>
+  <data name="LoginView" xml:space="preserve">
+    <value>Είσοδος</value>
+  </data>
+  <data name="RegisterView" xml:space="preserve">
+    <value>Εγγραφή</value>
+  </data>
+  <data name="SearchView" xml:space="preserve">
+    <value>Αναζήτηστε Αξιοθέατα</value>
+  </data>
+  <data name="SinglePointEdit" xml:space="preserve">
+    <value>Επεξεργασία Αξιοθέατου</value>
+  </data>
+  <data name="SinglePointNew" xml:space="preserve">
+    <value>Καταχώρηση Αξιοθέατου</value>
+  </data>
+  <data name="SinglePointView" xml:space="preserve">
+    <value>Προβολή Αξιοθέατου</value>
+  </data>
 </root>

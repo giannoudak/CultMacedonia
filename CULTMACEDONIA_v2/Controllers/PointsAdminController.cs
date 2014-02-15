@@ -9,6 +9,8 @@ using System.Web.Http;
 
 namespace CULTMACEDONIA_v2.Controllers
 {
+
+    [Authorize(Roles = "CultMacedoniaAdmin")]
     public class PointsAdminController : ApiController
     {
 

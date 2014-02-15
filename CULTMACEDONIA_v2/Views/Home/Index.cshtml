@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = @CultResources.Shared.HomeView;
 }
 @using CULTMACEDONIA_v2.Helpers;
 
@@ -25,10 +25,10 @@
             <div class="col-lg-6">
                 <ul class="list-inline banner-social-buttons">
                     <li>
-                        <a role="button" href=@Url.Action("Search","Points") class="btn btn-lg btn-primary">@CultResources.Shared.ViewPoints</a>
+                        <a role="button" href=@Url.Action("search","points") class="btn btn-lg btn-primary">@CultResources.Shared.ViewPoints</a>
                     </li>
                     <li>
-                        <a role="button" href=@Url.Action("New","Points") class="btn btn-lg btn-success">@CultResources.Shared.AddPoints</a>
+                        <a role="button" href=@Url.Action("new","points") class="btn btn-lg btn-success">@CultResources.Shared.AddPoints</a>
                     </li>
                 </ul>
             </div>

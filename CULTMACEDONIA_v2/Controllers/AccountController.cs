@@ -79,18 +79,22 @@ namespace CULTMACEDONIA_v2.Controllers
         public ActionResult authuser(string username, string password)
         {
 
-            bool success = false;
+            int success = 0;
+            string message = string.Empty;
 
             var user = UserManager.Find(username, password);
             
-
-
-            if (user!= null)
-                success = true;
+            if (user!= null){
+                success = 1;
+                message = "Login successful";
+            }
             else
-                success = false;
-
-            return Json(new { success = success });
+            {
+                success = 1;
+                message = "Invalid Credentials!";
+            }
+                
+            return Json(new { success = success, message = message });
         }
 
 

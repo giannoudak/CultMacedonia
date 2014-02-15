@@ -300,6 +300,7 @@
     <Compile Include="Models\CultMacedoniaModel\UserFavorites.cs">
       <DependentUpon>CultMacedoniaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DTOs\SightDetailDto.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\PointCreateViewModel.cs" />
     <Compile Include="Models\JsonModel.cs" />
