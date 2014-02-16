@@ -27,6 +27,9 @@ namespace CULTMACEDONIA_v2.Models.DTOs
         public string PointVideo { get; set; }
 
         public string PointAddress{get;set;}
+        public string PointPhone { get; set; }
+        public string PointEmail { get; set; }
+
         public string PointWeb { get; set; }
         public string PointUser { get; set; }
 
