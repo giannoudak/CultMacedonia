@@ -40,7 +40,7 @@ namespace CULTMACEDONIA_v2.Controllers
                         
                         PointYear = p.PointYear,
                         
-                        PointPlaceNomos = (p.PointPlaceNomos == null) ? string.Empty : p.PointPlaceNomos,
+                        PointPlaceNomos = (p.PointPlaceNomos == null) ? "-" : p.PointPlaceNomos,
                         PointDescription = p.PointDescription,
                         PointFoto = (p.PointImage.FirstOrDefault().ImageFilePath == null) ? "http://www.cult-macedonia.com/myData/img/default_picture.png" : p.PointImage.FirstOrDefault().ImageFilePath,
                         
@@ -51,11 +51,11 @@ namespace CULTMACEDONIA_v2.Controllers
                         PointProtectionId = p.ProtectionLevel.ProtectionName,
                         PointReligionId = p.Religion.ReligionName,
 
-                        PointVideo = (p.PointVideo.FirstOrDefault().VideoFilePath == null) ? string.Empty : p.PointVideo.FirstOrDefault().VideoFilePath,
-                        PointAddress = (p.PointAddress == null) ? string.Empty : p.PointAddress,
-                        PointWeb = (p.PointWeb == null) ? string.Empty : p.PointWeb,
-                        PointEmail = (p.PointEmail == null ) ?string.Empty : p.PointEmail,
-                        PointPhone = (p.PointPhone == null) ? string.Empty : p.PointPhone,
+                        PointVideo = (p.PointVideo.FirstOrDefault().VideoFilePath == null) ? "-" : p.PointVideo.FirstOrDefault().VideoFilePath,
+                        PointAddress = (p.PointAddress == null) ? "-" : p.PointAddress,
+                        PointWeb = (p.PointWeb == null) ? "-" : p.PointWeb,
+                        PointEmail = (p.PointEmail == null) ? "-" : p.PointEmail,
+                        PointPhone = (p.PointPhone == null) ? "-" : p.PointPhone,
 
                         PointUser = u.AspNetUsers.UserName,
                         PointLocalization = p.PointLocalization
@@ -65,57 +65,60 @@ namespace CULTMACEDONIA_v2.Controllers
             return sights;
 
         }
-
+        /*
         [Route("{id:int}")]
         [ResponseType(typeof(PointDetailDto))]
         public async Task<IHttpActionResult> GetSights(int id)
         {
 
-            /*
-            var sight = await (from p in db.Point.Include("PointImage").Include("PointVideo").Include("AspNetUsers")
-                                    join u in db.PointOfUser on p.PointId equals u.PointId
-                                    where p.PointId == id
-                                    select new PointDetailDto
-                                    {
-                                        PointId = p.PointId,
+            
+            //var sight = await (from p in db.Point.Include("PointImage").Include("PointVideo").Include("AspNetUsers")
+            //                        join u in db.PointOfUser on p.PointId equals u.PointId
+            //                        where p.PointId == id
+            //                        select new PointDetailDto
+            //                        {
+            //                            PointId = p.PointId,
 
-                                        PointName = p.PointName,
-                                        PointX = p.PointX,
-                                        PointY = p.PointY,
+            //                            PointName = p.PointName,
+            //                            PointX = p.PointX,
+            //                            PointY = p.PointY,
 
-                                        PointYear = p.PointYear,
+            //                            PointYear = p.PointYear,
 
-                                        PointPlaceNomos = (p.PointPlaceNomos == null) ? string.Empty : p.PointPlaceNomos,
-                                        PointDescription = p.PointDescription,
-                                        PointFoto = (p.PointImage.FirstOrDefault().ImageFilePath == null) ? "http://www.cult-macedonia.com/myData/img/default_picture.png" : p.PointImage.FirstOrDefault().ImageFilePath,
+            //                            PointPlaceNomos = (p.PointPlaceNomos == null) ? string.Empty : p.PointPlaceNomos,
+            //                            PointDescription = p.PointDescription,
+            //                            PointFoto = (p.PointImage.FirstOrDefault().ImageFilePath == null) ? "http://www.cult-macedonia.com/myData/img/default_picture.png" : p.PointImage.FirstOrDefault().ImageFilePath,
 
-                                        PointCategoryId = p.Category.CategoryName,
-                                        PointEraId = p.Era.EraName,
-                                        PointEthnologicalId = p.Ethnological.EthnologicalName,
-                                        PointPropertyId = p.Property.PropertyName,
-                                        PointProtectionId = p.ProtectionLevel.ProtectionName,
-                                        PointReligionId = p.Religion.ReligionName,
+            //                            PointCategoryId = p.Category.CategoryName,
+            //                            PointEraId = p.Era.EraName,
+            //                            PointEthnologicalId = p.Ethnological.EthnologicalName,
+            //                            PointPropertyId = p.Property.PropertyName,
+            //                            PointProtectionId = p.ProtectionLevel.ProtectionName,
+            //                            PointReligionId = p.Religion.ReligionName,
 
-                                        PointVideo = (p.PointVideo.FirstOrDefault().VideoFilePath == null) ? string.Empty : p.PointVideo.FirstOrDefault().VideoFilePath,
-                                        PointAddress = (p.PointAddress == null) ? string.Empty : p.PointAddress,
-                                        PointWeb = (p.PointWeb == null) ? string.Empty : p.PointWeb,
-                                        PointUser = u.AspNetUsers.UserName,
-                                        PointLocalization = p.PointLocalization
+            //                            PointVideo = (p.PointVideo.FirstOrDefault().VideoFilePath == null) ? string.Empty : p.PointVideo.FirstOrDefault().VideoFilePath,
+            //                            PointAddress = (p.PointAddress == null) ? string.Empty : p.PointAddress,
+            //                            PointWeb = (p.PointWeb == null) ? string.Empty : p.PointWeb,
+            //                            PointUser = u.AspNetUsers.UserName,
+            //                            PointLocalization = p.PointLocalization
 
-                                    }).FirstOrDefaultAsync();
-            */
-            var sight = new PointDetailDto();
-            if (sight == null)
-            {
-                return NotFound();
-            }
+            //                        });
+            
+            //var f = fro
+            
+            //if (sight == null)
+            //{
+            //    return NotFound();
+            //}
 
-            return Ok(sight);
+            //return Ok(sight);
+
+            
 
 
           
         }
-
+        */
 
 
         protected override void Dispose(bool disposing)
