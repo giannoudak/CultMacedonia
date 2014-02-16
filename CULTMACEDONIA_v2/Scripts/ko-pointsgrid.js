@@ -148,7 +148,7 @@ $(document).ready(function () {
         type: "GET",
         data: { active: _enabled }
     }).done(function (data) {
-        
+        alert(data);
         var vm = new viewModel();
         vm.contacts(data);
         ko.applyBindings(vm);

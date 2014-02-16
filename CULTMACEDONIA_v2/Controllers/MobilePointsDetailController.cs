@@ -32,6 +32,7 @@ namespace CULTMACEDONIA_v2.Controllers
         {
             var sights = from p in db.Point.Include("PointImage").Include("PointVideo").Include("AspNetUsers")
                     join u in db.PointOfUser on p.PointId equals u.PointId
+                    where u.isActivated == (byte)1
                     select new PointDetailDto {
                         PointId = p.PointId,
                         
@@ -75,7 +76,7 @@ namespace CULTMACEDONIA_v2.Controllers
             
             var sight = await (from p in db.Point.Include("PointImage").Include("PointVideo").Include("AspNetUsers")
                                     join u in db.PointOfUser on p.PointId equals u.PointId
-                                    where p.PointId == id
+                               where p.PointId == id && u.isActivated == (byte)1
                                     select new PointDetailDto
                                     {
                                         PointId = p.PointId,
