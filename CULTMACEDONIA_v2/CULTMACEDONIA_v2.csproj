@@ -122,6 +122,9 @@
     <Reference Include="TwitterBootstrapMVC">
       <HintPath>..\packages\TwitterBootstrapMVC.3.4.6\lib\net40\TwitterBootstrapMVC.dll</HintPath>
     </Reference>
+    <Reference Include="WebApiContrib.Formatting.Jsonp">
+      <HintPath>..\packages\WebApiContrib.Formatting.Jsonp.2.1.0.0\lib\net45\WebApiContrib.Formatting.Jsonp.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -231,6 +234,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KoController.cs" />
+    <Compile Include="Controllers\MobilePointsDetailController.cs" />
     <Compile Include="Controllers\PointController.cs" />
     <Compile Include="Controllers\PointsAdminController.cs" />
     <Compile Include="Controllers\PointsController.cs" />
@@ -300,7 +304,7 @@
     <Compile Include="Models\CultMacedoniaModel\UserFavorites.cs">
       <DependentUpon>CultMacedoniaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DTOs\SightDetailDto.cs" />
+    <Compile Include="Models\DTOs\PointDetailDto.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\PointCreateViewModel.cs" />
     <Compile Include="Models\JsonModel.cs" />

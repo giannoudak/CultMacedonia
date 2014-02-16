@@ -14,7 +14,7 @@ namespace CULTMACEDONIA_v2.Controllers
     public class PointsAdminController : ApiController
     {
 
-
+        
 
         /// <summary>
         /// Τhe DataBase context
@@ -25,6 +25,7 @@ namespace CULTMACEDONIA_v2.Controllers
         // GET api/<controller>
         public IEnumerable<PointGridViewModel> Get(byte? active = 1)
         {
+            
             var q = from p in db.Point.Include("PointImage").Include("AspNetUsers")
                     join u in db.PointOfUser on p.PointId equals u.PointId 
                         
