@@ -99,7 +99,7 @@ namespace CULTMACEDONIA_v2.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult CreateUser(string username, string password, string useremail)
+        public async Task<ActionResult> CreateUser(string username, string password, string useremail)
         {
             int success = 0;
             string message = "failed";
@@ -113,10 +113,10 @@ namespace CULTMACEDONIA_v2.Controllers
             };
 
             // Εφόσον γίνει επιτυχής αποθήκευση του χρήστη τότε δίνουμε σε αυτόν τον Default Role
-            var result = UserManager.Create(user, password);
+            var result = await UserManager.CreateAsync(user, password);
             if (result.Succeeded)
             {
-                var rstRole = UserManager.AddToRole(user.Id, "CultMacedoniaUser");
+                var rstRole = await UserManager.AddToRoleAsync(user.Id, "CultMacedoniaUser");
                 if (rstRole.Succeeded)
                 {
                     success = 1;
@@ -128,6 +128,10 @@ namespace CULTMACEDONIA_v2.Controllers
             }
             else
             {
+                var error = (from e in result.Errors select e).FirstOrDefault();
+                if (error.Contains("already taken"))
+                    message = "idioUsername";
+
                 return Json(new { success = success, message = message });
             }
         }
