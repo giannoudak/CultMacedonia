@@ -72,6 +72,8 @@ var viewModel = function () {
         $.ajax({
             url: "/api/PointsAdmin",
             type: "GET",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
             data: {
                 term: self.SearchTerm,
                 addr: self.AddressTerm,
@@ -115,6 +117,7 @@ var viewModel = function () {
         $.ajax({
             url: '/Points/EnablePoint',
             type: "POST",
+
             data: { pointId: _placeId, username: _pofuser, pointName: _pName }
 
         }).done(function (result) {
@@ -146,9 +149,11 @@ $(document).ready(function () {
     $.ajax({
         url: "/api/PointsAdmin",
         type: "GET",
-        data: { active: _enabled }
+        data: { active: _enabled },
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
     }).done(function (data) {
-        alert(data);
+        
         var vm = new viewModel();
         vm.contacts(data);
         ko.applyBindings(vm);
