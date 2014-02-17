@@ -11,12 +11,6 @@ var viewModel = function () {
     $this.AddressTerm = '',
     $this.year = '',
     $this.when = '',
-    //$this.categoryId = ko.observable();
-    //$this.protectionId = ko.observable();
-    //$this.propertyId = ko.observable();
-    //$this.relegionId = ko.observable();
-    //$this.eraId = ko.observable();
-    //$this.ethnologicalId = ko.observable();
     $this.petsa='',
 
 

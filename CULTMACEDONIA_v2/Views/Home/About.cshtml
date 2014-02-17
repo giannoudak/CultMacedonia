@@ -7,17 +7,16 @@
 
 <p>Use this area to provide additional information.</p>
 
-<a href='@Url.Action("authuser", "Account", new { username="terere",password="asdasdsa"})' data-form-method="post" title="asdas">testlogin</a>
 
 <script>
 
     jQuery(document).ready(function () {
 
         $.ajax({
-            url: '@Url.Action("authuser","account")',
+            url: '@Url.Action("CreateUser","account")',
             type: "POST",
 
-            data: {username : "rere", password:"asdasdsa"},
+            data: {username : "test", password:"123456",useremail:"user@mail.gr"},
 
             success: function (result) {
             },

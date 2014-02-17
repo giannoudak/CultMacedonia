@@ -76,7 +76,7 @@ namespace CULTMACEDONIA_v2.Controllers
         // POST: /account/authuser
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult authuser(string username, string password)
+        public ActionResult AuthUser(string username, string password)
         {
 
             int success = 0;
@@ -95,6 +95,39 @@ namespace CULTMACEDONIA_v2.Controllers
             }
                 
             return Json(new { success = success, message = message });
+        }
+
+        public async Task<ActionResult> CreateUser(string username, string password, string useremail)
+        {
+            int success = 0;
+            string message = "failed";
+
+            // Δημιουργούμε έναν νέο χρήστη, τον κάνουμε save στην βάση
+            // και δίνουμε σε αυτόν τον Default CultMacedoniaUser Role
+            var user = new CultMacedoniaUser()
+            {
+                UserName = username,
+                UserEmail = useremail
+            };
+
+            // Εφόσον γίνει επιτυχής αποθήκευση του χρήστη τότε δίνουμε σε αυτόν τον Default Role
+            var result = await UserManager.CreateAsync(user, password);
+            if (result.Succeeded)
+            {
+                var rstRole = await UserManager.AddToRoleAsync(user.Id, "CultMacedoniaUser");
+                if (rstRole.Succeeded)
+                {
+                    success = 1;
+                    message = "success";
+                    return Json(new { success = success, message = message });
+                }
+                else
+                    return Json(new { success = success, message = message });
+            }
+            else
+            {
+                return Json(new { success = success, message = message });
+            }
         }
 
 

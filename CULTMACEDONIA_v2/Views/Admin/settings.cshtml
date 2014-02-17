@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "settings";
     Layout = "~/Views/Shared/_MasterAdmin.cshtml";
 }
@@ -13,7 +12,7 @@
         Simple Sidebar
     </h1>
 
-    
+
 </div>
 <!-- Keep all page content within the page-content inset div! -->
 <div class="page-content inset">
@@ -144,4 +143,161 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+
+            <table id="categories" class="table" data-bind="visible: categories().length > 0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Category Name</th>
+                        <th><button data-bind='click: addCategory'>Add a contact</button></th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: categories">
+                    <tr>
+                        <td data-bind="text: CategoryId"></td>
+                        <td data-bind="text: CategoryName"></td>
+
+                        <td>
+                            <button data-bind="click: $root.edit">Edit</button>
+                            <button data-bind="click: $root.delete">Delete</button>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <table id="properties" class="table" data-bind="visible: properties().length > 0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Property Name</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: properties">
+                    <tr>
+                        <td data-bind="text: PropertyId"></td>
+                        <td data-bind="text: PropertyName"></td>
+
+                        <td>
+                            <button data-bind="click: $root.edit">Edit</button>
+                            <button data-bind="click: $root.delete">Delete</button>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <table id="eras" class="table" data-bind="visible: eras().length > 0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Property Name</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: eras">
+                    <tr>
+                        <td data-bind="text: EraId"></td>
+                        <td data-bind="text: EraName"></td>
+
+                        <td>
+                            <button data-bind="click: $root.edit">Edit</button>
+                            <button data-bind="click: $root.delete">Delete</button>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <table id="protectionlevels" class="table" data-bind="visible: protectionlevels().length > 0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Protection Level Name</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: protectionlevels">
+                    <tr>
+                        <td data-bind="text: ProtectionId"></td>
+                        <td data-bind="text: ProtectionName"></td>
+
+                        <td>
+                            <button data-bind="click: $root.edit">Edit</button>
+                            <button data-bind="click: $root.delete">Delete</button>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <table id="ethnologicals" class="table" data-bind="visible: ethnologicals().length > 0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ethnological Name</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: ethnologicals">
+                    <tr>
+                        <td data-bind="text: EthnologicalId"></td>
+                        <td data-bind="text: EthnologicalName"></td>
+
+                        <td>
+                            <button data-bind="click: $root.edit">Edit</button>
+                            <button data-bind="click: $root.delete">Delete</button>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <table id="religions" class="table" data-bind="visible: religions().length > 0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Religion Name</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: religions">
+                    <tr>
+                        <td data-bind="text: ReligionId"></td>
+                        <td data-bind="text: ReligionName"></td>
+
+                        <td>
+                            <button data-bind="click: $root.edit">Edit</button>
+                            <button data-bind="click: $root.delete">Delete</button>
+
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
 </div>
+
+
+@section Scripts{
+    <script src="~/Scripts/knockout-3.0.0.debug.js"></script>
+    <script src="~/Scripts/knockout.mapping-latest.debug.js"></script>
+    <script src="~/Scripts/ko-sysparams.js"></script>
+
+    
+}
