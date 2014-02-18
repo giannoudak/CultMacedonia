@@ -511,7 +511,6 @@
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
     <Content Include="Scripts\ko-pointsgrid.js" />
-    <Content Include="Scripts\ko-sysparams.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\respond.js" />
@@ -572,9 +571,6 @@
     <Content Include="Views\Shared\_ContactForm.cshtml" />
     <Content Include="Scripts\ko-pointsgrid.min.js.map">
       <DependentUpon>ko-pointsgrid.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\ko-sysparams.min.js.map">
-      <DependentUpon>ko-sysparams.js</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

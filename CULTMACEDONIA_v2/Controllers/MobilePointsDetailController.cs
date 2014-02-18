@@ -124,7 +124,7 @@ namespace CULTMACEDONIA_v2.Controllers
         }
 
 
-        [Route("api/sights/create")]
+        [Route("create")]
         [HttpPost]
         public PointActionResultDto CreateSight(PointCreateDto point)
         {
