@@ -13,15 +13,15 @@
     jQuery(document).ready(function () {
 
         $.ajax({
-            url: '@Url.Action("CreateUser","account")',
+            url: '/points/create',
             type: "POST",
 
-            data: {username : "kstavroulakis", password:"menumenu",useremail:"userasd"},
+            data: { PointName: "kstavroulakis"},
 
             success: function (result) {
             },
             error:function(err){
-
+                alert(err.responseText);
             }
         })
 

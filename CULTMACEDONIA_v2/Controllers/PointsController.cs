@@ -554,6 +554,113 @@ namespace CULTMACEDONIA_v2.Controllers
 
         }
 
+
+
+        
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult create(string PointName, string PointLocationX, string PointLocationY, string PointText, string PointUser, string PointImage)
+        {
+
+            int success = 0;
+            string message = "failed";
+
+            string uid = string.Empty;
+            decimal? p_x = null;
+            decimal? p_y = null;
+
+            // @@@@@@@ ΕΛΕΓΧΟΙ @@@@@@@@
+            #region Data Validations
+
+            // 1] U S E R N A M E
+            // αν δωθει κενο username επιστρεφουμε failed
+            if (!string.IsNullOrEmpty (PointUser))
+            {
+                // Ελεγχος αν υπαρχει ο χρηστης! Διαβάζουμε το uid του χρήστη
+                uid = (from u in db.AspNetUsers
+                        where u.UserName == PointUser
+                        select u.Id).SingleOrDefault();
+
+                // αν ο χρηστης δεν υπαρχει επιστρεφουμε success = 0
+                if (string.IsNullOrEmpty(uid))
+                {
+                    return Json(new { success = success, message = message });
+                }
+
+            }else{
+                return Json(new { success = success, message = message });
+            }
+
+
+            // 1] R E S T    D A T A
+            // αν περασει το τεστ του username, αν καποιο αλλο πεδιο ειναι κενο επιστρεφουμε failed...
+            if (string.IsNullOrEmpty(PointName) || string.IsNullOrEmpty(PointLocationX) || string.IsNullOrEmpty(PointLocationX) || string.IsNullOrEmpty(PointText) || string.IsNullOrEmpty(PointImage))
+            {
+                return Json(new { success = success, message = message });
+            }
+
+            #endregion
+
+
+            // @@@@@@@ PARSE ΤΙΜΩΝ και ΔΗΜΙΟΥΡΓΙΑ ΑΝΤΙΚΕΙΜΕΝΩΝ @@@@@@@
+
+            // PointX και PointY
+            System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.InstalledUICulture;
+            ni = (System.Globalization.NumberFormatInfo)ci.NumberFormat.Clone();
+            ni.NumberDecimalSeparator = ".";
+
+            if (!string.IsNullOrEmpty (PointLocationX))
+            {
+                p_x = decimal.Parse(PointLocationX, ni);
+            }
+
+            if (!string.IsNullOrEmpty(PointLocationY))
+            {
+                p_y = decimal.Parse(PointLocationY, ni);
+            }
+
+            // Lang
+            var lang = "el";
+
+            // Δημιουργία Point Entity Item
+            Point p = new Point
+            {
+                PointName = PointName,
+                PointDescription = PointText,
+
+                // default τιμη το 1 sta lut
+                PointCategoryId = 1,
+                PointEthnologicalId = 1,
+                PointPropertyId = 1,
+                PointProtectionId = 1,
+                PointReligionId = 1,
+                PointEraId = 1,
+
+                PointLocalization = lang,
+                PointX = p_x,
+                PointY = p_y
+            };
+
+
+            // και προσθετουμε την εγγραφή οτι το point ανηκει στον τρέχον login user
+            db.PointOfUser.Add(new PointOfUser
+            {
+                DateAdded = DateTime.Now,
+                Point = p,
+                Id = uid,
+                isActivated = (byte)0,  // αρχικά το point δεν ειναι activate
+                DateActivated = null    // και η ημερομηνία activate ειναι κενη
+            });
+
+            //...
+            //...
+            //...
+
+
+            return Json(new { success = success, message = message });
+
+
+        }
         #endregion
 
         #region Επεξεργασία GET-POST
