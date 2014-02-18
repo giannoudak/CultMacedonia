@@ -84,7 +84,7 @@
                         </div>
 
                         <div class="description">
-                            <span>Περιγραφή</span>
+                            <span>@CultResources.View.LabelPointDescription</span>
                             <p>
                                 @Html.DisplayFor(model => model.PointDescription)
                             </p>
@@ -94,39 +94,39 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="row attrrow">
-                                        <div class="col-lg-3 attrKey">Χρονολογία</div>
+                                        <div class="col-lg-3 attrKey">@CultResources.View.labelYear</div>
                                         <div class="col-lg-8 attrValue">@Html.DisplayFor(model => model.PointYear)</div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="row attrrow">
-                                        <div class="col-lg-7 attrKey">Χρήση αρχικής ή κύριας φάσης</div>
+                                        <div class="col-lg-7 attrKey">@CultResources.View.CategoryCaption</div>
                                         <div class="col-lg-5 attrValue">@Html.DisplayFor(model => model.Category.CategoryName)</div>
                                     </div>
 
                                     <div class="row attrrow">
-                                        <div class="col-lg-7 attrKey">Χρονολογικά πλαίσια</div>
+                                        <div class="col-lg-7 attrKey">@CultResources.View.EraCaption</div>
                                         <div class="col-lg-5 attrValue">@Html.DisplayFor(model => model.Era.EraName)</div>
                                     </div>
 
                                     <div class="row attrrow">
-                                        <div class="col-lg-7 attrKey">Καθεστώς προστασίας</div>
+                                        <div class="col-lg-7 attrKey">@CultResources.View.PropectionCaption</div>
                                         <div class="col-lg-5 attrValue">@Html.DisplayFor(model => model.ProtectionLevel.ProtectionName)</div>
 
                                     </div>
 
                                     <div class="row attrrow">
-                                        <div class="col-lg-7 attrKey">Ιδιοκτησιακό καθεστώς</div>
+                                        <div class="col-lg-7 attrKey">@CultResources.View.PropertyCaption</div>
                                         <div class="col-lg-5 attrValue">@Html.DisplayFor(model => model.Property.PropertyName)</div>
                                     </div>
 
                                     <div class="row attrrow">
-                                        <div class="col-lg-7 attrKey">Εθνολογική ταυτότητα </div>
+                                        <div class="col-lg-7 attrKey">@CultResources.View.EthnologicalCaption</div>
                                         <div class="col-lg-5 attrValue">@Html.DisplayFor(model => model.Ethnological.EthnologicalName)</div>
                                     </div>
 
                                     <div class="row attrrow">
-                                        <div class="col-lg-7 attrKey">Θρησκευτική ταυτότητα  </div>
+                                        <div class="col-lg-7 attrKey">@CultResources.View.ReligionCaption</div>
                                         <div class="col-lg-5 attrValue">@Html.DisplayFor(model => model.Religion.ReligionName)</div>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                                 <div class="col-md-7">
                                     <!-- Total Photos for Point -->
                                     @{ int pntImageCnt = @Model.PointImage.Count; }
-                                    <h4 class="media-heading pointName">Φωτογραφίες (@pntImageCnt)</h4>
+                                    <h4 class="media-heading pointName">@CultResources.View.PhotoGalleryPanelText (@pntImageCnt)</h4>
 
                                 </div>
                                 <div class="col-md-5 pull-right">

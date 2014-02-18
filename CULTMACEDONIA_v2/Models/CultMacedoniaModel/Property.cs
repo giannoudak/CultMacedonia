@@ -21,6 +21,7 @@ namespace CULTMACEDONIA_v2.Models.CultMacedoniaModel
     
         public int PropertyId { get; set; }
         public string PropertyName { get; set; }
+        public string Lang { get; set; }
     
         public virtual ICollection<Point> Point { get; set; }
     }
