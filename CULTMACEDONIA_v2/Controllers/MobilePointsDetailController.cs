@@ -122,6 +122,28 @@ namespace CULTMACEDONIA_v2.Controllers
 
           
         }
+
+
+        [Route("api/sights/create")]
+        [HttpPost]
+        public PointActionResultDto CreateSight(PointCreateDto point)
+        {
+
+            PointActionResultDto result = new PointActionResultDto();
+            result.success = 0;
+            result.message = "failed";
+
+
+            if (point.PointName == "new") 
+                result.success = 1;
+            
+
+
+
+            return result;
+
+
+        }
         
 
 

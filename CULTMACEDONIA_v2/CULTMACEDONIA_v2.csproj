@@ -304,6 +304,8 @@
     <Compile Include="Models\CultMacedoniaModel\UserFavorites.cs">
       <DependentUpon>CultMacedoniaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DTOs\PointActionResultDto.cs" />
+    <Compile Include="Models\DTOs\PointCreateDto.cs" />
     <Compile Include="Models\DTOs\PointDetailDto.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\PointCreateViewModel.cs" />
