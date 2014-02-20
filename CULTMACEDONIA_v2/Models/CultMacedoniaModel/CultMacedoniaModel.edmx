@@ -87,6 +87,7 @@
           </Key>
           <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="2" />
         </EntityType>
         <EntityType Name="Era">
           <Key>
@@ -94,6 +95,7 @@
           </Key>
           <Property Name="EraId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EraName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="2" />
         </EntityType>
         <EntityType Name="Ethnological">
           <Key>
@@ -101,6 +103,7 @@
           </Key>
           <Property Name="EthnologicalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EthnologicalName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="2" />
         </EntityType>
         <EntityType Name="Property">
           <Key>
@@ -108,13 +111,15 @@
           </Key>
           <Property Name="PropertyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PropertyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="2" />
         </EntityType>
         <EntityType Name="ProtectionLevel">
           <Key>
             <PropertyRef Name="ProtectionId" />
           </Key>
           <Property Name="ProtectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProtectionName" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProtectionName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="2" />
         </EntityType>
         <EntityType Name="Religion">
           <Key>
@@ -122,6 +127,7 @@
           </Key>
           <Property Name="ReligionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ReligionName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="2" />
         </EntityType>
         <Association Name="R_FavoritePoints">
           <End Role="Point" Type="Self.Point" Multiplicity="1" />
@@ -351,6 +357,7 @@
           <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointCategory" FromRole="Category" ToRole="Point" />
+          <Property Name="Lang" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Era">
           <Key>
@@ -359,6 +366,7 @@
           <Property Name="EraId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EraName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointEra" FromRole="Era" ToRole="Point" />
+          <Property Name="Lang" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Ethnological">
           <Key>
@@ -367,6 +375,7 @@
           <Property Name="EthnologicalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EthnologicalName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointEthnological" FromRole="Ethnological" ToRole="Point" />
+          <Property Name="Lang" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Property">
           <Key>
@@ -375,14 +384,16 @@
           <Property Name="PropertyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PropertyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointProperty" FromRole="Property" ToRole="Point" />
+          <Property Name="Lang" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ProtectionLevel">
           <Key>
             <PropertyRef Name="ProtectionId" />
           </Key>
           <Property Name="ProtectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProtectionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProtectionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointProtectionLevel" FromRole="ProtectionLevel" ToRole="Point" />
+          <Property Name="Lang" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Religion">
           <Key>
@@ -391,6 +402,7 @@
           <Property Name="ReligionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ReligionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Point" Relationship="CultMacedoniaDBModel.R_PointReligion" FromRole="Religion" ToRole="Point" />
+          <Property Name="Lang" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="CultMacedoniaDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PointImage" EntityType="Self.PointImage" />
@@ -701,6 +713,7 @@
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="CultMacedoniaDBModel.Category">
               <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
               </MappingFragment>
@@ -709,6 +722,7 @@
           <EntitySetMapping Name="Era">
             <EntityTypeMapping TypeName="CultMacedoniaDBModel.Era">
               <MappingFragment StoreEntitySet="Era">
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
                 <ScalarProperty Name="EraId" ColumnName="EraId" />
                 <ScalarProperty Name="EraName" ColumnName="EraName" />
               </MappingFragment>
@@ -717,6 +731,7 @@
           <EntitySetMapping Name="Ethnological">
             <EntityTypeMapping TypeName="CultMacedoniaDBModel.Ethnological">
               <MappingFragment StoreEntitySet="Ethnological">
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
                 <ScalarProperty Name="EthnologicalId" ColumnName="EthnologicalId" />
                 <ScalarProperty Name="EthnologicalName" ColumnName="EthnologicalName" />
               </MappingFragment>
@@ -725,6 +740,7 @@
           <EntitySetMapping Name="Property">
             <EntityTypeMapping TypeName="CultMacedoniaDBModel.Property">
               <MappingFragment StoreEntitySet="Property">
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
                 <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
                 <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
               </MappingFragment>
@@ -733,6 +749,7 @@
           <EntitySetMapping Name="ProtectionLevel">
             <EntityTypeMapping TypeName="CultMacedoniaDBModel.ProtectionLevel">
               <MappingFragment StoreEntitySet="ProtectionLevel">
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
                 <ScalarProperty Name="ProtectionId" ColumnName="ProtectionId" />
                 <ScalarProperty Name="ProtectionName" ColumnName="ProtectionName" />
               </MappingFragment>
@@ -741,6 +758,7 @@
           <EntitySetMapping Name="Religion">
             <EntityTypeMapping TypeName="CultMacedoniaDBModel.Religion">
               <MappingFragment StoreEntitySet="Religion">
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
                 <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
                 <ScalarProperty Name="ReligionName" ColumnName="ReligionName" />
               </MappingFragment>
