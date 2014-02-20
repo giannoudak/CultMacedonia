@@ -44,9 +44,17 @@ namespace CULTMACEDONIA_v2.Controllers
         {
             int BlockSize = 5;
             int startIndex = (1) * BlockSize;
+            string lang = string.Empty;
+
+            // Διαβάζουμε το Culture του session ώστε να ξέρουμε σε ποια γλώσσα θα
+            // κάνουμε save το νέο Point
+            CultureInfo cultinfo = (Session["Culture"] as CultureInfo);
+            if (cultinfo != null)
+                lang = cultinfo.Name.Split(new Char[] { '-' })[0];
 
             var points = (from p in db.Point
-                     select p).Take(BlockSize).ToList();
+                          where p.PointLocalization == lang
+                        select p).Take(BlockSize).ToList();
 
             return View(points);
         }
@@ -66,8 +74,17 @@ namespace CULTMACEDONIA_v2.Controllers
 
             int BlockSize = 5;
             int startIndex = (BlockNumber - 1) * BlockSize;
+            string lang = string.Empty;
+
+            // Διαβάζουμε το Culture του session ώστε να ξέρουμε σε ποια γλώσσα θα
+            // κάνουμε save το νέο Point
+            CultureInfo cultinfo = (Session["Culture"] as CultureInfo);
+            if (cultinfo != null)
+                lang = cultinfo.Name.Split(new Char[] { '-' })[0];
+
 
             var points = (from p in db.Point
+                          where p.PointLocalization == lang
                           select p).OrderByDescending(y=>y.PointName).Skip(startIndex).Take(BlockSize).ToList();
 
 
@@ -188,9 +205,17 @@ namespace CULTMACEDONIA_v2.Controllers
         {
 
             var pageNumber = page ?? 1;
+            string lang = string.Empty;
+
+            // Διαβάζουμε το Culture του session ώστε να ξέρουμε σε ποια γλώσσα θα
+            // κάνουμε save το νέο Point
+            CultureInfo cultinfo = (Session["Culture"] as CultureInfo);
+            if (cultinfo != null)
+                lang = cultinfo.Name.Split(new Char[] { '-' })[0];
 
             var q = from p in db.Point.Include("PointImage")
                     orderby p.PointId
+                    where p.PointLocalization == lang
                     select new PointListViewModel
                     {
 
@@ -225,9 +250,17 @@ namespace CULTMACEDONIA_v2.Controllers
         public PartialViewResult vMapPartialnew()
         {
             List<PointMapViewModel> pnts = new List<PointMapViewModel>();
-            
+            string lang = string.Empty;
+
+            // Διαβάζουμε το Culture του session ώστε να ξέρουμε σε ποια γλώσσα θα
+            // κάνουμε save το νέο Point
+            CultureInfo cultinfo = (Session["Culture"] as CultureInfo);
+            if (cultinfo != null)
+                lang = cultinfo.Name.Split(new Char[] { '-' })[0];
+
             // Διαβάζουμε την λίστα με όλες τις κατηγορίες άξιοθέατων
             pnts = (from p in db.Point
+                    where p.PointLocalization == lang
                     select new PointMapViewModel
 
                     {
@@ -307,8 +340,17 @@ namespace CULTMACEDONIA_v2.Controllers
         {
             CultMacedoniaDBEntities db = new CultMacedoniaDBEntities();
 
+            string lang = string.Empty;
+
+            // Διαβάζουμε το Culture του session ώστε να ξέρουμε σε ποια γλώσσα θα
+            // κάνουμε save το νέο Point
+            CultureInfo cultinfo = (Session["Culture"] as CultureInfo);
+            if (cultinfo != null)
+                lang = cultinfo.Name.Split(new Char[] { '-' })[0];
+
             // Διαβάζουμε την λίστα με όλες τις κατηγορίες άξιοθέατων
             var q = (from p in db.Point
+                     where p.PointLocalization == lang
                      select new PointMapViewModel
 
                      {
@@ -369,12 +411,19 @@ namespace CULTMACEDONIA_v2.Controllers
         [Authorize()]
         public ActionResult New()
         {
-            ViewBag.PointCategoryId = new SelectList(db.Category, "CategoryId", "CategoryName");
-            ViewBag.PointEraId = new SelectList(db.Era, "EraId", "EraName");
-            ViewBag.PointEthnologicalId = new SelectList(db.Ethnological, "EthnologicalId", "EthnologicalName");
-            ViewBag.PointPropertyId = new SelectList(db.Property, "PropertyId", "PropertyName");
-            ViewBag.PointProtectionId = new SelectList(db.ProtectionLevel, "ProtectionId", "ProtectionName");
-            ViewBag.PointReligionId = new SelectList(db.Religion, "ReligionId", "ReligionName");
+            string lang = string.Empty;
+            // Διαβάζουμε το Culture του session ώστε να ξέρουμε σε ποια γλώσσα θα
+            // κάνουμε save το νέο Point
+            CultureInfo cultinfo = (Session["Culture"] as CultureInfo);
+            if (cultinfo != null) 
+                lang = cultinfo.Name.Split(new Char []{'-'})[0];
+
+            ViewBag.PointCategoryId = new SelectList(db.Category.Where(s=>s.Lang == lang ), "CategoryId", "CategoryName");
+            ViewBag.PointEraId = new SelectList(db.Era.Where(s => s.Lang == lang), "EraId", "EraName");
+            ViewBag.PointEthnologicalId = new SelectList(db.Ethnological.Where(s => s.Lang == lang), "EthnologicalId", "EthnologicalName");
+            ViewBag.PointPropertyId = new SelectList(db.Property.Where(s => s.Lang == lang), "PropertyId", "PropertyName");
+            ViewBag.PointProtectionId = new SelectList(db.ProtectionLevel.Where(s => s.Lang == lang), "ProtectionId", "ProtectionName");
+            ViewBag.PointReligionId = new SelectList(db.Religion.Where(s=>s.Lang == lang ), "ReligionId", "ReligionName");
             return View();
         }
 
@@ -425,7 +474,8 @@ namespace CULTMACEDONIA_v2.Controllers
                     // Διαβάζουμε το Culture του session ώστε να ξέρουμε σε ποια γλώσσα θα
                     // κάνουμε save το νέο Point
                     CultureInfo cultinfo = (Session["Culture"] as CultureInfo);
-                    if (cultinfo != null) lang = cultinfo.Name.Replace("-","");
+                    if (cultinfo != null)
+                        lang = cultinfo.Name.Split(new Char[] { '-' })[0];
 
                     // Δημιουργία Point Entity Item
                     Point p = new Point
@@ -527,12 +577,12 @@ namespace CULTMACEDONIA_v2.Controllers
 
                 }else
                 {
-                    ViewBag.PointCategoryId = new SelectList(db.Category, "CategoryId", "CategoryName", point.PointCategoryId);
-                    ViewBag.PointEraId = new SelectList(db.Era, "EraId", "EraName", point.PointEraId);
-                    ViewBag.PointEthnologicalId = new SelectList(db.Ethnological, "EthnologicalId", "EthnologicalName", point.PointEthnologicalId);
-                    ViewBag.PointPropertyId = new SelectList(db.Property, "PropertyId", "PropertyName", point.PointPropertyId);
-                    ViewBag.PointProtectionId = new SelectList(db.ProtectionLevel, "ProtectionId", "ProtectionName", point.PointProtectionId);
-                    ViewBag.PointReligionId = new SelectList(db.Religion, "ReligionId", "ReligionName", point.PointReligionId);
+                    ViewBag.PointCategoryId = new SelectList(db.Category.Where(s => s.Lang == lang), "CategoryId", "CategoryName", point.PointCategoryId);
+                    ViewBag.PointEraId = new SelectList(db.Era.Where(s => s.Lang == lang), "EraId", "EraName", point.PointEraId);
+                    ViewBag.PointEthnologicalId = new SelectList(db.Ethnological.Where(s => s.Lang == lang), "EthnologicalId", "EthnologicalName", point.PointEthnologicalId);
+                    ViewBag.PointPropertyId = new SelectList(db.Property.Where(s => s.Lang == lang), "PropertyId", "PropertyName", point.PointPropertyId);
+                    ViewBag.PointProtectionId = new SelectList(db.ProtectionLevel.Where(s => s.Lang == lang), "ProtectionId", "ProtectionName", point.PointProtectionId);
+                    ViewBag.PointReligionId = new SelectList(db.Religion.Where(s => s.Lang == lang), "ReligionId", "ReligionName", point.PointReligionId);
 
                     var modelStateErrors = this.ModelState.Keys.SelectMany(key => this.ModelState[key].Errors);
                     message = CultResources.View.CreateFailure + Environment.NewLine;
@@ -559,7 +609,9 @@ namespace CULTMACEDONIA_v2.Controllers
         
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult create(string PointName, string PointLocationX, string PointLocationY, string PointText, string PointUser, string PointImage)
+        public ActionResult create(
+            string PointName, string PointLocationX, string PointLocationY, string PointText,
+            string PointUser, string PointImage, string ImageName, string lang)
         {
 
             int success = 0;
@@ -594,7 +646,8 @@ namespace CULTMACEDONIA_v2.Controllers
 
             // 1] R E S T    D A T A
             // αν περασει το τεστ του username, αν καποιο αλλο πεδιο ειναι κενο επιστρεφουμε failed...
-            if (string.IsNullOrEmpty(PointName) || string.IsNullOrEmpty(PointLocationX) || string.IsNullOrEmpty(PointLocationX) || string.IsNullOrEmpty(PointText) || string.IsNullOrEmpty(PointImage))
+            if (string.IsNullOrEmpty(PointName) || string.IsNullOrEmpty(PointLocationX) || string.IsNullOrEmpty(PointLocationX) || 
+                string.IsNullOrEmpty(PointText) || string.IsNullOrEmpty(PointImage) || string.IsNullOrEmpty(lang))
             {
                 return Json(new { success = success, message = message });
             }
@@ -619,8 +672,7 @@ namespace CULTMACEDONIA_v2.Controllers
                 p_y = decimal.Parse(PointLocationY, ni);
             }
 
-            // Lang
-            var lang = "el";
+
 
             // Δημιουργία Point Entity Item
             Point p = new Point
@@ -629,12 +681,12 @@ namespace CULTMACEDONIA_v2.Controllers
                 PointDescription = PointText,
 
                 // default τιμη το 1 sta lut
-                PointCategoryId = 1,
-                PointEthnologicalId = 1,
-                PointPropertyId = 1,
-                PointProtectionId = 1,
-                PointReligionId = 1,
-                PointEraId = 1,
+                PointCategoryId = 3,
+                PointEthnologicalId = 3,
+                PointPropertyId = 3,
+                PointProtectionId = 3,
+                PointReligionId = 3,
+                PointEraId = 3,
 
                 PointLocalization = lang,
                 PointX = p_x,
@@ -652,9 +704,37 @@ namespace CULTMACEDONIA_v2.Controllers
                 DateActivated = null    // και η ημερομηνία activate ειναι κενη
             });
 
-            //...
-            //...
-            //...
+            // Δημιουργία του PointImage Entity
+            PointImage pointImg = new PointImage
+            {
+                Point = p,
+                ImageFileName = ImageName + ".jpg",
+                ImageFilePath = PointImage,
+                ImageTitle = ImageName
+            };
+
+            // προσθήκη του PointImage Entity στο context
+            db.PointImage.Add(pointImg);
+            
+            // Προσθήκη του νέου αντικειμενου Point στην Βάση
+            db.Point.Add(p);
+
+
+            try
+            {
+                db.SaveChanges();
+                success = 1;
+                message = "success!";
+
+            }
+            catch (Exception ex)
+            {
+
+                var s = ex.InnerException.Message;
+                success = 0;
+                message = "failed";
+            }
+
 
 
             return Json(new { success = success, message = message });
@@ -732,20 +812,21 @@ namespace CULTMACEDONIA_v2.Controllers
                      }).SingleOrDefault();
 
 
-
-
+            
             if (point == null)
             {
                 return HttpNotFound();
             }
 
 
-            ViewBag.PointCategoryId = new SelectList(db.Category, "CategoryId", "CategoryName",point.PointCategoryId);
-            ViewBag.PointEraId = new SelectList(db.Era, "EraId", "EraName",point.PointEraId);
-            ViewBag.PointEthnologicalId = new SelectList(db.Ethnological, "EthnologicalId", "EthnologicalName",point.PointEthnologicalId);
-            ViewBag.PointPropertyId = new SelectList(db.Property, "PropertyId", "PropertyName",point.PointPropertyId);
-            ViewBag.PointProtectionId = new SelectList(db.ProtectionLevel, "ProtectionId", "ProtectionName",point.PointProtectionId);
-            ViewBag.PointReligionId = new SelectList(db.Religion, "ReligionId", "ReligionName",point.PointReligionId);
+            string lang = point.Category.Lang;
+
+            ViewBag.PointCategoryId = new SelectList(db.Category.Where(s => s.Lang == lang), "CategoryId", "CategoryName", point.PointCategoryId);
+            ViewBag.PointEraId = new SelectList(db.Era.Where(s => s.Lang == lang), "EraId", "EraName", point.PointEraId);
+            ViewBag.PointEthnologicalId = new SelectList(db.Ethnological.Where(s => s.Lang == lang), "EthnologicalId", "EthnologicalName", point.PointEthnologicalId);
+            ViewBag.PointPropertyId = new SelectList(db.Property.Where(s => s.Lang == lang), "PropertyId", "PropertyName", point.PointPropertyId);
+            ViewBag.PointProtectionId = new SelectList(db.ProtectionLevel.Where(s => s.Lang == lang), "ProtectionId", "ProtectionName", point.PointProtectionId);
+            ViewBag.PointReligionId = new SelectList(db.Religion.Where(s => s.Lang == lang), "ReligionId", "ReligionName", point.PointReligionId);
 
             return View(point);
         }
@@ -895,13 +976,15 @@ namespace CULTMACEDONIA_v2.Controllers
                 }
                 message += "</ul>";
 
+                string lang = point.PointLocalization;
+
                 // setup viewbag properties for lut values as well as their selected values
-                ViewBag.PointCategoryId = new SelectList(db.Category, "CategoryId", "CategoryName", point.PointCategoryId);
-                ViewBag.PointEraId = new SelectList(db.Era, "EraId", "EraName", point.PointEraId);
-                ViewBag.PointEthnologicalId = new SelectList(db.Ethnological, "EthnologicalId", "EthnologicalName", point.PointEthnologicalId);
-                ViewBag.PointPropertyId = new SelectList(db.Property, "PropertyId", "PropertyName", point.PointPropertyId);
-                ViewBag.PointProtectionId = new SelectList(db.ProtectionLevel, "ProtectionId", "ProtectionName", point.PointProtectionId);
-                ViewBag.PointReligionId = new SelectList(db.Religion, "ReligionId", "ReligionName", point.PointReligionId);
+                ViewBag.PointCategoryId = new SelectList(db.Category.Where(s => s.Lang == lang), "CategoryId", "CategoryName", point.PointCategoryId);
+                ViewBag.PointEraId = new SelectList(db.Era.Where(s => s.Lang == lang), "EraId", "EraName", point.PointEraId);
+                ViewBag.PointEthnologicalId = new SelectList(db.Ethnological.Where(s => s.Lang == lang), "EthnologicalId", "EthnologicalName", point.PointEthnologicalId);
+                ViewBag.PointPropertyId = new SelectList(db.Property.Where(s => s.Lang == lang), "PropertyId", "PropertyName", point.PointPropertyId);
+                ViewBag.PointProtectionId = new SelectList(db.ProtectionLevel.Where(s => s.Lang == lang), "ProtectionId", "ProtectionName", point.PointProtectionId);
+                ViewBag.PointReligionId = new SelectList(db.Religion.Where(s => s.Lang == lang), "ReligionId", "ReligionName", point.PointReligionId);
 
                 // return the json error response
                 return Json(new { pointId = point.PointId, success = success, message = message });

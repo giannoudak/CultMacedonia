@@ -235,7 +235,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KoController.cs" />
     <Compile Include="Controllers\MobilePointsDetailController.cs" />
-    <Compile Include="Controllers\PointController.cs" />
     <Compile Include="Controllers\PointsAdminController.cs" />
     <Compile Include="Controllers\PointsController.cs" />
     <Compile Include="Controllers\UnobtrusiveAjaxController.cs" />

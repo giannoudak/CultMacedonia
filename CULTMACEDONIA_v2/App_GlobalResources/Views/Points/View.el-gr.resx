@@ -138,7 +138,7 @@
   <data name="LaunchGalleryText" xml:space="preserve">
     <value>Προβολή</value>
   </data>
-  <data name="PhotoPanelGalleryText" xml:space="preserve">
+  <data name="PhotoGalleryPanelText" xml:space="preserve">
     <value>Φωτογραφίες</value>
   </data>
   <data name="RatingsPanelText" xml:space="preserve">
