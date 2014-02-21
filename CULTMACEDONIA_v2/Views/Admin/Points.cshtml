@@ -6,62 +6,51 @@
 }
 
 
-<div class="content-header">
-    <h1>
-        <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+
+
+@Html.Partial("_PageHeader");
+
+<div id="wrap">
+
+    <div class="content-header">
+        <h1>
+            <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
             Monuments Management
-    </h1>
+        </h1>
+
+    </div>
+    <!-- Keep all page content within the page-content inset div! -->
+    <div class="page-content inset-top-bottom">
+        <ol class="breadcrumb">
+            <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
+            <li class="active"><i class="icon-file-alt"></i> Monuments</li>
+        </ol>
 
 
-</div>
+        <div class="col-lg-12 cult-well">
 
-<!-- Keep all page content within the page-content inset div! -->
-<div class="page-content inset-top-bottom">
-
-    <ol class="breadcrumb">
-        <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
-        <li class="active"><i class="icon-file-alt"></i> Monuments</li>
-    </ol>
-
-
-
-
-
-    <div class="col-lg-12 cult-well">
-
-
-
-        <h4> Φίλτρα αναζήτησης</h4>
-
+            <h4> Φίλτρα αναζήτησης</h4>
             <table class="table table-bordered table-condensed table-hover">
                 <thead>
                     <tr>
                         <th>Φίλτρο Ονομασίας</th>
-
                         <th>Φίλτρο Διεύθυνσης</th>
-
                         <th>Φίλτρο Χρονολογιας</th>
-
                         <th></th>
                     </tr>
-
 
                 </thead>
                 <tbody>
                     <tr>
                         <td><input type="text" class="form-control input-sm" data-bind="value: SearchTerm" /></td>
-
                         <td><input type="text" class="form-control input-sm" data-bind="value: AddressTerm" /></td>
-
                         <td>
-
                             <form class="form-inline" role="form">
                                 <div class="form-group">
                                     <input type="text" class="form-control input-sm" data-bind="value: year" />
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="exampleInputPassword2">@CultResources.View.When</label>
-
                                     <select name="ddlYearWhen" id="yearWhen" class="form-control input-sm valid" data-bind="value:when">
                                         <option value="">-</option>
                                         <option value="0">@CultResources.View.WhenBefore</option>
@@ -69,17 +58,9 @@
                                     </select>
 
 
-
-
                                 </div>
 
-
                             </form>
-
-
-
-
-
 
 
 
@@ -92,168 +73,222 @@
             </table>
             <input type="hidden" id="hdnActive" value="1" />
             <h4>@CultResources.Admin.EnabledPointsTable <small>@CultResources.Admin.MonumentsFound <span data-bind="text:contacts().length"></span> </small></h4>
+            <div class="table-responsive">
+                <table class="table table-bordered table-condensed table-hover noresults" data-bind="visible: contacts().length == 0">
+                    <thead>
+                        <tr data-bind="click: sortTable">
+                            <th>Ενέργειες</th>
+                            <th>Φωτογραφία</th>
+                            <th data-column="PlaceName">
+                                @CultResources.View.LabelPointName
+                                <span data-bind="attr: { class: currentColumn() == 'PlaceName' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
 
-        <div class="table-responsive">
+                            <th data-column="PlaceNomos">
+                                @CultResources.View.PlaceNomos
+                                <span data-bind="attr: { class: currentColumn() == 'PlaceNomos' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="PlaceAddress">
+                                @CultResources.View.PlaceAddress
+                                <span data-bind="attr: { class: currentColumn() == 'PlaceNomos' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="year">
+                                @CultResources.View.Year
+                                <span data-bind="attr: { class: currentColumn() == 'year' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <!-- luts -->
+                            <th data-column="category">
+                                @CultResources.View.CategoryCaption
+                                <span data-bind="attr: { class: currentColumn() == 'category' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="era">
+                                @CultResources.View.EraCaption
+                                <span data-bind="attr: { class: currentColumn() == 'era' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="ethnological">
+                                @CultResources.View.EthnologicalCaption
+                                <span data-bind="attr: { class: currentColumn() == 'ethnological' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="property">
+                                @CultResources.View.PropertyCaption
+                                <span data-bind="attr: { class: currentColumn() == 'property' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="protection">
+                                @CultResources.View.PropectionCaption
+                                <span data-bind="attr: { class: currentColumn() == 'protection' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="religion">
+                                @CultResources.View.ReligionCaption
+                                <span data-bind="attr: { class: currentColumn() == 'religion' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
 
+                        </tr>
 
-            <table class="table table-bordered table-condensed table-hover">
-                <thead>
-                    <tr data-bind="click: sortTable">
-                        <th>Ενέργειες</th>
-                        <th>Φωτογραφία</th>
-                        <th data-column="PlaceName">
-                            @CultResources.View.LabelPointName
-                            <span data-bind="attr: { class: currentColumn() == 'PlaceName' ? 'isVisible' : 'isHidden' }">
-                                <i data-bind="attr: { class: iconType }"></i>
-                            </span>
-                        </th>
-
-
-                        <th data-column="PlaceNomos">
-                            @CultResources.View.PlaceNomos
-                            <span data-bind="attr: { class: currentColumn() == 'PlaceNomos' ? 'isVisible' : 'isHidden' }">
-                                <i data-bind="attr: { class: iconType }"></i>
-                            </span>
-                        </th>
-
-                        <th data-column="PlaceAddress">
-                            @CultResources.View.PlaceAddress
-                            <span data-bind="attr: { class: currentColumn() == 'PlaceNomos' ? 'isVisible' : 'isHidden' }">
-                                <i data-bind="attr: { class: iconType }"></i>
-                            </span>
-                        </th>
-
-                        <th data-column="year">
-                            @CultResources.View.Year
-                            <span data-bind="attr: { class: currentColumn() == 'year' ? 'isVisible' : 'isHidden' }">
-                                <i data-bind="attr: { class: iconType }"></i>
-                            </span>
-                        </th>
-                        <!-- luts -->
-                        <th data-column="category">
-                            @CultResources.View.CategoryCaption
-                            <span data-bind="attr: { class: currentColumn() == 'category' ? 'isVisible' : 'isHidden' }">
-                                <i data-bind="attr: { class: iconType }"></i>
-                            </span>
-                        </th>
-
-                        <th data-column="era">
-                            @CultResources.View.EraCaption
-                            <span data-bind="attr: { class: currentColumn() == 'era' ? 'isVisible' : 'isHidden' }">
-                                <i data-bind="attr: { class: iconType }"></i>
-                            </span>
-                        </th>
-
-                        <th data-column="ethnological">
-                            @CultResources.View.EthnologicalCaption
-                            <span data-bind="attr: { class: currentColumn() == 'ethnological' ? 'isVisible' : 'isHidden' }">
-                                <i data-bind="attr: { class: iconType }"></i>
-                            </span>
-                        </th>
-
-                        <th data-column="property">
-                            @CultResources.View.PropertyCaption
-                            <span data-bind="attr: { class: currentColumn() == 'property' ? 'isVisible' : 'isHidden' }">
-                                <i data-bind="attr: { class: iconType }"></i>
-                            </span>
-                        </th>
-
-                        <th data-column="protection">
-                            @CultResources.View.PropectionCaption
-                            <span data-bind="attr: { class: currentColumn() == 'protection' ? 'isVisible' : 'isHidden' }">
-                                <i data-bind="attr: { class: iconType }"></i>
-                            </span>
-                        </th>
-
-                        <th data-column="religion">
-                            @CultResources.View.ReligionCaption
-                            <span data-bind="attr: { class: currentColumn() == 'religion' ? 'isVisible' : 'isHidden' }">
-                                <i data-bind="attr: { class: iconType }"></i>
-                            </span>
-                        </th>
-
-
-                    </tr>
-
-
-
-                </thead>
-                <tbody data-bind="foreach: currentPage">
-                    <tr>
-
-                        <td>
-                            <a data-toggle="tooltip" data-placement="right" title="" data-original-title="@CultResources.View.view" class="action-links tlp" data-bind="attr: { 'href': '@Url.Action("View","Points")/' + PointId }"><i class="fa fa-eye"></i>  </a>,
-                            <a data-toggle="tooltip" data-placement="right" title="" data-original-title="@CultResources.View.edit" class="action-links tlp" data-bind="attr: { 'href': '@Url.Action("Edit","Points")/' + PointId }"><i class="fa fa-pencil-square-o"></i> </a>,
-                            <a data-toggle="tooltip" data-placement="right" title="" data-original-title="@CultResources.View.delete" class="action-links tlp" data-bind="attr: { 'href': '@Url.Action("Delete","Points")/' + PointId }"><i class="fa fa-trash-o"></i> </a>
-
-                        </td>
-                        <td>
-                            <img data-bind="attr:{'src':  OneImagePath}" class=" media-object" style="width: 64px; height: 64px;" />
-                        </td>
-
-                        <td data-bind="text: PlaceName"></td>
-                        <td data-bind="text: PlaceNomos"></td>
-
-                        <td data-bind="text: PlaceAddress"></td>
-                        <td data-bind="text: year"></td>
-                        <td data-bind="text: category"></td>
-                        <td data-bind="text: era"></td>
-                        <td data-bind="text: ethnological"></td>
-                        <td data-bind="text: property"></td>
-                        <td data-bind="text: protection"></td>
-                        <td data-bind="text: religion"></td>
-
-
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>
-                            @CultResources.View.pagesize
-                            <select id="pageSizeSelector" data-bind="value: pageSize">
-                                <option value="6">6</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
-                                <option value="40">40</option>
-                                <option value="50">50</option>
-                                <option value="60">60</option>
-                                <option value="70">70</option>
-                                <option value="80">80</option>
-                                <option value="90">90</option>
-                                <option value="100">100</option>
-                            </select>
-                        </td>
-                        <td colspan="6">
-                            <button data-bind="click: previousPage" class="btn"><i class="fa fa-chevron-circle-left"></i></button>
-                            @CultResources.View.Page<label data-bind="text: currentPageIndex() + 1" class="badge"></label>
-                            <button data-bind="click: nextPage" class="btn"><i class="fa fa-chevron-circle-right"></i></button>
+                    </thead>
+                    <tr class="no-results">
+                        <td colspan="12">
+                            <div class="alert alert-warning"><p>@CultResources.Admin.NoResultsTemplate</p></div>
                         </td>
                     </tr>
-                </tfoot>
-            </table>
-        </div>
+                </table>
+
+                <table class="table table-bordered table-condensed table-hover" data-bind="visible: contacts().length > 0">
+                    <thead>
+                        <tr data-bind="click: sortTable">
+                            <th>Ενέργειες</th>
+                            <th>Φωτογραφία</th>
+                            <th data-column="PlaceName">
+                                @CultResources.View.LabelPointName
+                                <span data-bind="attr: { class: currentColumn() == 'PlaceName' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+
+                            <th data-column="PlaceNomos">
+                                @CultResources.View.PlaceNomos
+                                <span data-bind="attr: { class: currentColumn() == 'PlaceNomos' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="PlaceAddress">
+                                @CultResources.View.PlaceAddress
+                                <span data-bind="attr: { class: currentColumn() == 'PlaceNomos' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="year">
+                                @CultResources.View.Year
+                                <span data-bind="attr: { class: currentColumn() == 'year' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <!-- luts -->
+                            <th data-column="category">
+                                @CultResources.View.CategoryCaption
+                                <span data-bind="attr: { class: currentColumn() == 'category' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="era">
+                                @CultResources.View.EraCaption
+                                <span data-bind="attr: { class: currentColumn() == 'era' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="ethnological">
+                                @CultResources.View.EthnologicalCaption
+                                <span data-bind="attr: { class: currentColumn() == 'ethnological' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="property">
+                                @CultResources.View.PropertyCaption
+                                <span data-bind="attr: { class: currentColumn() == 'property' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="protection">
+                                @CultResources.View.PropectionCaption
+                                <span data-bind="attr: { class: currentColumn() == 'protection' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+                            <th data-column="religion">
+                                @CultResources.View.ReligionCaption
+                                <span data-bind="attr: { class: currentColumn() == 'religion' ? 'isVisible' : 'isHidden' }">
+                                    <i data-bind="attr: { class: iconType }"></i>
+                                </span>
+                            </th>
+
+                        </tr>
+
+                    </thead>
+                    <tbody data-bind="foreach: currentPage">
+                        <tr>
+                            <td>
+                                <a data-toggle="tooltip" data-placement="right" title="" data-original-title="@CultResources.View.view" class="action-links tlp" data-bind="attr: { 'href': '@Url.Action("View","Points")/' + PointId }"><i class="fa fa-eye"></i>  </a>,
+                                <a data-toggle="tooltip" data-placement="right" title="" data-original-title="@CultResources.View.edit" class="action-links tlp" data-bind="attr: { 'href': '@Url.Action("Edit","Points")/' + PointId }"><i class="fa fa-pencil-square-o"></i> </a>,
+                                <a data-toggle="tooltip" data-placement="right" title="" data-original-title="@CultResources.View.delete" class="action-links tlp" data-bind="attr: { 'href': '@Url.Action("Delete","Points")/' + PointId }"><i class="fa fa-trash-o"></i> </a>
+                            </td>
+                            <td>
+                                <img data-bind="attr:{'src':  OneImagePath}" class=" media-object" style="width: 64px; height: 64px;" />
+                            </td>
+                            <td data-bind="text: PlaceName"></td>
+                            <td data-bind="text: PlaceNomos"></td>
+                            <td data-bind="text: PlaceAddress"></td>
+                            <td data-bind="text: year"></td>
+                            <td data-bind="text: category"></td>
+                            <td data-bind="text: era"></td>
+                            <td data-bind="text: ethnological"></td>
+                            <td data-bind="text: property"></td>
+                            <td data-bind="text: protection"></td>
+                            <td data-bind="text: religion"></td>
+
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>
+                                @CultResources.View.pagesize
+                                <select id="pageSizeSelector" data-bind="value: pageSize">
+                                    <option value="6">6</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="40">40</option>
+                                    <option value="50">50</option>
+                                    <option value="60">60</option>
+                                    <option value="70">70</option>
+                                    <option value="80">80</option>
+                                    <option value="90">90</option>
+                                    <option value="100">100</option>
+                                </select>
+                            </td>
+                            <td colspan="6">
+                                <button data-bind="click: previousPage" class="btn"><i class="fa fa-chevron-circle-left"></i></button>
+                                @CultResources.View.Page<label data-bind="text: currentPageIndex() + 1" class="badge"></label>
+                                <button data-bind="click: nextPage" class="btn"><i class="fa fa-chevron-circle-right"></i></button>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
             <br />
         </div>
+    </div>
 
 </div>
 
+    @section Scripts{
+        <script src="~/Scripts/knockout-3.0.0.debug.js"></script>
+        <script src="~/Scripts/knockout.mapping-latest.debug.js"></script>
+        <script src="~/Scripts/ko-pointsgrid.js"></script>
+        <script>
+            $(function () {
 
 
+                $('.tlp').tooltip();
 
-
-
-
-@section Scripts{
-    <script src="~/Scripts/knockout-3.0.0.debug.js"></script>
-    <script src="~/Scripts/knockout.mapping-latest.debug.js"></script>
-    <script src="~/Scripts/ko-pointsgrid.js"></script>
-
-    <script>
-        $(function () {
-
-
-            $('.tlp').tooltip();
-
-        });
-    </script>
-}
+            });
+        </script>
+    }

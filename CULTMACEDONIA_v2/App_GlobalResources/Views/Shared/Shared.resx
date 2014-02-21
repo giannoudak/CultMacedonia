@@ -225,4 +225,7 @@
   <data name="SinglePointView" xml:space="preserve">
     <value>Sight Preview</value>
   </data>
+  <data name="GoToTop" xml:space="preserve">
+    <value>Back to top</value>
+  </data>
 </root>

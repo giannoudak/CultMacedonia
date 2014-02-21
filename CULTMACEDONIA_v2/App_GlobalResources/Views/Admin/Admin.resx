@@ -177,4 +177,7 @@
   <data name="UserName" xml:space="preserve">
     <value>User</value>
   </data>
+  <data name="NoResultsTemplate" xml:space="preserve">
+    <value>No results found</value>
+  </data>
 </root>

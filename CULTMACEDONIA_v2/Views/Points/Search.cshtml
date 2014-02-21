@@ -4,111 +4,117 @@
     
 }
 
-<div class="container body-content">
 
-    <div class="row">
+@Html.Partial("_PageHeader")
 
-        <div class="col-lg-12">
-            <h1 class="page-header">Monuments <small>search</small></h1>
-            <ol class="breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Search</li>
-            </ol>
-        </div>
+<div id="wrap">
 
 
-     
+    <div class="container body-content">
 
-        <div class="col-md-4">
-            <div id="sidebar-search" class="panel">
+        <div class="row">
 
-                <div class="panel-body">
-                    <h4><a data-toggle="collapse" data-parent="#sidebar-search" href="#filters">@CultResources.View.SearchCriteria</a></h4>
-                    @using (Html.BeginForm())
+            <div class="col-lg-12">
+                <h1 class="page-header">Monuments <small>search</small></h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Search</li>
+                </ol>
+            </div>
+
+
+
+
+            <div class="col-md-4">
+                <div id="sidebar-search" class="panel">
+
+                    <div class="panel-body">
+                        <h4><a data-toggle="collapse" data-parent="#sidebar-search" href="#filters">@CultResources.View.SearchCriteria</a></h4>
+                        @using (Html.BeginForm())
                     {
 
-                        <div id="filters" class=" panel-collapse collapse in row">
-                            <div class="col-lg-12 input-group input-group-sm ">
-                                <h5>@CultResources.View.LabelPointName</h5>
-                                <input id="title" type="text" class="form-control " placeholder="enter monument name part...">
-                            </div>
-                            <div class="col-lg-12 ">
-                                <div class="row">
-                                    <div class="col-md-5 input-group input-group-sm">
-                                        <h5 class="block">@CultResources.View.Year</h5>
-                                        <input id="year" type="number" class="form-control" placeholder="enter year...">
-                                    </div>
+                    <div id="filters" class=" panel-collapse collapse in row">
+                        <div class="col-lg-12 input-group input-group-sm ">
+                            <h5>@CultResources.View.LabelPointName</h5>
+                            <input id="title" type="text" class="form-control " placeholder="enter monument name part...">
+                        </div>
+                        <div class="col-lg-12 ">
+                            <div class="row">
+                                <div class="col-md-5 input-group input-group-sm">
+                                    <h5 class="block">@CultResources.View.Year</h5>
+                                    <input id="year" type="number" class="form-control" placeholder="enter year...">
+                                </div>
 
-                                    <div class="col-md-6 col-md-offset-1 input-group input-group-sm">
-                                        <h5>@CultResources.View.When</h5>
-                                        @Html.DropDownList("ddlYearWhen", new List<SelectListItem>
+                                <div class="col-md-6 col-md-offset-1 input-group input-group-sm">
+                                    <h5>@CultResources.View.When</h5>
+                                    @Html.DropDownList("ddlYearWhen", new List<SelectListItem>
                                         {
                                             new SelectListItem{ Text=CultResources.View.WhenBefore, Value = "0" },
                                             new SelectListItem{ Text=CultResources.View.WhenBefore, Value = "1" }
                                         }, new { @id = "yearWhen",@class = "form-control" })
-                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
-                                <h5>@CultResources.View.CloseToMe</h5>
-                                <div class="input-group input-group-sm">
-
-                                    <span class="input-group-addon close-chk">
-                                        <input type="checkbox" id="closeToMe">
-                                    </span>
-                                    <input type="text" placeholder="@CultResources.View.Radius" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <h5><button id="Search" type="submit" class="btn btn-primary btn-default">@CultResources.View.Search</button></h5>
-                            </div>
-
                         </div>
+                        <div class="col-lg-12">
+                            <h5>@CultResources.View.CloseToMe</h5>
+                            <div class="input-group input-group-sm">
+
+                                <span class="input-group-addon close-chk">
+                                    <input type="checkbox" id="closeToMe">
+                                </span>
+                                <input type="text" placeholder="@CultResources.View.Radius" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <h5><button id="Search" type="submit" class="btn btn-primary btn-default">@CultResources.View.Search</button></h5>
+                        </div>
+
+                    </div>
                     }
+                    </div>
                 </div>
-            </div>
 
 
-            <div class="panel">
+                <div class="panel">
 
-                <div class="panel-body">
+                    <div class="panel-body">
 
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <h4>@CultResources.View.SearchResults</h4>
-                            
-                        </div>
-                        <div class="col-lg-3">
-                            <div id="divLoading" style="display: none;">
-                                <img alt="Loading" src="@Url.Content("~/Content/images/ajax-loader.gif")" />
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <h4>@CultResources.View.SearchResults</h4>
+
+                            </div>
+                            <div class="col-lg-3">
+                                <div id="divLoading" style="display: none;">
+                                    <img alt="Loading" src="@Url.Content("~/Content/images/ajax-loader.gif")" />
+                                </div>
                             </div>
                         </div>
+                        <div id="searchResults">
+                            <span>@CultResources.View.UseCriteria</span>
+                        </div>
                     </div>
-                    <div id="searchResults">
-                        <span>@CultResources.View.UseCriteria</span>
-                    </div>
+
                 </div>
 
             </div>
-
-        </div>
-        <div class="col-md-8">
-            <div class="panel">
-                <div class="panel-heading row col-lg-12">
-                    <a role="button" href=@Url.Action("New","Points") class="btn btn-success btn-xs pull-right">@CultResources.Shared.AddPoints</a>
-                </div>
-                <div class="panel-body  col-lg-12">
-                    <div id="gmap" style="width:100%; height:700px;"></div>
+            <div class="col-md-8">
+                <div class="panel">
+                    <div class="panel-heading row col-lg-12">
+                        <a role="button" href=@Url.Action("New","Points") class="btn btn-success btn-xs pull-right">@CultResources.Shared.AddPoints</a>
+                    </div>
+                    <div class="panel-body  col-lg-12">
+                        <div id="gmap" style="width:100%; height:700px;"></div>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
+
 </div>
-
-
-
-<script type="text/javascript">
+    <script type="text/javascript">
 
 
     google.maps.Map.prototype.markers = new Array();
@@ -149,7 +155,7 @@
                 if ($(this).hasClass("active")) $(this).removeClass("active");
             });
 
-            
+
 
             elem.addClass('active');
 
@@ -167,8 +173,8 @@
 
             }
 
-            
-            
+
+
 
             // create the coordinates
             var coords = new google.maps.LatLng(lat,long);
@@ -189,10 +195,10 @@
             var pointCategory = elem.data("category");
 
             var infowindow = new google.maps.InfoWindow({
-                content: "<div class='infoDiv'><h2><span class=\"infowin-label\">" + 
+                content: "<div class='infoDiv'><h2><span class=\"infowin-label\">" +
                   '@CultResources.View.LabelPointName' + "</span>: " +pointName + "</h2>" + "<div><h2><span class=\"infowin-label\">" +
                   '@CultResources.View.PlaceAddress' + "</span>: "  + pointAddr + "</h2></div><h2><span class=\"infowin-label\">" +
-                  '@CultResources.View.CategoryCaption' + "</span>: " + pointCategory + "</h2></div>" + 
+                  '@CultResources.View.CategoryCaption' + "</span>: " + pointCategory + "</h2></div>" +
                   "<a role=\"button\" href=\"@Url.Action("view", "points")/" + pointId + "\" class=\"btn btn-success btn-xs pull-right\">@CultResources.View.ViewMonument</a></div>"
             });
 
@@ -205,7 +211,7 @@
 
 
 
-            
+
         });
         // search result item clicks ends
 
@@ -232,7 +238,7 @@
                 datatype: 'json',
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
-                    
+
 
                     $('#searchResults').html(data);
 
@@ -272,15 +278,15 @@
 
                             var pointName = $pnt_itm.find("h5.list-group-item-heading").html();
                             var pointAddr = $pnt_itm.find("p.list-group-item-text").html();
-                            
+
                             var pointCategory = $pnt_itm.data("category");
 
                             \
-                                
+
                             });
 
                             google.maps.event.addListener(marker, 'click', function () {
-                                
+
                                 infowindow.setPosition(coords);
                                 infowindow.open(map);
                             });
@@ -289,10 +295,10 @@
 
                         });
 
-                        
+
                     });*/
 
-                    
+
                 },
                 error: function (request, status, err) {
                     alert(status);
@@ -300,7 +306,7 @@
                 }
     });
 
-    
+
 
             return false;
         });
@@ -345,11 +351,11 @@
             clearMarkers();
             markers = [];
         }
-        
+
     });
 
 
-    
 
-</script>
+
+    </script>
 

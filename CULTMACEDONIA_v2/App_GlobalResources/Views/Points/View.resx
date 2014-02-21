@@ -366,4 +366,10 @@
   <data name="view" xml:space="preserve">
     <value>View </value>
   </data>
+  <data name="SightRegistrationErrorInSubmit" xml:space="preserve">
+    <value>Sight Registration Failed! Close this dialog to correct the the errors and please try again.</value>
+  </data>
+  <data name="SightRegistrationSysErrorInSubmit" xml:space="preserve">
+    <value>Sight Registration Failed! Something went wrong! Please be patient and try again.</value>
+  </data>
 </root>

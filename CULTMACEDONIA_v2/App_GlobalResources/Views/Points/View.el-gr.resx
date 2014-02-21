@@ -366,4 +366,10 @@
   <data name="view" xml:space="preserve">
     <value>Προβολή</value>
   </data>
+  <data name="SightRegistrationErrorInSubmit" xml:space="preserve">
+    <value>Η καταχώρηση του αξιοθέατου απέτυχε! Παρακαλώ κλείστε τον διάλογο για να διορθώσετε τα σφάλματα και δοκιμάστε ξανά.</value>
+  </data>
+  <data name="SightRegistrationSysErrorInSubmit" xml:space="preserve">
+    <value>Η καταχώρηση του αξιοθέατου απέτυχε! Παρακαλώ κλείστε τον διάλογο και δοκιμάστε ξανά.</value>
+  </data>
 </root>

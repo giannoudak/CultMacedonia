@@ -177,4 +177,7 @@
   <data name="UserName" xml:space="preserve">
     <value>Χρήστης</value>
   </data>
+  <data name="NoResultsTemplate" xml:space="preserve">
+    <value>Δεν βρέθηκαν αποτελέσματα</value>
+  </data>
 </root>
