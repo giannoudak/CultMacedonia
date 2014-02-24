@@ -162,6 +162,16 @@
 
                                                     </tr>
                                                     <tr>
+                                                        <td><label>@CultResources.View.labelYearDescription</label></td>
+                                                        <td>
+                                                            <div class="col-xs-6">
+                                                                @Html.TextBoxFor(model => model.PointYearDescription, new { @class = "form-control input-sm", @placeholder = @CultResources.View.labelYearDescription })
+                                                                @Html.ValidationMessageFor(model => model.PointYearDescription)
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr>
                                                         <td><label>@CultResources.View.CategoryCaption</label></td>
                                                         <td>
                                                             <div class="col-xs-12">
@@ -265,153 +275,6 @@
 
 
 
-
-
-
-                    @*<div class="row mypanel">
-
-                        <div class="col-lg-8">
-                            
-
-                            <div class="row">
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.PointDescription, new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-
-                                        @Html.TextAreaFor(model => model.PointDescription, new { @cols = "80", @rows = "4", @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.PointDescription)
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="row">
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.PointYear, new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.TextBoxFor(model => model.PointYear, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.PointYear)
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.PointPlaceNomos, new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.TextBoxFor(model => model.PointPlaceNomos)
-                                        @Html.ValidationMessageFor(model => model.PointPlaceNomos)
-                                    </div>
-                                </div>
-                            </div>
-                           
-
-                        </div>
-
-                    </div>
-                    <div class="row panel panel-default">
-                        <div class="panel-body">
-                            <div class="col-lg-8">
-
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.PointAddress, new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.TextBoxFor(model => model.PointAddress)
-                                        @Html.ValidationMessageFor(model => model.PointAddress)
-                                    </div>
-                                </div>
-
-                                <input type="button" name="search" value="Geocode">
-                                <div id="coords">
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.PointX, new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.TextBoxFor(model => model.PointX, new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => model.PointX)
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.PointY, new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.TextBoxFor(model => model.PointY, new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => model.PointY)
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="gmap" style="width:570px; height:300px;"></div>
-
-                            </div>
-                            <div class="col-lg-4">
-
-                                <div class="row">
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.PointProtectionId, "PointProtectionId", new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.DropDownList("PointProtectionId", String.Empty)
-                                            @Html.ValidationMessageFor(model => model.PointProtectionId)
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.PointCategoryId, "PointCategoryId", new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-
-                                            @Html.DropDownList("PointCategoryId", String.Empty)
-
-
-                                            @Html.ValidationMessageFor(model => model.PointCategoryId)
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.PointEraId, "PointEraId", new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.DropDownList("PointEraId", String.Empty)
-                                            @Html.ValidationMessageFor(model => model.PointEraId)
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.PointPropertyId, "PointPropertyId", new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.DropDownList("PointPropertyId", String.Empty)
-                                            @Html.ValidationMessageFor(model => model.PointPropertyId)
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.PointEthnologicalId, "PointEthnologicalId", new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.DropDownList("PointEthnologicalId", String.Empty)
-                                            @Html.ValidationMessageFor(model => model.PointEthnologicalId)
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group">
-                                        @Html.LabelFor(model => model.PointReligionId, "PointReligionId", new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.DropDownList("PointReligionId", String.Empty)
-                                            @Html.ValidationMessageFor(model => model.PointReligionId)
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>*@
-
-                    
-
-                    
         </div>
             </div>
                

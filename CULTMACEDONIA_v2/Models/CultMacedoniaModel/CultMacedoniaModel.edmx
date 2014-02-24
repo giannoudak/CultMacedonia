@@ -26,6 +26,7 @@
           <Property Name="PointX" Type="decimal" Precision="8" Scale="6" />
           <Property Name="PointY" Type="decimal" Precision="8" Scale="6" />
           <Property Name="PointYear" Type="int" />
+          <Property Name="PointYearDescription" Type="nvarchar(max)" />
           <Property Name="PointPlaceNomos" Type="nvarchar(max)" />
           <Property Name="PointAddress" Type="nvarchar(max)" />
           <Property Name="PointEmail" Type="nvarchar(max)" />
@@ -572,6 +573,7 @@
           <NavigationProperty Name="ProtectionLevel" Relationship="CultMacedoniaDBModel.R_PointProtectionLevel" FromRole="Point" ToRole="ProtectionLevel" />
           <NavigationProperty Name="Religion" Relationship="CultMacedoniaDBModel.R_PointReligion" FromRole="Point" ToRole="Religion" />
           <NavigationProperty Name="PointVideo" Relationship="CultMacedoniaDBModel.R_VideosOfPoint" FromRole="Point" ToRole="PointVideo" />
+          <Property Name="PointYearDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="R_FavoritePoints">
           <End Type="CultMacedoniaDBModel.Point" Role="Point" Multiplicity="1" />
@@ -810,6 +812,7 @@
           <EntitySetMapping Name="Point">
             <EntityTypeMapping TypeName="CultMacedoniaDBModel.Point">
               <MappingFragment StoreEntitySet="Point">
+                <ScalarProperty Name="PointYearDescription" ColumnName="PointYearDescription" />
                 <ScalarProperty Name="PointLocalization" ColumnName="PointLocalization" />
                 <ScalarProperty Name="PointWeb" ColumnName="PointWeb" />
                 <ScalarProperty Name="PointReligionId" ColumnName="PointReligionId" />

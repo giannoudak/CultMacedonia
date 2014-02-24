@@ -27,6 +27,7 @@ namespace CULTMACEDONIA_v2.Models
        // [DisplayFormat(DataFormatString = "{0:0.##}", ApplyFormatInEditMode = true)]
         public string PointY { get; set; }
         public string PointYear { get; set; }
+        public string PointYearDescription { get; set; }
         public string PointPlaceNomos { get; set; }
         public string PointAddress { get; set; }
         public string PointEmail { get; set; }

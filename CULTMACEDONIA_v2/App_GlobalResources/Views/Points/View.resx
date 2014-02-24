@@ -366,4 +366,7 @@
   <data name="view" xml:space="preserve">
     <value>View </value>
   </data>
+  <data name="labelYearDescription" xml:space="preserve">
+    <value>Chronological Info</value>
+  </data>
 </root>

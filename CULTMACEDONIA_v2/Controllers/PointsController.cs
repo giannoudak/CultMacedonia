@@ -180,6 +180,7 @@ namespace CULTMACEDONIA_v2.Controllers
                             PointY = p.PointY,
 
                             PointYear = p.PointYear,
+                            PointYearDescription = p.PointYearDescription,
                             
                             PointAddress = p.PointAddress,
                             isUserFavorite = isUserFavorite
@@ -491,6 +492,7 @@ namespace CULTMACEDONIA_v2.Controllers
                         PointEraId = point.PointEraId,
                         
                         PointYear = Convert.ToInt32 (point.PointYear),
+                        PointYearDescription = point.PointYearDescription,
                         PointPhone = point.PointPhone,
                         PointPlaceNomos = point.PointPlaceNomos,
                         PointAddress = point.PointAddress,

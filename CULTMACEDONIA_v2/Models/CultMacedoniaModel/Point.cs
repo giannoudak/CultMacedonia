@@ -40,6 +40,7 @@ namespace CULTMACEDONIA_v2.Models.CultMacedoniaModel
         public int PointReligionId { get; set; }
         public string PointWeb { get; set; }
         public string PointLocalization { get; set; }
+        public string PointYearDescription { get; set; }
     
         public virtual ICollection<UserFavorites> UserFavorites { get; set; }
         public virtual ICollection<PointImage> PointImage { get; set; }

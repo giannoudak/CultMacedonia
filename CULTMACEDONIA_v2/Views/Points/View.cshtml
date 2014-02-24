@@ -17,13 +17,13 @@
 }
 
 <div class="container offset-top">
-    
+
 
     <div class="row ">
 
-        
 
-        
+
+
 
         <!-- Point main view container-->
         <div class="col-xs-12 col-sm-9 contents">
@@ -51,7 +51,7 @@
                             </div>
                             <div class="media-body mainInfo col-lg-10">
 
-                                
+
 
                                 @if (Request.IsAuthenticated)
                                 {
@@ -68,7 +68,7 @@
 
                                 <div class="address">
                                     <span class="addr"><span class="fa fa-road"></span> @Html.DisplayFor(model => model.PointAddress)</span>,
-                                    <span class="town"><span class="fa fa-home" ></span> @Html.DisplayFor(model => model.PointPlaceNomos)</span>
+                                    <span class="town"><span class="fa fa-home"></span> @Html.DisplayFor(model => model.PointPlaceNomos)</span>
                                     <a class="addrlink" href="http://maps.google.com/maps?daddr=37.98483860692609,23.760989606380463"><span class="fa fa-map-marker"></span></a>
                                 </div>
 
@@ -95,7 +95,18 @@
                                 <div class="col-sm-6">
                                     <div class="row attrrow">
                                         <div class="col-lg-3 attrKey">@CultResources.View.labelYear</div>
-                                        <div class="col-lg-8 attrValue">@Html.DisplayFor(model => model.PointYear)</div>
+                                        <div class="col-lg-8 attrValue">
+                                            @if (Model.PointYear == null)
+                                            {
+                                                @Html.DisplayFor(model => model.PointYearDescription)
+                                            }
+                                            else if (string.IsNullOrEmpty(Model.PointYearDescription))
+                                            {
+                                                @Html.DisplayFor(model => model.PointYear)
+                                            }
+
+
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
