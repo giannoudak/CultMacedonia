@@ -10,6 +10,10 @@
 }
 
 
+@Html.Partial("_PageHeader")
+
+<div id="wrap">
+
 <div class="container offset-top">
 
     <div class="row">
@@ -271,10 +275,10 @@
                     </div>
 
 
-           
 
+                    
 
-
+                    
         </div>
             </div>
                
@@ -283,7 +287,7 @@
     </div>
 </div>
 
-
+</div>
 
 <!-- Modals -->
 <!-- create modal -->
@@ -303,7 +307,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
 <!-- upload modal -->
 <div class="modal fade" id="myUploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -321,8 +324,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-
 @section Scripts {
     
 
@@ -524,8 +525,6 @@
                         images.push(altName);
                     });
 
-                    //alert(px);
-                    //alert(py);
 
                     formData["images"] = images.toString();
                     formData["PointX"] = px;
@@ -586,15 +585,18 @@
 
                         },
                         error: function (result) {
-                            alert(result);
+                                
                             if (result.success === false) {
-                                alert('ΣΥΜΕΙΩΘΗΚΑΝ ΣΦΑΛΜΑΤΑ: ' + result.errors.length);
+                                    $("#myCreateModal .modal-body p.modal-message").addClass("alert alert-danger").html('@CultResources.View.SightRegistrationSysErrorInSubmit');
+                                    $("#myCreateModal").modal('show');
                             }
                         }
 
                     });
                 } else {
-                    alert('Λαθηηηη');
+                        //alert('ΣΥΜΕΙΩΘΗΚΑΝ ΣΦΑΛΜΑΤΑ: ' + result.response);
+                        $("#myCreateModal .modal-body p.modal-message").addClass("alert alert-danger").html('@CultResources.View.SightRegistrationErrorInSubmit');
+                        $("#myCreateModal").modal('show');
                 }
 
 

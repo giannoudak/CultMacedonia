@@ -150,6 +150,7 @@ $(document).ready(function () {
         
         var vm = new viewModel();
         vm.contacts(data);
+        //var l = vm.contacts().length;
         ko.applyBindings(vm);
     });
 });

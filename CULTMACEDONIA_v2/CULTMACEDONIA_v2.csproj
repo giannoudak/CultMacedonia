@@ -571,6 +571,7 @@
     <Content Include="Scripts\ko-pointsgrid.min.js.map">
       <DependentUpon>ko-pointsgrid.js</DependentUpon>
     </Content>
+    <Content Include="Views\Shared\_PageHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

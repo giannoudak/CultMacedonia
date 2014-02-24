@@ -16,24 +16,24 @@
     <link href="~/Content/css/cultmaced.sidebar.css" rel="stylesheet" />
 }
 
-<div class="container offset-top">
+    
+@Html.Partial("_PageHeader")
 
+<div id="wrap">
 
-    <div class="row ">
+        
+    <div class="container offset-top">
 
-
-
-
+        <div class="row ">
+        
 
         <!-- Point main view container-->
         <div class="col-xs-12 col-sm-9 contents">
             <div class="row pointInfoSection">
                 <div class="">
                     <h1 class="page-header">@CultResources.View.Monuments <small>@CultResources.View.ViewMonument</small></h1>
-
                     <ol class="breadcrumb">
                         @CultResources.Shared.YouAreHere
-
                         <li><a href="index.html">@CultResources.View.Home</a></li>
                         <li class="active">@CultResources.View.ViewMonument</li>
                         <p class="pull-right pntRditName">@Model.PointName</p>
@@ -41,7 +41,6 @@
                 </div>
                 <!-- MainInfo -->
                 <div class="panel panel-default pointMainInfo">
-
                     <div class="panel-body pointMainInfoPanel">
                         <div class="media row">
                             <div class="col-lg-2">
@@ -51,45 +50,35 @@
                             </div>
                             <div class="media-body mainInfo col-lg-10">
 
-
-
                                 @if (Request.IsAuthenticated)
                                 {
                                     <div id="panelFavorite" class="row">
                                         @Html.Action("UserFavoritePointPartial", new { @pointId = Model.PointId, @isFavorite = @Model.isUserFavorite })
                                     </div>
                                 }
-
                                 <h4 class="media-heading pointName">@Html.DisplayFor(model => model.PointName)</h4>
-
                                 <div class="categories">
                                     <a class="categorylink" href="@Url.Action("category", "Points" , new { cid=Model.PointCategoryId })">@Html.DisplayFor(model => model.Category.CategoryName)</a>
                                 </div>
-
                                 <div class="address">
                                     <span class="addr"><span class="fa fa-road"></span> @Html.DisplayFor(model => model.PointAddress)</span>,
-                                    <span class="town"><span class="fa fa-home"></span> @Html.DisplayFor(model => model.PointPlaceNomos)</span>
+                                        <span class="town"><span class="fa fa-home"></span> @Html.DisplayFor(model => model.PointPlaceNomos)</span>
                                     <a class="addrlink" href="http://maps.google.com/maps?daddr=37.98483860692609,23.760989606380463"><span class="fa fa-map-marker"></span></a>
                                 </div>
 
-
-
                             </div>
                         </div>
-
                         <div class="details">
                             <span class="phone"><span class="fa fa-phone-square"></span> @Html.DisplayFor(model => model.PointPhone)</span>,
                             <span class="mail"><span class="fa fa-envelope"></span> @Html.DisplayFor(model => model.PointEmail)</span>,
                             <span class="web"><a href='@Html.DisplayFor(model => model.PointWeb)' title="site"><span class="fa fa-globe"></span></a></span>
                         </div>
-
                         <div class="description">
                             <span>@CultResources.View.LabelPointDescription</span>
                             <p>
                                 @Html.DisplayFor(model => model.PointDescription)
                             </p>
                         </div>
-
                         <div class="details contact">
                             <div class="row">
                                 <div class="col-sm-6">
@@ -114,56 +103,45 @@
                                         <div class="col-lg-7 attrKey">@CultResources.View.CategoryCaption</div>
                                         <div class="col-lg-5 attrValue">@Html.DisplayFor(model => model.Category.CategoryName)</div>
                                     </div>
-
                                     <div class="row attrrow">
                                         <div class="col-lg-7 attrKey">@CultResources.View.EraCaption</div>
                                         <div class="col-lg-5 attrValue">@Html.DisplayFor(model => model.Era.EraName)</div>
                                     </div>
-
                                     <div class="row attrrow">
                                         <div class="col-lg-7 attrKey">@CultResources.View.PropectionCaption</div>
                                         <div class="col-lg-5 attrValue">@Html.DisplayFor(model => model.ProtectionLevel.ProtectionName)</div>
-
                                     </div>
-
                                     <div class="row attrrow">
                                         <div class="col-lg-7 attrKey">@CultResources.View.PropertyCaption</div>
                                         <div class="col-lg-5 attrValue">@Html.DisplayFor(model => model.Property.PropertyName)</div>
                                     </div>
-
                                     <div class="row attrrow">
                                         <div class="col-lg-7 attrKey">@CultResources.View.EthnologicalCaption</div>
                                         <div class="col-lg-5 attrValue">@Html.DisplayFor(model => model.Ethnological.EthnologicalName)</div>
                                     </div>
-
                                     <div class="row attrrow">
                                         <div class="col-lg-7 attrKey">@CultResources.View.ReligionCaption</div>
                                         <div class="col-lg-5 attrValue">@Html.DisplayFor(model => model.Religion.ReligionName)</div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <!-- MainInfo Panel ends here -->
                 <!-- PhotoGallery -->
                 <div id="photos" class="panel panel-default pointPhotoGallery">
                     <div class="panel-body pointMainPhotoPanel">
-
                         <div class="pointPhotosPanel">
                             <div class="row images">
                                 <div class="col-md-7">
                                     <!-- Total Photos for Point -->
                                     @{ int pntImageCnt = @Model.PointImage.Count; }
                                     <h4 class="media-heading pointName">@CultResources.View.PhotoGalleryPanelText (@pntImageCnt)</h4>
-
                                 </div>
                                 <div class="col-md-5 pull-right">
                                     <!-- Point Photos Gallery controls -->
                                     <form class="form-inline">
-
                                         <div class="form-group">
                                             <button id="image-gallery-button" type="button" class="btn btn-primary btn-xs">
                                                 <i class="fa fa-picture-o"></i>
@@ -184,9 +162,7 @@
                                 </div>
                             </div>
 
-
                             <div id="links">
-
 
                                 @foreach (CULTMACEDONIA_v2.Models.CultMacedoniaModel.PointImage i in Model.PointImage)
                                 {
@@ -197,7 +173,6 @@
                                     @*</div>*@
                                 }
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -205,20 +180,16 @@
                 <!-- VideoGallery -->
                 <div id="videos" class="panel panel-default pointVideoGallery">
                     <div class="panel-body pointMainVideoPanel">
-
                         <div class="pointVideoPanel">
                             <div class="row videos">
                                 <div class="col-md-7">
                                     <!-- TODO otal Photos for Point -->
                                     @{ int pntVideoCnt = 10; }
                                     <h4 class="media-heading ">Βίντεο (@pntVideoCnt)</h4>
-
                                 </div>
                             </div>
-
                         </div>
                         <div class="row"></div>
-
                     </div>
                 </div>
                 <!-- VideoGallery Panel ends here -->
@@ -226,7 +197,6 @@
                 <div id="comments" class="panel panel-default pointComments">
                     <div class="panel-body pointCommentsPanel">
                         <h4 class="media-heading ">Σχόλια Χρηστών </h4>
-
 
                     </div>
                 </div>
@@ -236,26 +206,19 @@
                     <div class="panel-body pointRatingsPanel">
                         <h4 class="media-heading ">Βαθμολογίες</h4>
 
-
                     </div>
                 </div>
                 <!-- Ratings Panel ends here -->
-
             </div>
         </div>
-
         <!-- Sidebar & Navigation container -->
         <div class="col-xs-6 col-sm-3 " role="navigation">
             <div role="complementary" class="bs-sidebar hidden-print affix">
 
-
-
                 <div class="pointview-navigation">
                     <ul class="nav bs-sidenav">
-
                         <li class="">
                             <a href="#top">@CultResources.View.InfoPanelText</a>
-
                         </li>
                         <li>
                             <a href="#photos">@CultResources.View.PhotoGalleryPanelText</a>
@@ -269,29 +232,19 @@
                         </li>
                         <li>
                             <a href="#comments">@CultResources.View.CommentPanelText</a>
-
                         </li>
                         <li>
                             <a href="#ratings">@CultResources.View.RatingsPanelText</a>
-
                         </li>
-
 
                     </ul>
 
 
-
-
-
                 </div>
                 <div id="map_canvas">
-
                 </div>
 
-
             </div>
-
-
 
             @*Δημιουργία αντικειμένου για την προβολή στο χάρτη*@
             @{
@@ -305,23 +258,14 @@
             }
 
 
-
-
-
         </div>
     </div>
 
-
+</div>
 </div>
 
 
-
-
-
-
-
 @section scripts {
-
 
     <script type="text/javascript">
 
@@ -342,13 +286,9 @@
 
 
     </script>
-
     <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
     <script src="~/Content/scripts/bootstrap-image-gallery.js"></script>
     <script src="~/Content/scripts/demo.js"></script>
 }
-
-
-
 
 
