@@ -375,4 +375,22 @@
   <data name="labelYearDescription" xml:space="preserve">
     <value>Που χρονολογείται</value>
   </data>
+  <data name="ImageInsertedFailure" xml:space="preserve">
+    <value>Η καταχώρηση της εικόνας απέτυχε. Σφάλμα : {0}</value>
+  </data>
+  <data name="ImageInsertedSuccessfull" xml:space="preserve">
+    <value>Η καταχώρηση της εικόνας έγινε επιτυχώς</value>
+  </data>
+  <data name="ImageUploadFailure" xml:space="preserve">
+    <value>Η φόρτωση της εικόνας απέτυχε. Σφάλμα : {0}</value>
+  </data>
+  <data name="ImageUploadSuccessfull" xml:space="preserve">
+    <value>Η εικόνα του αξιοθέατου φορτώθηκε επιτυχώς</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Αποθήκευση Αλλαγών!</value>
+  </data>
+  <data name="SaveMonument" xml:space="preserve">
+    <value>Αποστολή Καταχώρησης!</value>
+  </data>
 </root>

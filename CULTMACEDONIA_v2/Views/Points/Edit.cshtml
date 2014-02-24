@@ -126,7 +126,7 @@
                                         <div class="table-responsive ">
                                             <table class="table table-bordered monument-properties">
                                                 <tr>
-                                                    <td><label>Χρονολογία</label></td>
+                                                    <td><label>@CultResources.View.labelYear</label></td>
                                                     <td>
                                                         <div class="col-xs-6">
                                                             @Html.TextBoxFor(model => model.PointYear, new { @class = "form-control input-sm" })
@@ -135,7 +135,17 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><label>Χρήση αρχικής ή κύριας φάσης</label></td>
+                                                    <td><label>@CultResources.View.labelYearDescription</label></td>
+                                                    <td>
+                                                        <div class="col-xs-6">
+                                                            @Html.TextBoxFor(model => model.PointYearDescription, new { @class = "form-control input-sm", @placeholder = @CultResources.View.labelYearDescription })
+                                                            @Html.ValidationMessageFor(model => model.PointYearDescription)
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td><label>@CultResources.View.CategoryCaption</label></td>
                                                     <td>
                                                         <div class="col-xs-12">
                                                             @Html.DropDownList("PointCategoryId", String.Empty)
@@ -144,7 +154,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><label>Χρονολογικά πλαίσια</label></td>
+                                                    <td><label>@CultResources.View.EraCaption</label></td>
                                                     <td>
                                                         <div class="col-xs-12">
                                                             @Html.DropDownList("PointEraId", String.Empty)
@@ -153,7 +163,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><label>Καθεστώς προστασίας</label></td>
+                                                    <td><label>@CultResources.View.PropectionCaption</label></td>
                                                     <td>
                                                         <div class="col-xs-12">
                                                             @Html.DropDownList("PointProtectionId", String.Empty)
@@ -162,7 +172,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><label>Ιδιοκτησιακό καθεστώς</label></td>
+                                                    <td><label>@CultResources.View.PropertyCaption</label></td>
                                                     <td>
                                                         <div class="col-xs-12">
                                                             @Html.DropDownList("PointPropertyId", String.Empty)
@@ -171,7 +181,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><label>Εθνολογική ταυτότητα</label></td>
+                                                    <td><label>@CultResources.View.EthnologicalCaption</label></td>
                                                     <td>
                                                         <div class="col-xs-12">
                                                             @Html.DropDownList("PointEthnologicalId", String.Empty)
@@ -180,7 +190,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><label>Θρησκευτική ταυτότητα</label></td>
+                                                    <td><label>@CultResources.View.ReligionCaption</label></td>
                                                     <td>
                                                         <div class="col-xs-12">
                                                             @Html.DropDownList("PointReligionId", String.Empty)
@@ -232,7 +242,7 @@
                                 <div class="dz-preview dz-processing dz-image-preview pipa_@i.ImageId" data-for="@i.ImageId">
                                     <div class="dz-details">
                                         <div class="dz-filename">
-                                            <span data-dz-name="">silence.png</span>
+                                            <span data-dz-name=""></span>
                                         </div>
                                         <div data-dz-size="" class="dz-size"><strong>44.2</strong> KB</div>
                                         <img data-dz-thumbnail="" src="@i.ImageFilePath" alt="@i.ImageTitle" width="128" height="128">
@@ -270,7 +280,7 @@
 
         <div class="form-group">
             <div>
-                <input type="submit" value="Αποθήκευση Αλλαγών!" class="btn btn-success" />
+                <input type="submit" value="@CultResources.View.SaveChanges" class="btn btn-success" />
             </div>
         </div>
 
@@ -295,6 +305,24 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+    <!-- upload modal -->
+<div class="modal fade" id="myUploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">@CultResources.View.UploadDialogTitle</h4>
+            </div>
+            <div class="modal-body">
+                <p class="modal-message"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@CultResources.View.DialogClose</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
     @section Scripts {
         @*@Scripts.Render("~/bundles/jqueryval")*@
         <script src="~/Scripts/dropzone.js"></script>
@@ -558,6 +586,25 @@
                         else
                             $("#hdnnewPImgIds").append(',' + newImgId);
 
+                        $("#myUploadModal .modal-body p.modal-message")
+                            .removeClass("alert-danger")
+                            .addClass("alert alert-success")
+                            .html(response.UploadMessage +" " + response.InsertMessage);
+
+                        $("#myUploadModal").modal('show');
+                    
+
+                    } else {
+                        
+
+                        this.removeFile(file)
+
+                        $("#myUploadModal .modal-body p.modal-message")
+                            .addClass("alert alert-danger")
+                            .html(response.UploadMessage +" " + response.InsertMessage);
+                        $("#myUploadModal").modal('show');
+
+
                     }
 
                 },
@@ -571,7 +618,7 @@
 
                 },
                 error: function (file, errorMessage, xhr) {
-                    alert(errorMessage);
+                    //alert(errorMessage);
                 }
 
             });

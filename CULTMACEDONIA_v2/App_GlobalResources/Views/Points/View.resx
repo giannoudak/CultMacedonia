@@ -375,4 +375,22 @@
   <data name="labelYearDescription" xml:space="preserve">
     <value>Chronological Info</value>
   </data>
+  <data name="ImageInsertedFailure" xml:space="preserve">
+    <value>The new sight's photo registration failed. Error : {0}</value>
+  </data>
+  <data name="ImageInsertedSuccessfull" xml:space="preserve">
+    <value>The new sight's photo registered successfully</value>
+  </data>
+  <data name="ImageUploadFailure" xml:space="preserve">
+    <value>Sight Photo Upload failed. Error : {0}</value>
+  </data>
+  <data name="ImageUploadSuccessfull" xml:space="preserve">
+    <value>Sight Photo Upload was successful. </value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Save Changes!</value>
+  </data>
+  <data name="SaveMonument" xml:space="preserve">
+    <value>Save Sight!</value>
+  </data>
 </root>

@@ -270,7 +270,7 @@
 
                     <div class="form-group">
                         <div>
-                            <input type="submit" value="Αποστολή Καταχώρησης!" class="btn btn-success" />
+                            <input type="submit" value="@CultResources.View.SaveMonument" class="btn btn-success" />
                         </div>
                     </div>
 
@@ -380,8 +380,23 @@
                     //alert(response);
                     // show success modal when upload succeeded!
                     if (response.isUploaded) {
-                        $("#myUploadModal .modal-body p.modal-message").addClass("alert alert-success").html(response.message);
+                        $("#myUploadModal .modal-body p.modal-message")
+                             .removeClass("alert-danger")
+                             .addClass("alert alert-success")
+                             .html(response.UploadMessage);
+
                         $("#myUploadModal").modal('show');
+                    } else {
+
+                        this.removeFile(file);
+
+
+                        $("#myUploadModal .modal-body p.modal-message")
+                            .addClass("alert alert-danger")
+                            .html(response.UploadMessage);
+                        $("#myUploadModal").modal('show');
+
+
                     }
                     
                     
@@ -390,8 +405,10 @@
 
 
 
-                removedfile: function (file) {
+                removedfile: function (file, s) {
 
+                    
+                    
                     $.ajax({
                         url: '@Url.Action("DeleteFile", "Points")',
                         type: "GET",
@@ -405,12 +422,13 @@
 
 
                             } else if (result.success == false) {
-                                //alert(result.response);
+                                var _ref;
+                                return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
                             }
 
                         },
                         error: function (request, status, error) {
-                            alert(request.responseText);
+                            
                         }
 
                     });

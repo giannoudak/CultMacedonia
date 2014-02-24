@@ -808,6 +808,7 @@ namespace CULTMACEDONIA_v2.Controllers
                          PointY = p.PointY,
 
                          PointYear = p.PointYear,
+                         PointYearDescription = p.PointYearDescription,
 
                          PointAddress = p.PointAddress,
                          isEnabled = (isActivated == (byte)0)
@@ -915,6 +916,7 @@ namespace CULTMACEDONIA_v2.Controllers
                         dbPoint.PointPlaceNomos = point.PointPlaceNomos;
                         dbPoint.PointWeb = point.PointWeb;
                         dbPoint.PointYear = point.PointYear;
+                        dbPoint.PointYearDescription = point.PointYearDescription;
                         dbPoint.PointEmail = point.PointEmail;
 
                         dbPoint.PointAddress = point.PointAddress;
@@ -1015,20 +1017,24 @@ namespace CULTMACEDONIA_v2.Controllers
                 try
                 {
                     System.IO.File.WriteAllBytes(filePath, this.ReadData(file.InputStream));
-                    message = "OK!";
+                    message = CultResources.View.ImageUploadSuccessfull;
                     isUploaded = true;
                 }
                 catch (Exception e)
                 {
-                    var ss = "saved in folder  " + filePath + e.Message;
-                    message = "failed! " + ss;
+                    var ss = e.Message;
+                    message = string.Format(CultResources.View.ImageUploadFailure, ss);
                     isUploaded = false;
                 }
 
             }
 
 
-            return Json(new { isUploaded = isUploaded, message = message }, "application/json");
+            return Json(new
+            {
+                isUploaded = isUploaded,
+                UploadMessage = message                
+            }, "application/json");
         }
 
         public ActionResult UploadFilesForEdit(IEnumerable<HttpPostedFileBase> files,int pointId)
@@ -1058,13 +1064,13 @@ namespace CULTMACEDONIA_v2.Controllers
                 try
                 {
                     System.IO.File.WriteAllBytes(filePath, this.ReadData(file.InputStream));
-                    UploadMessage = "upload OK!";
+                    UploadMessage = CultResources.View.ImageUploadSuccessfull;
                     isUploaded = true;
                 }
                 catch (Exception e)
                 {
-                    var ss = "saved in folder  " + filePath + e.Message;
-                    UploadMessage = "upload failed! " + ss;
+                    var ss = e.Message;
+                    UploadMessage = string.Format(CultResources.View.ImageUploadFailure, ss);
                     isUploaded = false;
                 }
 
@@ -1097,13 +1103,13 @@ namespace CULTMACEDONIA_v2.Controllers
                     // αν ολα εγιναν σωστά
                     isInserted = true;
                     newPointImageId = pImg.ImageId;
-                    insertMessage = "inserted ok!";
+                    insertMessage = CultResources.View.ImageInsertedSuccessfull;
                 }
                 catch (Exception ex)
                 {
                     isInserted = false;
                     newPointImageId = -1;
-                    insertMessage = "record in pointImage failed: " + ex.Message;
+                    insertMessage = string.Format(CultResources.View.ImageInsertedFailure, ex.Message);
                 }
                 
                 
