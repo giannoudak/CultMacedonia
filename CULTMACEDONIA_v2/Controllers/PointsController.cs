@@ -223,6 +223,7 @@ namespace CULTMACEDONIA_v2.Controllers
                         PointId = p.PointId,
                         PointName = p.PointName,
                         PointAddress = p.PointAddress,
+                        PointShortDescription = p.PointDescription.Substring(0,60),
                         PointX = p.PointX,
                         PointY = p.PointY,
                         PointCategory = p.Category.CategoryName,

@@ -9,6 +9,7 @@ namespace CULTMACEDONIA_v2.Models
     {
         public int PointId { get; set; }
         public string PointName { get; set; }
+        public string PointShortDescription { get; set; }
         public string PointAddress { get; set; }
         public decimal? PointX { get; set; }
         public decimal? PointY { get; set; }
