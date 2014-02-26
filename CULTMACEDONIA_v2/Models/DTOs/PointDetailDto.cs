@@ -12,7 +12,7 @@ namespace CULTMACEDONIA_v2.Models.DTOs
         public string PointName { get; set; }
         public decimal? PointX { get; set; }
         public decimal? PointY { get; set; }
-        public int? PointYear { get; set; }
+        public string PointYear { get; set; }
 
         [DefaultValue("----")]
         public string PointPlaceNomos { get; set; }

@@ -7,42 +7,44 @@
 }
 
 
+@Html.Partial("_PageHeader")
+
+<div id="wrap">
+
+    <div class="container ">
 
 
-<div class="container ">
 
-
-
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signin cult-login-form", role = "form" }))
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signin cult-login-form", role = "form" }))
     {
-        <h2 class="form-signin-heading">@ViewBag.Title</h2>
-        <h4>@CultResources.Shared.UseLocalAccount</h4>
-        
-        @Html.AntiForgeryToken()
+    <h2 class="form-signin-heading">@ViewBag.Title</h2>
+    <h4>@CultResources.Shared.UseLocalAccount</h4>
 
-        @Html.ValidationSummary(true)
-   
-                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = @CultResources.Shared.UserNamePlhdr })
-                @Html.ValidationMessageFor(m => m.UserName)
+    @Html.AntiForgeryToken()
 
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = @CultResources.Shared.PasswordPlhdr })
-                @Html.ValidationMessageFor(m => m.Password)
+    @Html.ValidationSummary(true)
 
-                <label class="checkbox">
-                    @Html.CheckBoxFor(m => m.RememberMe)
-                    @Html.LabelFor(m => m.RememberMe)
-                </label>
+    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = @CultResources.Shared.UserNamePlhdr })
+    @Html.ValidationMessageFor(m => m.UserName)
 
-        <input type="submit" value="@CultResources.Shared.AppLogin" class="btn btn-lg btn-primary btn-block" />
-        <br/>
-        <p>@Html.ActionLink("Register", "Register") if you don't have a local account.</p>
-        
+    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = @CultResources.Shared.PasswordPlhdr })
+    @Html.ValidationMessageFor(m => m.Password)
+
+    <label class="checkbox">
+        @Html.CheckBoxFor(m => m.RememberMe)
+        @Html.LabelFor(m => m.RememberMe)
+    </label>
+
+    <input type="submit" value="@CultResources.Shared.AppLogin" class="btn btn-lg btn-primary btn-block" />
+    <br />
+    <p>@Html.ActionLink("Register", "Register") if you don't have a local account.</p>
+
     }
 
-    <section class="form-signin" id ="socialLoginForm">
-        @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
-    </section>
+        <section class="form-signin" id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+        </section>
 
     </div>
 
-    
+</div>

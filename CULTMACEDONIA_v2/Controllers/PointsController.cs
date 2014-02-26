@@ -684,12 +684,12 @@ namespace CULTMACEDONIA_v2.Controllers
                 PointDescription = PointText,
 
                 // default τιμη το 1 sta lut
-                PointCategoryId = 3,
-                PointEthnologicalId = 3,
-                PointPropertyId = 3,
-                PointProtectionId = 3,
-                PointReligionId = 3,
-                PointEraId = 3,
+                PointCategoryId = 76,
+                PointEthnologicalId = 12,
+                PointPropertyId = 5,
+                PointProtectionId = 5,
+                PointReligionId = 9,
+                PointEraId = 39,
 
                 PointLocalization = lang,
                 PointX = p_x,

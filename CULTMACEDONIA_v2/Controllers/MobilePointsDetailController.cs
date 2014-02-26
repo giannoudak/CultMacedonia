@@ -40,7 +40,7 @@ namespace CULTMACEDONIA_v2.Controllers
                         PointX = p.PointX,
                         PointY = p.PointY,
                         
-                        PointYear = (p.PointYear == null) ? 0 : p.PointYear,
+                        PointYear = p.PointYearDescription,
                         
                         PointPlaceNomos = (p.PointPlaceNomos == null) ? "-" : p.PointPlaceNomos,
                         PointDescription = p.PointDescription,
@@ -85,7 +85,7 @@ namespace CULTMACEDONIA_v2.Controllers
                                         PointX = p.PointX,
                                         PointY = p.PointY,
 
-                                        PointYear = (p.PointYear == null) ? 0 : p.PointYear,
+                                        PointYear = p.PointYearDescription,
 
                                         PointPlaceNomos = (p.PointPlaceNomos == null) ? "-" : p.PointPlaceNomos,
                                         PointDescription = p.PointDescription,
