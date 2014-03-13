@@ -17,13 +17,9 @@ namespace CULTMACEDONIA_v2.Controllers
     public class PointsController : Controller
     {
 
-
         private static string DATA_ASSETS = "myData";
         private static string DATA_ASSETS_IMG = "img";
         private static string DATA_ASSETS_VDS = "video";
-
-
-
 
         /// <summary>
         /// Τhe DataBase context
@@ -145,7 +141,7 @@ namespace CULTMACEDONIA_v2.Controllers
             }
 
 
-            point = (from p in db.Point.Include("PointImage")
+            point = (from p in db.Point.Include("PointImage").Include("PointVideo")
                         where p.PointId == id
                         select new PointFullViewModel
                         {
@@ -156,6 +152,7 @@ namespace CULTMACEDONIA_v2.Controllers
                             PointPlaceNomos = p.PointPlaceNomos,
                             PointWeb = p.PointWeb,
                             PointImage = p.PointImage,
+                            PointVideo = p.PointVideo,
                             PointDescription = p.PointDescription,
 
                             PointCategoryId = p.PointCategoryId,
@@ -749,6 +746,7 @@ namespace CULTMACEDONIA_v2.Controllers
         #region Επεξεργασία GET-POST
 
         // GET: /Points/Edit/5
+        [Authorize()]
         public ActionResult Edit(int? id)
         {
             byte isActivated = (byte)0;
@@ -810,6 +808,7 @@ namespace CULTMACEDONIA_v2.Controllers
 
                          PointYear = p.PointYear,
                          PointYearDescription = p.PointYearDescription,
+                         PointLocalization = p.PointLocalization,
 
                          PointAddress = p.PointAddress,
                          isEnabled = (isActivated == (byte)0)
@@ -823,7 +822,7 @@ namespace CULTMACEDONIA_v2.Controllers
             }
 
 
-            string lang = point.Category.Lang;
+            string lang = point.PointLocalization;
 
             ViewBag.PointCategoryId = new SelectList(db.Category.Where(s => s.Lang == lang), "CategoryId", "CategoryName", point.PointCategoryId);
             ViewBag.PointEraId = new SelectList(db.Era.Where(s => s.Lang == lang), "EraId", "EraName", point.PointEraId);
@@ -1195,8 +1194,18 @@ namespace CULTMACEDONIA_v2.Controllers
 
             List<Point> points = new List<Point>();
 
+            string lang = string.Empty;
+            // Διαβάζουμε το Culture του session ώστε να ξέρουμε σε ποια γλώσσα θα
+            // κάνουμε save το νέο Point
+            CultureInfo cultinfo = (Session["Culture"] as CultureInfo);
+            if (cultinfo != null)
+                lang = cultinfo.Name.Split(new Char[] { '-' })[0];
+
             var q = from p in db.Point
+                    join pou in db.PointOfUser on p.PointId equals pou.PointId
+                    where pou.isActivated == 1 && p.PointLocalization == lang
                     select p;
+
 
             // @@@@@@@@@ Apply search criteria @@@@@@@@@
 
@@ -1205,8 +1214,6 @@ namespace CULTMACEDONIA_v2.Controllers
                 q = q.Where(y => y.PointName.Contains(criteria.title));
 
 
-
-            
 
             // 2] By Year
             // 0-before, 1-after

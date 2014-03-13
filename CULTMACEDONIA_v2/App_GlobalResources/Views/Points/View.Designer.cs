@@ -484,6 +484,15 @@ namespace CultResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There isn&apos;t any posted video for sight {0}.
+        /// </summary>
+        public static string NoVideoAvailable {
+            get {
+                return ResourceManager.GetString("NoVideoAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to of.
         /// </summary>
         public static string of {

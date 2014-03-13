@@ -393,4 +393,7 @@
   <data name="SaveMonument" xml:space="preserve">
     <value>Save Sight!</value>
   </data>
+  <data name="NoVideoAvailable" xml:space="preserve">
+    <value>There isn't any posted video for sight {0}</value>
+  </data>
 </root>

@@ -342,6 +342,7 @@
     <Content Include="Content\font-awesome\font-awesome.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\loading.GIF" />
     <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\banner-bg.jpg" />
     <Content Include="Content\images\bg.png" />
@@ -349,7 +350,6 @@
     <Content Include="Content\images\cultmaced_mobapp_3.png" />
     <Content Include="Content\images\default_user_img.png" />
     <Content Include="Content\images\gplus.png" />
-    <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\noise.png" />
     <Content Include="Content\images\cultmaced_mobapp_1.png" />
     <Content Include="Content\scripts\ace-elements.min.js" />

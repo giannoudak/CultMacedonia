@@ -393,4 +393,7 @@
   <data name="SaveMonument" xml:space="preserve">
     <value>Αποστολή Καταχώρησης!</value>
   </data>
+  <data name="NoVideoAvailable" xml:space="preserve">
+    <value>Δεν υπάρχει κάποιο βίντεο καταχωρημένο για το αξιοθέατο {0}</value>
+  </data>
 </root>
