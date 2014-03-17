@@ -208,16 +208,16 @@
 
                             </div>
                             <div class="row">
-                                @if (video == null)
+                                @if (video.VideoFilePath == null)
                                 {
-                                    <p>@CultResources.View.NoVideoAvailable</p>
+                                    <p class="col-xs-12"> @string.Format(@CultResources.View.NoVideoAvailable,video.Point.PointName)</p>
                                 }
                                 else
                                 {
-                                    @*<video poster="" style="height:360px;" controls="" id="pointvideo">
+                                    <video  controls="" id="pointvideo" class="col-xs-12">
                                         <source type="video/mp4" src="@video.VideoFilePath">
 
-                                    </video>*@
+                                    </video>
                                 }
                             </div>
                         </div>

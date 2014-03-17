@@ -118,6 +118,7 @@ namespace CULTMACEDONIA_v2.Controllers
         //
         // GET: /Points/View/5
         public ActionResult View(int? id)
+        
         {
             bool isUserFavorite = false;
             PointFullViewModel point = null;
