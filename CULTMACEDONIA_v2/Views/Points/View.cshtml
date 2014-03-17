@@ -208,9 +208,9 @@
 
                             </div>
                             <div class="row">
-                                @if (video.VideoFilePath == null)
+                                @if ( video == null || video.VideoFilePath == null)
                                 {
-                                    <p class="col-xs-12"> @string.Format(@CultResources.View.NoVideoAvailable,video.Point.PointName)</p>
+                                    <p class="col-xs-12"> @string.Format(@CultResources.View.NoVideoAvailable,Model.PointName)</p>
                                 }
                                 else
                                 {
