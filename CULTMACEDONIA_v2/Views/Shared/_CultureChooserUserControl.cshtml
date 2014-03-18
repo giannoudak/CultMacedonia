@@ -1,3 +1,59 @@
 ﻿
-@Html.ActionLink("Ελληνικά", "ChangeCulture", "Home", new { lang = "el-gr", returnUrl = @Url.Action("Index","Home") }, null)
-@Html.ActionLink("English", "ChangeCulture", "Home", new { lang = "en-gb", returnUrl = @Url.Action("Index", "Home") }, null)
+<ul class="nav navbar-nav">
+    <li class="langslist">
+        <a class="dropdown-toggle" name="recordinput" data-toggle="dropdown" href="#">
+
+            <span class="caret"></span>
+        </a>
+
+        <ul class="dropdown-menu">
+            <li>
+
+                <label class="code-label lang-label" for="gr">
+                    <img alt="Greece" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="flag flag-gr">
+                    @Html.ActionLink("Ελληνικά", "ChangeCulture",
+                                     "Home", new { lang = "el-gr", returnUrl = @Url.Action("Index", "Home") }, new { @class = "el el-GR langlink" })
+
+                </label>
+
+            </li>
+            <li>
+                <label class="code-label lang-label" for="gb">
+                    <img alt="United kingdom" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw ==" class="flag flag-gb">
+                    @Html.ActionLink(" English", "ChangeCulture",
+                             "Home", new { lang = "en-gb", returnUrl = @Url.Action("Index", "Home") }, new { @class = "eb en-GB langlink" })
+                </label>
+            </li>
+        </ul>
+
+    </li>
+</ul>
+
+
+
+
+
+
+<script type="text/javascript">
+
+    var currLang = '@Session["Culture"]';
+
+
+    // find language li a with the session class name
+    var theLink = $(".dropdown-menu li a." + currLang + "");
+
+    var selText = theLink.text();
+    var selImg = theLink.parents('.code-label').find('img');
+
+    var selImgSrc = selImg.attr("src");
+    var selImgAlt = selImg.attr("alt");
+    var selImgCss = selImg.attr("class");
+
+
+    var imgflag = '<img src="' + selImgSrc + '" alt=' + selImgAlt + ' class="' + selImgCss + '" >';
+
+    $(".dropdown-menu li a").parents('.langslist').find('.dropdown-toggle').html(imgflag + selText + ' <span class="caret"></span>');
+
+
+</script>
+

@@ -825,12 +825,12 @@ namespace CULTMACEDONIA_v2.Controllers
 
             string lang = point.PointLocalization;
 
-            ViewBag.PointCategoryId = new SelectList(db.Category.Where(s => s.Lang == lang), "CategoryId", "CategoryName", point.PointCategoryId);
-            ViewBag.PointEraId = new SelectList(db.Era.Where(s => s.Lang == lang), "EraId", "EraName", point.PointEraId);
-            ViewBag.PointEthnologicalId = new SelectList(db.Ethnological.Where(s => s.Lang == lang), "EthnologicalId", "EthnologicalName", point.PointEthnologicalId);
-            ViewBag.PointPropertyId = new SelectList(db.Property.Where(s => s.Lang == lang), "PropertyId", "PropertyName", point.PointPropertyId);
-            ViewBag.PointProtectionId = new SelectList(db.ProtectionLevel.Where(s => s.Lang == lang), "ProtectionId", "ProtectionName", point.PointProtectionId);
-            ViewBag.PointReligionId = new SelectList(db.Religion.Where(s => s.Lang == lang), "ReligionId", "ReligionName", point.PointReligionId);
+            ViewBag.PointCategoryId = new SelectList(db.Category.Where(s => (s.Lang == lang || s.Lang == null)), "CategoryId", "CategoryName", point.PointCategoryId);
+            ViewBag.PointEraId = new SelectList(db.Era.Where(s => (s.Lang == lang || s.Lang == null)), "EraId", "EraName", point.PointEraId);
+            ViewBag.PointEthnologicalId = new SelectList(db.Ethnological.Where(s => (s.Lang == lang || s.Lang == null)), "EthnologicalId", "EthnologicalName", point.PointEthnologicalId);
+            ViewBag.PointPropertyId = new SelectList(db.Property.Where(s =>(s.Lang == lang || s.Lang == null)), "PropertyId", "PropertyName", point.PointPropertyId);
+            ViewBag.PointProtectionId = new SelectList(db.ProtectionLevel.Where(s => (s.Lang == lang || s.Lang == null)), "ProtectionId", "ProtectionName", point.PointProtectionId);
+            ViewBag.PointReligionId = new SelectList(db.Religion.Where(s => (s.Lang == lang || s.Lang == null)), "ReligionId", "ReligionName", point.PointReligionId);
 
             return View(point);
         }

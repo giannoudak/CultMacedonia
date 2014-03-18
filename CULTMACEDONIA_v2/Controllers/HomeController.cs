@@ -63,6 +63,7 @@ namespace CULTMACEDONIA_v2.Controllers
         public ActionResult ChangeCulture(string lang, string returnUrl)
         {
             Session["Culture"] = new CultureInfo(lang);
+            ViewBag.CurrentCulture = lang;
             return Redirect(returnUrl);
         }
 

@@ -11,18 +11,16 @@
                 <span class="one">@CultResources.Shared.AppName</span>
                 <span class="two">@CultResources.Shared.AppSurname</span>
             </a>
-            @*Φορτώνουμε τo partial view που δημιουργήσαμε για την επιλογή γλώσσας*@
+
+
+            
 
             @{
                 string controller = @HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
                 string action = @HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
             }
 
-            @if (controller.Equals("Home") && action.Equals("Index"))
-            {
-
-                @Html.Partial("_CultureChooserUserControl")
-            }
+           
 
         </div>
         <!-- make navigation links togglable -->
@@ -38,7 +36,18 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             }
-            @Html.Partial("_LoginPartial")
+
+            <div class="pull-right">
+
+                @*Φορτώνουμε τo partial view που δημιουργήσαμε για την επιλογή γλώσσας*@
+                @if (controller.Equals("Home") && action.Equals("Index"))
+                {
+
+                    @Html.Partial("_CultureChooserUserControl")
+                }
+
+                @Html.Partial("_LoginPartial")
+            </div>
         </div>
         <!-- /.navbar-collapse -->
     </div>
