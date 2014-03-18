@@ -21,7 +21,7 @@
                 <label class="code-label lang-label" for="gb">
                     <img alt="United kingdom" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw ==" class="flag flag-gb">
                     @Html.ActionLink(" English", "ChangeCulture",
-                             "Home", new { lang = "en-gb", returnUrl = @Url.Action("Index", "Home") }, new { @class = "eb en-GB langlink" })
+                             "Home", new { lang = "en-gb", returnUrl = @Url.Action("Index", "Home") }, new { @class = "en en-GB langlink" })
                 </label>
             </li>
         </ul>
@@ -38,10 +38,10 @@
 
     var currLang = '@Session["Culture"]';
 
-
+   
     // find language li a with the session class name
     var theLink = $(".dropdown-menu li a." + currLang + "");
-
+    alert
     var selText = theLink.text();
     var selImg = theLink.parents('.code-label').find('img');
 
