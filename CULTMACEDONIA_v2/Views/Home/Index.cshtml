@@ -49,23 +49,28 @@
             <div id="points" class="row">
                 <h3 class="page-header">@CultResources.View.Monuments <small></small></h3>
 
-                <div data-bind="foreach: Items">
+                <div class="row" data-bind="foreach: Items">
 
-                    <div class="col-lg-3">
 
-                        <div class="thumbnail">
-                            <div data-bind="foreach: pointImages" class="thumbnail">
-                                <img data-bind="attr:{'src':  ImagePath}" class="item-preview" />
+                    <a class="" data-bind="attr: { 'href': '@Url.Action("View","Points")/' + PointId }">
+                        
+                        <div class="col-lg-3">
+
+                            <div class="thumbnail">
+                                <div data-bind="foreach: pointImages" class="thumbnail">
+                                    <img data-bind="attr:{'src':  ImagePath}" class="item-preview" />
+                                </div>
+                                <div class="caption">
+                                    <h3 class="item-name" data-bind="text: PointName"></h3>
+                                    <p data-bind="text: PointShortDescription +'...'"></p>
+                                    <p>
+
+                                </div>
                             </div>
-                            <div class="caption">
-                                <h3 class="item-name" data-bind="text: PointName"></h3>
-                                <p data-bind="text: PointShortDescription +'...'"></p>
-                                <p><a class="btn btn-primary" data-bind="attr: { 'href': '@Url.Action("View","Points")/' + PointId }">@CultResources.View.ViewMonument!</a></p>
-                            </div>
+
+
                         </div>
-
-
-                    </div>
+                    </a>
 
 
                 </div>
