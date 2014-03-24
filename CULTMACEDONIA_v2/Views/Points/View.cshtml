@@ -85,11 +85,11 @@
                                         <div class="row attrrow">
                                             <div class="col-lg-3 attrKey">@CultResources.View.labelYear</div>
                                             <div class="col-lg-8 attrValue">
-                                                @if (Model.PointYear == null)
+                                                @if (Model.PointYear != null)
                                                 {
                                                     @Html.DisplayFor(model => model.PointYearDescription)
                                                 }
-                                                else if (string.IsNullOrEmpty(Model.PointYearDescription))
+                                                else if (!string.IsNullOrEmpty(Model.PointYearDescription))
                                                 {
                                                     @Html.DisplayFor(model => model.PointYear)
                                                 }
