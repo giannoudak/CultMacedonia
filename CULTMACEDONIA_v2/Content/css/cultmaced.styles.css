@@ -349,7 +349,7 @@ a.item-link:hover .panel {
 
 img.item-preview{
     width:253px!important;
-    height:159px!important;
+    height:189px!important;
 }
 
 #restContent.cm-fluid-container div.container div.jumbotron
@@ -567,4 +567,26 @@ div#mobile.row div.col-lg-6 div#carousel-example-captions.carousel ol.carousel-i
 .langlink:hover{
     text-decoration:none;
                 color:#428BCA!important;
+}
+
+.attrrow{
+    margin:5px 0;
+    }
+
+.attrKey{
+    color: #707070;
+    display: inline-block;
+    line-height:20px;
+    margin-bottom:4px;
+    font-weight:700;
+    font-size:14px;
+
+}
+
+.attrValue{
+    color: #707070;
+    display: inline-block;
+    line-height:20px;
+    font-weight:400;
+    font-size:14px;
 }

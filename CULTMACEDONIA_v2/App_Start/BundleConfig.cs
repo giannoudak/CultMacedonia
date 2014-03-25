@@ -8,33 +8,37 @@ namespace CULTMACEDONIA_v2
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+            bundles.Add(new ScriptBundle("~/cultmaced/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+            bundles.Add(new ScriptBundle("~/cultmaced/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            bundles.Add(new ScriptBundle("~/cultmaced/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+            bundles.Add(new ScriptBundle("~/cultmaced/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+            bundles.Add(new ScriptBundle("~/cultmaced/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/bundles/css").Include(
+            bundles.Add(new StyleBundle("~/cultmaced/css").Include(
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/cultmaced.styles.css",
                       "~/Content/css/image-drop.css",
                       "~/Content/css/flags.css"));
 
-            bundles.Add(new StyleBundle("~/bundles/dropingfiles").Include(
+            bundles.Add(new StyleBundle("~/cultmaced/dropingfiles").Include(
                       "~/Content/css/image-dropzone.css"));
+
+            bundles.Add(new StyleBundle("~/cultmaced/showcase").Include(
+                      "~/Content/css/hoverlist/style_common.css",
+                      "~/Content/css/hoverlist/style5.css" ));
 
 
 

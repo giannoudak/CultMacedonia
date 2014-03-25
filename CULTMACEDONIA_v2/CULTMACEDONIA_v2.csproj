@@ -337,12 +337,15 @@
     <Content Include="Content\css\demo.css" />
     <Content Include="Content\css\demo_table.css" />
     <Content Include="Content\css\flags.css" />
+    <Content Include="Content\css\hoverlist\style5.css" />
+    <Content Include="Content\css\hoverlist\style_common.css" />
     <Content Include="Content\css\image-dropzone.css" />
     <Content Include="Content\css\landing-page.css" />
     <Content Include="Content\css\simple-sidebar.css" />
     <Content Include="Content\font-awesome\font-awesome.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\bgimg.jpg" />
     <Content Include="Content\images\blank.gif" />
     <Content Include="Content\images\flags.png" />
     <Content Include="Content\images\loading.GIF" />
@@ -355,6 +358,7 @@
     <Content Include="Content\images\gplus.png" />
     <Content Include="Content\images\noise.png" />
     <Content Include="Content\images\cultmaced_mobapp_1.png" />
+    <Content Include="Content\images\white_texture.jpg" />
     <Content Include="Content\scripts\ace-elements.min.js" />
     <Content Include="Content\scripts\ace-extra.min.js" />
     <Content Include="Content\scripts\ace.min.js" />

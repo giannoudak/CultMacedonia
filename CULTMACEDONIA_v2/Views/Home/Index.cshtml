@@ -3,6 +3,11 @@
 }
 @using CULTMACEDONIA_v2.Helpers;
 
+@section styles{
+    @Styles.Render("~/cultmaced/showcase")
+}
+
+
 
 @Html.Partial("_PageHeader")
 
@@ -49,32 +54,25 @@
             <div id="points" class="row">
                 <h3 class="page-header">@CultResources.View.Monuments <small></small></h3>
 
-                <div class="row" data-bind="foreach: Items">
+                <div class="container" data-bind="foreach: Items">
 
 
-                    <a class="" data-bind="attr: { 'href': '@Url.Action("View","Points")/' + PointId }">
-                        
-                        <div class="col-lg-3">
+                     
+                        <div class="col-lg-3 view view-fifth">
 
-                            <div class="thumbnail">
-                                <div data-bind="foreach: pointImages" class="thumbnail">
-                                    <img data-bind="attr:{'src':  ImagePath}" class="item-preview" />
-                                </div>
-                                <div class="caption">
-                                    <h3 class="item-name" data-bind="text: PointName"></h3>
-                                    <p data-bind="text: PointShortDescription +'...'"></p>
-                                    <p>
-
-                                </div>
+                            <div data-bind="foreach: pointImages" class="">
+                                <img data-bind="attr:{'src':  ImagePath}" class="item-preview" />
                             </div>
-
-
+                            <div class="mask">
+                                <h2 data-bind="text: PointName"></h2>
+                                <p data-bind="text: PointShortDescription +'...'"></p>
+                               
+                                <a class="info" data-bind="attr: { 'href': '@Url.Action("View","Points")/' + PointId }">@CultResources.View.ViewMonument</a>
+                            </div>
                         </div>
-                    </a>
 
 
                 </div>
-
                 <div class="row">
                     <div class="col-md-6">
                         @CultResources.View.Page <span data-bind="text: MetaData.PageNumber"></span> @CultResources.View.of <span data-bind="text: MetaData.PageCount"></span>
@@ -89,8 +87,10 @@
                         </ul>
                     </div>
                 </div>
+
             </div>
 
+            
         </div>
         <!-- /.container -->
     </div>
@@ -235,7 +235,7 @@
                         // Ajax remove preloader and some other callbacks
                         //$('#loading').hide();
                     },
-                    pageSize: 4,
+                    pageSize: 8,
                     beforeSend: function () {
                         // Ajax show preloader and some other function before start
                         //$('#loading').show();
