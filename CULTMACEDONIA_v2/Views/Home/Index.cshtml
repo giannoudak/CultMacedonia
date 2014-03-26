@@ -60,8 +60,18 @@
                      
                         <div class="col-lg-3 view view-fifth">
 
-                            <div data-bind="foreach: pointImages" class="">
-                                <img data-bind="attr:{'src':  ImagePath}" class="item-preview" />
+
+                            <div data-bind="visible: pointImages.length > 0">
+
+                                <div data-bind="foreach: pointImages" class="">
+                                    <img data-bind="attr:{'src':  ImagePath}" class="item-preview" />
+                                </div>
+                            </div>
+                            <div data-bind="visible: pointImages.length == 0">
+
+                                
+                                    <img alt="" src="http://www.cult-macedonia.com/myData/img/default.png" class="item-preview" />
+                                
                             </div>
                             <div class="mask">
                                 <h2 data-bind="text: PointName"></h2>

@@ -72,7 +72,7 @@
                             <div class="details row">
                                 <div class="phone col-lg-4"><span class="fa fa-phone-square"></span> @Html.DisplayFor(model => model.PointPhone)</div>
                                 <div class="mail col-lg-4"><span class="fa fa-envelope"></span> @Html.DisplayFor(model => model.PointEmail)</div>
-                                <div class="web col-lg-4"><a href='@Html.DisplayFor(model => model.PointWeb)' title="@Model.PointWeb"><span class="fa fa-globe"></span> {@string.IsNullOrEmpty(Model.PointWeb) ? <span>dass</span> : <span>11111</span>} </a></div>
+                                <div class="web col-lg-4"><span class="fa fa-globe"></span>  <a href='@Html.DisplayFor(model => model.PointWeb)' title="@Model.PointWeb">φσδφ @Model.PointWeb</a></div>
                             </div>
                             <div class="description">
                                 <span class="attrKey">@CultResources.View.LabelPointDescription</span>
@@ -80,6 +80,8 @@
                                     @Html.DisplayFor(model => model.PointDescription)
                                 </p>
                             </div>
+
+                            
                             <div class="details contact">
                                 <div class="row">
                                     <div class="col-sm-6">
