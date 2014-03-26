@@ -16,6 +16,14 @@
     <link href="~/Content/css/cultmaced.sidebar.css" rel="stylesheet" />
 }
 
+@{
+    string url = string.IsNullOrEmpty(@Model.PointWeb) ? "-" : @Model.PointWeb;
+    string urllink = string.IsNullOrEmpty(@Model.PointWeb) ? "#" : @Model.PointWeb;
+    
+    string mail = string.IsNullOrEmpty(@Model.PointEmail) ? "-" : @Model.PointEmail;
+    string phone = string.IsNullOrEmpty(@Model.PointPhone) ? "-" : @Model.PointPhone;
+    
+}
 
 @Html.Partial("_PageHeader")
 
@@ -36,7 +44,7 @@
                             @CultResources.Shared.YouAreHere
                             <li><a href=@Url.Action("Index","Home") title="@CultResources.Shared.AppName @CultResources.Shared.AppSurname">@CultResources.View.Home</a></li>
                             <li class="active">@CultResources.View.ViewMonument</li>
-                            <p class="pull-right pntRditName">@Model.PointName</p>
+                            <p class="pull-right "> @Model.PointName</p>
                         </ol>
                     </div>
                     <!-- MainInfo -->
@@ -70,9 +78,9 @@
                                 </div>
                             </div>
                             <div class="details row">
-                                <div class="phone col-lg-4"><span class="fa fa-phone-square"></span> @Html.DisplayFor(model => model.PointPhone)</div>
-                                <div class="mail col-lg-4"><span class="fa fa-envelope"></span> @Html.DisplayFor(model => model.PointEmail)</div>
-                                <div class="web col-lg-4"><span class="fa fa-globe"></span>  <a href='@Html.DisplayFor(model => model.PointWeb)' title="@Model.PointWeb">φσδφ @Model.PointWeb</a></div>
+                                <div class="phone col-lg-4"><span class="fa fa-phone-square"></span> @phone</div>
+                                <div class="mail col-lg-4"><span class="fa fa-envelope"></span> @mail</div>
+                                <div class="web col-lg-4"><span class="fa fa-globe"></span>  <a href='@urllink' title="@Model.PointWeb">@url</a></div>
                             </div>
                             <div class="description">
                                 <span class="attrKey">@CultResources.View.LabelPointDescription</span>
