@@ -44,7 +44,8 @@
                             @CultResources.Shared.YouAreHere
                             <li><a href=@Url.Action("Index","Home") title="@CultResources.Shared.AppName @CultResources.Shared.AppSurname">@CultResources.View.Home</a></li>
                             <li class="active">@CultResources.View.ViewMonument</li>
-                            <p class="pull-right "> @Model.PointName</p>
+                            <span class="pull-right"> @Model.PointName</span>
+                            @*<p class="pull-right"> @Model.PointName</p>*@
                         </ol>
                     </div>
                     <!-- MainInfo -->
@@ -54,7 +55,7 @@
                                 <div class="col-lg-2">
                                     <a href="#" class="pull-left mainIcon">
                                         <img alt="64x64" data-src="holder.js/64x64" class="media-object" style="width: 128px; height: 128px;"
-                                             src="@Model.PointImage.SingleOrDefault().ImageFilePath">
+                                             src="@Model.PointImage.FirstOrDefault().ImageFilePath">
                                     </a>
                                 </div>
                                 <div class="media-body mainInfo col-lg-10">
