@@ -118,7 +118,6 @@ namespace CULTMACEDONIA_v2.Controllers
         //
         // GET: /Points/View/5
         public ActionResult View(int? id)
-        
         {
             bool isUserFavorite = false;
             PointFullViewModel point = null;
@@ -184,7 +183,7 @@ namespace CULTMACEDONIA_v2.Controllers
                             isUserFavorite = isUserFavorite
                         }).SingleOrDefault();
 
-            
+
             
           
             if (point == null)

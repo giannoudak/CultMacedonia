@@ -484,6 +484,15 @@ namespace CultResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There aren&apos;t any posted photos for sight {0}.
+        /// </summary>
+        public static string NoImagesAvailable {
+            get {
+                return ResourceManager.GetString("NoImagesAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There isn&apos;t any posted video for sight {0}.
         /// </summary>
         public static string NoVideoAvailable {

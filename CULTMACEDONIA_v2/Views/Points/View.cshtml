@@ -19,10 +19,10 @@
 @{
     string url = string.IsNullOrEmpty(@Model.PointWeb) ? "-" : @Model.PointWeb;
     string urllink = string.IsNullOrEmpty(@Model.PointWeb) ? "#" : @Model.PointWeb;
-    
+
     string mail = string.IsNullOrEmpty(@Model.PointEmail) ? "-" : @Model.PointEmail;
     string phone = string.IsNullOrEmpty(@Model.PointPhone) ? "-" : @Model.PointPhone;
-    
+
 }
 
 @Html.Partial("_PageHeader")
@@ -44,8 +44,8 @@
                             @CultResources.Shared.YouAreHere
                             <li><a href=@Url.Action("Index","Home") title="@CultResources.Shared.AppName @CultResources.Shared.AppSurname">@CultResources.View.Home</a></li>
                             <li class="active">@CultResources.View.ViewMonument</li>
-                            <span class="pull-right"> @Model.PointName</span>
-                            @*<p class="pull-right"> @Model.PointName</p>*@
+                            <li><span class="pull-right"> @Model.PointName</span></li>
+
                         </ol>
                     </div>
                     <!-- MainInfo -->
@@ -54,8 +54,20 @@
                             <div class="media row">
                                 <div class="col-lg-2">
                                     <a href="#" class="pull-left mainIcon">
-                                        <img alt="64x64" data-src="holder.js/64x64" class="media-object" style="width: 128px; height: 128px;"
-                                             src="@Model.PointImage.FirstOrDefault().ImageFilePath">
+
+                                        @if (Model.PointImage.Count() != 0)
+                                        {
+                                            <img alt="@Model.PointName" class="media-object" style="width: 128px; height: 128px;"
+                                                 src="@Model.PointImage.FirstOrDefault().ImageFilePath">
+                                        }
+                                        else
+                                        {
+                                            <img class="media-object" alt="CultMacedonia" title="CultMacedonia"
+                                                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP0AAAC9CAIAAAD3D+zHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjA1MjFDNTg0QjUyRjExRTNCQkNFQUZDQTE3Mzk1MkQ5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjA1MjFDNTg1QjUyRjExRTNCQkNFQUZDQTE3Mzk1MkQ5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDUyMUM1ODJCNTJGMTFFM0JCQ0VBRkNBMTczOTUyRDkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDUyMUM1ODNCNTJGMTFFM0JCQ0VBRkNBMTczOTUyRDkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6Ul9H4AAADxUlEQVR42uzdPUsjaxiA4U0yagLKlFbxN6it2lhYWPgP9M+lEnstxIA2FoJgoabxC0UECw1+DWHHnIcTWITlnGYnbBKvq1IjE3i58+YZyYylLMt+wDdTtgToHnQPugfdg+5B96B70D3oHnQPugfdg+5B96B70D3oHnSP7kH3oHvQPegedA+6B92D7kH3oHvQPegedA+6B92D7kH36B50D7oH3YPuQfege9A96B50D7oH3YPuQfege9A96B50D7pH96B70D3oHnQPugfdg+5B96B70D3oHnQPugfdg+5B96B7dA+6B93DCEosQVGazebt7e34+Hifjt/pdOr1+vLysqXW/QCJ6FutVrVazfO88INXKpUsyyyy7gdO7PQR/dTUVJqmpVKpwCN3u912u917Cuus+4ETO31Ev76+HttzsYdtNBrPz89WWPcDKnb6JEnK5XKxxyz2DQR/zylejCUDfkB0j+5B96B70D3oHnQPugfdg+5B96Or0+k0m82zszNLMSB8Lq3v7u/vd3d3r6+vq9VqlmXz8/PWRPcj7ujo6ODg4OPjo1ar5Xm+s7Pz9va2tLRkZXQ/mp6envb29lqtVqVS6V0vEl+USqX9/f1If2VlpdjPKqP7v33OVC5H2Zubm4+Pj1H814/Ox0NjY2PxJvD+/r66uhqTz6+HHh4ejo+Pu93u4uJimqaWUfdDJkKPOf7l5SUS//16kfjJxMTE6elpDD9ra2uTk5OXl5cnJycXFxe9K2jj24WFhdnZWW8Iuh/KXf9/LjCP9K+urra2tmLLv7m5id9MkiR+GA+9vr5ub2+fn5/HacDMzIyV1P1IiREoZpsYbKL4r9fjxtfxmolXxd3d3dzcXIw9X8chitmVLMHf3HWS5L9moXhVfH5+Hh4exthj4NH995qU4oUR9VsK3X/Hs2SLYL4fGj//9ScjSoz+cQQ3U9D9cOidqk5PT/9593me12o1S6r74eg+TdONjY2ipnwjvvl+CKKPbb7AW8PGoUw79vuBVqlU2u12o9Hox31hi73npu4pRqfT6X3QoB83cO3dBzyewjrrfrDU6/Uf/bxVd+//PljnQpT8NwGc14LuQfege9A96B50D7oH3YPuQfege9A96B50D7oH3YPu0T3oHnQPugfdg+5B96B70D3oHnQPugfdg+5B96B70D3oHt2D7kH3oHvQPegedA+6B92D7kH3oHvQPegedA+6B92D7kH36B50D7oH3YPuQfege9A96B50D7oH3YPuQfege9A96B50j+5B96B7GEH/CDAA55UVqV0DzYMAAAAASUVORK5CYII="
+                                                 style="width: 128px; height: 128px;" />
+                                        }
+
+
                                     </a>
                                 </div>
                                 <div class="media-body mainInfo col-lg-10">
@@ -90,7 +102,7 @@
                                 </p>
                             </div>
 
-                            
+
                             <div class="details contact">
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -99,11 +111,11 @@
                                             <div class="col-lg-8 attrValue">
                                                 @if (Model.PointYear != null)
                                                 {
-                                                    @Html.DisplayFor(model => model.PointYear)
+                                                @Html.DisplayFor(model => model.PointYear)
                                                 }
                                                 else if (!string.IsNullOrEmpty(Model.PointYearDescription))
                                                 {
-                                                    @Html.DisplayFor(model => model.PointYearDescription)
+                                                @Html.DisplayFor(model => model.PointYearDescription)
                                                 }
 
 
@@ -149,7 +161,12 @@
                                     <div class="col-md-7">
                                         <!-- Total Photos for Point -->
                                         @{ int pntImageCnt = @Model.PointImage.Count; }
-                                        <h4 class="media-heading pointName">@CultResources.View.PhotoGalleryPanelText (@pntImageCnt)</h4>
+                                        <h4 class="media-heading pointName">
+                                            @CultResources.View.PhotoGalleryPanelText
+                                            @{
+                                                string imgCnt = pntImageCnt == 0 ? "" : "(" + pntImageCnt + ")";
+                                            }
+                                        </h4>
                                     </div>
                                     <div class="col-md-5 pull-right">
                                         <!-- Point Photos Gallery controls -->
@@ -174,15 +191,23 @@
                                     </div>
                                 </div>
 
-                                <div id="links">
+                                <div class="" id="links">
 
-                                    @foreach (CULTMACEDONIA_v2.Models.CultMacedoniaModel.PointImage i in Model.PointImage)
+                                    @if (pntImageCnt > 0)
                                     {
-                                        @*<div class="col-md-@(pntImageCnt-1)">*@
-                                        <a href='@i.ImageFilePath' title='@i.ImageTitle' data-gallery="">
-                                            <img src="@i.ImageFilePath" alt="@i.ImageTitle" width="128" height="128" />
-                                        </a>
-                                        @*</div>*@
+
+                                        foreach (CULTMACEDONIA_v2.Models.CultMacedoniaModel.PointImage i in Model.PointImage)
+                                        {
+                                            @*<div class="col-md-@(pntImageCnt-1)">*@
+                                            <a href='@i.ImageFilePath' title='@i.ImageTitle' data-gallery="">
+                                                <img src="@i.ImageFilePath" alt="@i.ImageTitle" width="128" height="128" />
+                                            </a>
+                                            @*</div>*@
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <p class="col-xs-12"> @string.Format(@CultResources.View.NoImagesAvailable, Model.PointName)</p>
                                     }
                                 </div>
                             </div>
@@ -201,32 +226,37 @@
                                             CULTMACEDONIA_v2.Models.CultMacedoniaModel.PointVideo video;
 
                                             int pntVideoCnt = Model.PointVideo.Count();
-                                            if (pntVideoCnt == 1){
+                                            if (pntVideoCnt == 1)
+                                            {
                                                 video = Model.PointVideo.SingleOrDefault();
-                                            }else if (pntVideoCnt > 1){
+                                            }
+                                            else if (pntVideoCnt > 1)
+                                            {
                                                 video = Model.PointVideo.FirstOrDefault();
-                                            }                else { 
+                                            }
+                                            else
+                                            {
                                                 video = null;
                                             }
 
 
                                         }
-                                        <h4 class="media-heading ">Βίντεο</h4>
+                                        <h4 class="media-heading ">@CultResources.View.VideoGalleryPanelText</h4>
                                     </div>
                                 </div>
-                               
+
 
 
 
                             </div>
                             <div class="row">
-                                @if ( video == null || video.VideoFilePath == null)
+                                @if (video == null || video.VideoFilePath == null)
                                 {
-                                    <p class="col-xs-12"> @string.Format(@CultResources.View.NoVideoAvailable,Model.PointName)</p>
+                                    <p class="col-xs-12"> @string.Format(@CultResources.View.NoVideoAvailable, Model.PointName)</p>
                                 }
                                 else
                                 {
-                                    <video  controls="" id="pointvideo" class="col-xs-12">
+                                    <video controls="" id="pointvideo" class="col-xs-12">
                                         <source type="video/mp4" src="@video.VideoFilePath">
 
                                     </video>
@@ -236,7 +266,7 @@
                     </div>
                     <!-- VideoGallery Panel ends here -->
                     <!-- Comments -->
-                    <div id="comments" class="panel panel-default pointComments">
+                    <div id="comments" class="panel panel-default pointComments" style="display:none;">
                         <div class="panel-body pointCommentsPanel">
                             <h4 class="media-heading ">Σχόλια Χρηστών </h4>
 
@@ -244,7 +274,7 @@
                     </div>
                     <!-- Comments Panel ends here -->
                     <!-- Ratings -->
-                    <div id="ratings" class="panel panel-default pointRatings">
+                    <div id="ratings" class="panel panel-default pointRatings" style="display:none;">
                         <div class="panel-body pointRatingsPanel">
                             <h4 class="media-heading ">Βαθμολογίες</h4>
 

@@ -396,4 +396,7 @@
   <data name="NoVideoAvailable" xml:space="preserve">
     <value>Δεν υπάρχει κάποιο βίντεο καταχωρημένο για το αξιοθέατο {0}</value>
   </data>
+  <data name="NoImagesAvailable" xml:space="preserve">
+    <value>Δεν υπάρχουν καταχωρημένες φωτογραφίες για το αξιοθέατο {0}</value>
+  </data>
 </root>

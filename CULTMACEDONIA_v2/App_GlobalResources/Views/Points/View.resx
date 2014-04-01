@@ -396,4 +396,7 @@
   <data name="NoVideoAvailable" xml:space="preserve">
     <value>There isn't any posted video for sight {0}</value>
   </data>
+  <data name="NoImagesAvailable" xml:space="preserve">
+    <value>There aren't any posted photos for sight {0}</value>
+  </data>
 </root>
