@@ -17,7 +17,7 @@ var showMapPoint = function (point) {
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
 
-    //$.each(data, function (i, item) {
+
     var marker = new google.maps.Marker({
         'position': new google.maps.LatLng(point.x, point.y),
         'map': map,
@@ -41,7 +41,7 @@ var showMapPoint = function (point) {
         infowindow.close(map, marker);
     });
 
-    //});
+
 
 
 }
