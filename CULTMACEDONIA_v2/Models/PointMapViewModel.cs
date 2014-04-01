@@ -17,6 +17,6 @@ namespace CULTMACEDONIA_v2.Models
         public string Category { get; set; }
         public int PlaceId { get; set; }
         // ...
-        // ...
+        public string SingleImage { get; set; }
     }
 }

@@ -27,14 +27,18 @@ var showMapPoint = function (point) {
     marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
 
     var infowindow = new google.maps.InfoWindow({
-        content: "<div class='infoDiv'><h4>" + point.name + "</h4>" +
-                    "<div><h5>Address: " + point.addr + " </h5></div>" +
-                    "</div>"
+        content: "<div class='infoDiv media'>"
+            +    "  <a class='pull-left'><img class='media-object' style='width:50px; height:50px;' src='"+ point.img+"' alt=''></a><div class='media-body'><h5 class='media-heading'>"+point.name+"</h5>" + point.addr+"</div>"
+
     });
 
 
-    google.maps.event.addListener(marker, 'click', function () {
+    google.maps.event.addListener(marker, 'mouseover', function () {
         infowindow.open(map, marker);
+    });
+
+    google.maps.event.addListener(marker, 'mouseout', function () {
+        infowindow.close(map, marker);
     });
 
     //});

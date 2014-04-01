@@ -399,4 +399,10 @@
   <data name="NoImagesAvailable" xml:space="preserve">
     <value>Δεν υπάρχουν καταχωρημένες φωτογραφίες για το αξιοθέατο {0}</value>
   </data>
+  <data name="NotAvailable" xml:space="preserve">
+    <value>μη διαθέσιμο</value>
+  </data>
+  <data name="ViewonMap" xml:space="preserve">
+    <value>Δείτε στο χάρτη</value>
+  </data>
 </root>

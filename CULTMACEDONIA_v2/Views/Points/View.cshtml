@@ -17,11 +17,11 @@
 }
 
 @{
-    string url = string.IsNullOrEmpty(@Model.PointWeb) ? "-" : @Model.PointWeb;
+    string url = string.IsNullOrEmpty(@Model.PointWeb) ? @CultResources.View.NotAvailable : @Model.PointWeb;
     string urllink = string.IsNullOrEmpty(@Model.PointWeb) ? "#" : @Model.PointWeb;
 
-    string mail = string.IsNullOrEmpty(@Model.PointEmail) ? "-" : @Model.PointEmail;
-    string phone = string.IsNullOrEmpty(@Model.PointPhone) ? "-" : @Model.PointPhone;
+    string mail = string.IsNullOrEmpty(@Model.PointEmail) ? @CultResources.View.NotAvailable : @Model.PointEmail;
+    string phone = string.IsNullOrEmpty(@Model.PointPhone) ? @CultResources.View.NotAvailable : @Model.PointPhone;
 
 }
 
@@ -36,7 +36,7 @@
 
 
             <!-- Point main view container-->
-            <div class="col-xs-12 col-sm-9 contents">
+            <div class="col-lg-8 contents">
                 <div class="row pointInfoSection">
                     <div class="">
                         <h1 class="page-header">@CultResources.View.Monuments <small>@CultResources.View.ViewMonument</small></h1>
@@ -51,8 +51,8 @@
                     <!-- MainInfo -->
                     <div class="panel panel-default pointMainInfo">
                         <div class="panel-body pointMainInfoPanel">
-                            <div class="media row">
-                                <div class="col-lg-2">
+                            <div class="media ">
+                                <div class="">
                                     <a href="#" class="pull-left mainIcon">
 
                                         @if (Model.PointImage.Count() != 0)
@@ -69,31 +69,45 @@
 
 
                                     </a>
-                                </div>
-                                <div class="media-body mainInfo col-lg-10">
 
-                                    @if (Request.IsAuthenticated)
-                                    {
-                                        <div id="panelFavorite" class="row">
-                                            @Html.Action("UserFavoritePointPartial", new { @pointId = Model.PointId, @isFavorite = @Model.isUserFavorite })
+
+                                    <div class="media-body mainInfo col-lg-9">
+
+                                        @if (Request.IsAuthenticated)
+                                        {
+                                            <div id="panelFavorite" class="row">
+                                                @Html.Action("UserFavoritePointPartial", new { @pointId = Model.PointId, @isFavorite = @Model.isUserFavorite })
+                                            </div>
+                                        }
+                                        <h4 class="media-heading pointName">@Html.DisplayFor(model => model.PointName)</h4>
+                                        <div class="categories">
+
+                                            <a class="categorylink" href="@Url.Action("category", "Points" , new { cid=Model.PointCategoryId })">@Html.DisplayFor(model => model.Category.CategoryName)</a>
                                         </div>
-                                    }
-                                    <h4 class="media-heading pointName">@Html.DisplayFor(model => model.PointName)</h4>
-                                    <div class="categories">
-                                        <a class="categorylink" href="@Url.Action("category", "Points" , new { cid=Model.PointCategoryId })">@Html.DisplayFor(model => model.Category.CategoryName)</a>
-                                    </div>
-                                    <div class="address">
-                                        <span class="addr"><span class="fa fa-road"></span> @Html.DisplayFor(model => model.PointAddress)</span>,
-                                        <span class="town"><span class="fa fa-home"></span> @Html.DisplayFor(model => model.PointPlaceNomos)</span>
-                                        <a class="addrlink" href="http://maps.google.com/maps?daddr=37.98483860692609,23.760989606380463"><span class="fa fa-map-marker"></span></a>
-                                    </div>
+                                        <div class="address">
+                                            <span class="addr"><span class="fa fa-road"></span> @Html.DisplayFor(model => model.PointAddress)</span>,
+                                            <span class="town"><span class="fa fa-home"></span> @Html.DisplayFor(model => model.PointPlaceNomos)</span>
+                                            <a class="addrlink" href="http://maps.google.com/maps?daddr=37.98483860692609,23.760989606380463"><span class="fa fa-map-marker"></span></a>
+                                        </div>
 
+                                    </div>
                                 </div>
                             </div>
                             <div class="details row">
-                                <div class="phone col-lg-4"><span class="fa fa-phone-square"></span> @phone</div>
-                                <div class="mail col-lg-4"><span class="fa fa-envelope"></span> @mail</div>
-                                <div class="web col-lg-4"><span class="fa fa-globe"></span>  <a href='@urllink' title="@Model.PointWeb">@url</a></div>
+                                <div class="phone col-lg-4"><span class="fa fa-phone-square"></span> <span class="item-value">@phone</span></div>
+                                <div class="mail col-lg-4"><span class="fa fa-envelope"></span> <span class="item-value">@mail</span></div>
+                                <div class="web col-lg-4">
+                                    <span class="fa fa-globe"></span>
+                                    @if (@Model.PointWeb == null)
+                                    {
+                                        <span class="item-value">@url</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="item-value"><a href='@urllink' title="@Model.PointWeb">@url</a></span>
+                                    }
+
+                                </div>
                             </div>
                             <div class="description">
                                 <span class="attrKey">@CultResources.View.LabelPointDescription</span>
@@ -111,11 +125,11 @@
                                             <div class="col-lg-8 attrValue">
                                                 @if (Model.PointYear != null)
                                                 {
-                                                @Html.DisplayFor(model => model.PointYear)
+                                                    @Html.DisplayFor(model => model.PointYear)
                                                 }
                                                 else if (!string.IsNullOrEmpty(Model.PointYearDescription))
                                                 {
-                                                @Html.DisplayFor(model => model.PointYearDescription)
+                                                    @Html.DisplayFor(model => model.PointYearDescription)
                                                 }
 
 
@@ -158,7 +172,7 @@
                         <div class="panel-body pointMainPhotoPanel">
                             <div class="pointPhotosPanel">
                                 <div class="row images">
-                                    <div class="col-md-7">
+                                    <div class="col-md-6">
                                         <!-- Total Photos for Point -->
                                         @{ int pntImageCnt = @Model.PointImage.Count; }
                                         <h4 class="media-heading pointName">
@@ -168,7 +182,7 @@
                                             }
                                         </h4>
                                     </div>
-                                    <div class="col-md-5 pull-right">
+                                    <div class="col-md-6 pull-right">
                                         <!-- Point Photos Gallery controls -->
                                         <form class="form-inline">
                                             <div class="form-group">
@@ -198,16 +212,16 @@
 
                                         foreach (CULTMACEDONIA_v2.Models.CultMacedoniaModel.PointImage i in Model.PointImage)
                                         {
-                                            @*<div class="col-md-@(pntImageCnt-1)">*@
-                                            <a href='@i.ImageFilePath' title='@i.ImageTitle' data-gallery="">
-                                                <img src="@i.ImageFilePath" alt="@i.ImageTitle" width="128" height="128" />
-                                            </a>
-                                            @*</div>*@
+                                    @*<div class="col-md-@(pntImageCnt-1)">*@
+                                    <a href='@i.ImageFilePath' title='@i.ImageTitle' data-gallery="">
+                                        <img src="@i.ImageFilePath" alt="@i.ImageTitle" width="128" height="128" />
+                                    </a>
+                                    @*</div>*@
                                         }
                                     }
                                     else
                                     {
-                                        <p class="col-xs-12"> @string.Format(@CultResources.View.NoImagesAvailable, Model.PointName)</p>
+                                    <p class="col-xs-12"> @string.Format(@CultResources.View.NoImagesAvailable, Model.PointName)</p>
                                     }
                                 </div>
                             </div>
@@ -252,14 +266,14 @@
                             <div class="row">
                                 @if (video == null || video.VideoFilePath == null)
                                 {
-                                    <p class="col-xs-12"> @string.Format(@CultResources.View.NoVideoAvailable, Model.PointName)</p>
+                                <p class="col-xs-12"> @string.Format(@CultResources.View.NoVideoAvailable, Model.PointName)</p>
                                 }
                                 else
                                 {
-                                    <video controls="" id="pointvideo" class="col-xs-12">
-                                        <source type="video/mp4" src="@video.VideoFilePath">
+                                <video controls="" id="pointvideo" class="col-xs-12">
+                                    <source type="video/mp4" src="@video.VideoFilePath">
 
-                                    </video>
+                                </video>
                                 }
                             </div>
                         </div>
@@ -284,35 +298,43 @@
                 </div>
             </div>
             <!-- Sidebar & Navigation container -->
-            <div class="col-xs-6 col-sm-3 " role="navigation">
+            <div class="col-lg-4 " role="navigation">
                 <div role="complementary" class="bs-sidebar hidden-print affix">
 
                     <div class="pointview-navigation">
+
+
+                        
+
+
+
                         <ul class="nav bs-sidenav">
-                            <li class="">
-                                <a href="#top">@CultResources.View.InfoPanelText</a>
+  
+                            <li>
+                                <a href="#top"><i class="fa fa-suitcase"></i> @CultResources.View.InfoPanelText </a>
+                            </li>
+
+                            <li>
+                                <a href="#photos"><i class="fa fa-camera-retro"></i> @CultResources.View.PhotoGalleryPanelText </a>
                             </li>
                             <li>
-                                <a href="#photos">@CultResources.View.PhotoGalleryPanelText</a>
+                                <a href="#videos"><i class="fa fa-youtube-play"></i> @CultResources.View.VideoGalleryPanelText</a>
+                               
                             </li>
                             <li>
-                                <a href="#videos">@CultResources.View.VideoGalleryPanelText</a>
-                                <ul class="nav">
-                                    <li><a href="#tabs-examples">Examples</a></li>
-                                    <li><a href="#tabs-usage">Usage</a></li>
-                                </ul>
+                                <a href="#comments"><i class="fa fa-comments"></i> @CultResources.View.CommentPanelText</a>
                             </li>
                             <li>
-                                <a href="#comments">@CultResources.View.CommentPanelText</a>
-                            </li>
-                            <li>
-                                <a href="#ratings">@CultResources.View.RatingsPanelText</a>
+                                <a href="#ratings"><i class="fa fa-star"></i> @CultResources.View.RatingsPanelText</a>
                             </li>
 
                         </ul>
 
 
                     </div>
+
+                    <h4>@CultResources.View.ViewonMap <small>@Model.PointX, @Model.PointY</small></h4>
+
                     <div id="map_canvas">
                     </div>
 
@@ -326,6 +348,7 @@
                     pointvm.GeoLong = @Model.PointX;
                     pointvm.GeoLat = @Model.PointY;
                     pointvm.PlaceAddress = @Model.PointAddress;
+                    pointvm.SingleImage = @Model.PointImage.Count() == 0 ? "" : @Model.PointImage.FirstOrDefault().ImageFilePath;
 
                 }
 
@@ -347,7 +370,8 @@
                 'x': '@pointvm.GeoLong'.replace(",", "."),
                 'y': '@pointvm.GeoLat'.replace(",", "."),
                 'name': '@pointvm.PlaceName',
-                'addr': '@pointvm.PlaceAddress'
+                'addr': '@pointvm.PlaceAddress',
+                'img': '@pointvm.SingleImage'
             };
 
             // κληση της συνάρτησης για προβολή σημειου στον χάρτη

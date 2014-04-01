@@ -205,8 +205,8 @@ select {
 
 
 .infoDiv {
-    height: 100px;
-    width: 300px;
+    height: 90px;
+    width: 200px;
     font-family:inherit!important;
     -webkit-user-select: none;
     background-color: white;
@@ -579,7 +579,7 @@ div#mobile.row div.col-lg-6 div#carousel-example-captions.carousel ol.carousel-i
     line-height:20px;
     margin-bottom:4px;
     font-weight:700;
-    font-size:14px;
+    font-size:12px;
 
 }
 
@@ -588,5 +588,14 @@ div#mobile.row div.col-lg-6 div#carousel-example-captions.carousel ol.carousel-i
     display: inline-block;
     line-height:20px;
     font-weight:400;
-    font-size:14px;
+    font-size:12px;
 }
+
+.item-value{
+    color:#707070;
+    font-size:11px;
+    font-weight:700;
+    vertical-align:baseline;
+    line-height:16px;
+}
+

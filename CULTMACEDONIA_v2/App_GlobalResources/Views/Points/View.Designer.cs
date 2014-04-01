@@ -493,6 +493,15 @@ namespace CultResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to not available.
+        /// </summary>
+        public static string NotAvailable {
+            get {
+                return ResourceManager.GetString("NotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There isn&apos;t any posted video for sight {0}.
         /// </summary>
         public static string NoVideoAvailable {
@@ -867,6 +876,15 @@ namespace CultResources {
         public static string ViewMonument {
             get {
                 return ResourceManager.GetString("ViewMonument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View on Map.
+        /// </summary>
+        public static string ViewonMap {
+            get {
+                return ResourceManager.GetString("ViewonMap", resourceCulture);
             }
         }
         
