@@ -549,14 +549,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_CultureChooserUserControl.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Views\Point\Create.cshtml" />
-    <Content Include="Views\Point\Delete.cshtml" />
-    <Content Include="Views\Point\Details.cshtml" />
-    <Content Include="Views\Point\Edit.cshtml" />
-    <Content Include="Views\Point\Index.cshtml" />
-    <Content Include="Views\UnobtrusiveAjax\Index.cshtml" />
-    <Content Include="Views\UnobtrusiveAjax\UnobtrusiveAjax_Partial.cshtml" />
-    <Content Include="Views\Ko\Index.cshtml" />
     <Content Include="Views\Home\vMapPartial.cshtml" />
     <Content Include="Views\Home\vMapPartialnew.cshtml" />
     <Content Include="Views\Points\_PointUserFavoritePartial.cshtml" />

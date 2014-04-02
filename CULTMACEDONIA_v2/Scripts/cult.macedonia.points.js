@@ -46,11 +46,6 @@ var showMapPoint = function (point) {
 
 }
 
-var showPointsInMap = function (data) {
-
-    
-
-}
 
 function mailSucceded(data) {
     
