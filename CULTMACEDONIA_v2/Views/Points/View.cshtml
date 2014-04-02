@@ -5,14 +5,13 @@
 
 
 @{
-    ViewBag.Title = ViewBag.Title = @CultResources.Shared.SinglePointView;
+    ViewBag.Title = ViewBag.Title = @Model.PointName;
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 
 @section styles {
     <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
     <link href="~/Content/css/bootstrap-image-gallery.css" rel="stylesheet" />
-    <link href="~/Content/css/demo.css" rel="stylesheet" />
     <link href="~/Content/css/cultmaced.sidebar.css" rel="stylesheet" />
 }
 

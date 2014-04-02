@@ -228,4 +228,16 @@
   <data name="GoToTop" xml:space="preserve">
     <value>Back to top</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>Mobile App</value>
+  </data>
+  <data name="Points" xml:space="preserve">
+    <value>Sights</value>
+  </data>
 </root>

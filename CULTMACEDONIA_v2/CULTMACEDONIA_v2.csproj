@@ -334,14 +334,11 @@
     <Content Include="Content\css\CultMacedoniaLESS.min.css">
       <DependentUpon>CultMacedoniaLESS.less</DependentUpon>
     </Content>
-    <Content Include="Content\css\demo.css" />
-    <Content Include="Content\css\demo_table.css" />
     <Content Include="Content\css\flags.css" />
     <Content Include="Content\css\hoverlist\style5.css" />
     <Content Include="Content\css\hoverlist\style_common.css" />
     <Content Include="Content\css\image-dropzone.css" />
     <Content Include="Content\css\landing-page.css" />
-    <Content Include="Content\css\simple-sidebar.css" />
     <Content Include="Content\font-awesome\font-awesome.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />

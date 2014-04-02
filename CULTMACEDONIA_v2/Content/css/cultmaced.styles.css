@@ -599,3 +599,19 @@ div#mobile.row div.col-lg-6 div#carousel-example-captions.carousel ol.carousel-i
     line-height:16px;
 }
 
+.navbar-brand .one {
+    font-weight:700;
+    font-size:24px;
+   
+}
+
+.navbar-brand .two {
+    font-weight:700;   
+    font-size:24px;
+
+}
+
+.navbar-brand{
+    padding-left:0!important;
+    margin-left:-40px!important;
+}

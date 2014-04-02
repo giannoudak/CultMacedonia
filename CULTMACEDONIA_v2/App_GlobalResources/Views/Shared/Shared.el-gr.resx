@@ -163,7 +163,7 @@
     <value>Ανάπτυξη &amp; Σχεδιασμός </value>
   </data>
   <data name="Hello" xml:space="preserve">
-    <value>Γεία σου</value>
+    <value>Γεια σου</value>
   </data>
   <data name="MyFavorites" xml:space="preserve">
     <value>Τα αγαπημένα μου</value>
@@ -227,5 +227,17 @@
   </data>
   <data name="GoToTop" xml:space="preserve">
     <value>Πήγαινε πάνω</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Σχετικά</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Επικοινωνία</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>Mobile App</value>
+  </data>
+  <data name="Points" xml:space="preserve">
+    <value>Αξιοθέατα</value>
   </data>
 </root>
