@@ -32,7 +32,7 @@ namespace CULTMACEDONIA_v2.Controllers
             return View();
         }
 
-        public ActionResult GetAllCategories()
+        public ActionResult vCategoryListPartial()
         {
             var q = from c in db.Category
                     select new

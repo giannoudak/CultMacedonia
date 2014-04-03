@@ -147,148 +147,122 @@
     <div class="row">
         <div class="col-lg-4">
 
-            <table id="categories" class="table" data-bind="visible: categories().length > 0">
+
+
+            <h3>List of Products</h3>
+            <button data-bind='click: addGift'>Add Gift</button>
+            
+            <table id="products1" data-bind="visible: Products().length > 0">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Category Name</th>
-                        <th><button data-bind='click: addCategory'>Add a contact</button></th>
+                        <th>id</th>
+                        <th>name</th>
+                        <th>lang</th>
                     </tr>
                 </thead>
-                <tbody data-bind="foreach: categories">
+                <tbody data-bind="foreach: Products">
                     <tr>
-                        <td data-bind="text: CategoryId"></td>
-                        <td data-bind="text: CategoryName"></td>
+                        <td data-bind="text: id"></td>
+                        <td><input class='required' data-bind='value: name, uniqueName: true' /></td>
+                        <td data-bind="text: lang"></td>
+                        @*<td data-bind="text: formatCurrency(Price)"></td>*@
 
                         <td>
-                            <button data-bind="click: $root.edit">Edit</button>
+                            <button data-bind="click: $root.update">update</button>
                             <button data-bind="click: $root.delete">Delete</button>
 
                         </td>
 
                     </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Total :</td>
+                        @*<td data-bind="text: formatCurrency($root.Total())"></td>*@
+                        <td></td>
+                    </tr>
+                </tfoot>
             </table>
+            <br />
+            <div style="border-top: solid 2px #282828; width: 430px; height: 10px"> </div>
+
+            @*<div data-bind="if: Product">
+                <div>
+                    <h2>Update Product</h2>
+                </div>
+                <div>
+                    <label for="productId" data-bind="visible: false">ID</label>
+                    <label data-bind="text: Product().Id, visible: false"></label>
+
+                </div>
+                <div>
+                    <label for="name">Name</label>
+                    <input data-bind="value: Product().Name" type="text" title="Name" />
+                </div>
+
+                <div>
+                    <label for="category">Category</label>
+                    <input data-bind="value: Product().Category" type="text" title="Category" />
+                </div>
+
+                <div>
+                    <label for="price">Price</label>
+                    <input data-bind="value: Product().Price" type="text" title="Price" />
+
+                </div>
+                <br />
+                <div>
+                    <button data-bind="click: $root.update">Update</button>
+                    <button data-bind="click: $root.cancel">Cancel</button>
+
+                </div>
+            </div>
+
+            <div data-bind="ifnot: Product()">
+                <div>
+                    <h2>Add New Product</h2>
+                </div>
+                <div>
+                    <label for="name">Name</label>
+                    <input data-bind="value: $root.Name" type="text" title="Name" />
+                </div>
+
+                <div>
+                    <label for="category">Category</label>
+                    <input data-bind="value: $root.Category" type="text" title="Category" />
+                </div>
+
+                <div>
+                    <label for="price">Price</label>
+                    <input data-bind="value: $root.Price" type="text" title="Price" />
+                </div>
+                <br />
+                <div>
+                    <button data-bind="click: $root.create">Save</button>
+                    <button data-bind="click: $root.reset">Reset</button>
+
+                </div>
+            </div>*@
+        
+
+
+
+
+
+
+
+
+
+
+
         </div>
-        <div class="col-lg-4">
-            <table id="properties" class="table" data-bind="visible: properties().length > 0">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Property Name</th>
-                    </tr>
-                </thead>
-                <tbody data-bind="foreach: properties">
-                    <tr>
-                        <td data-bind="text: PropertyId"></td>
-                        <td data-bind="text: PropertyName"></td>
-
-                        <td>
-                            <button data-bind="click: $root.edit">Edit</button>
-                            <button data-bind="click: $root.delete">Delete</button>
-
-                        </td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-lg-4">
-            <table id="eras" class="table" data-bind="visible: eras().length > 0">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Property Name</th>
-                    </tr>
-                </thead>
-                <tbody data-bind="foreach: eras">
-                    <tr>
-                        <td data-bind="text: EraId"></td>
-                        <td data-bind="text: EraName"></td>
-
-                        <td>
-                            <button data-bind="click: $root.edit">Edit</button>
-                            <button data-bind="click: $root.delete">Delete</button>
-
-                        </td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        
+        
     </div>
 
-    <div class="row">
-        <div class="col-lg-4">
-            <table id="protectionlevels" class="table" data-bind="visible: protectionlevels().length > 0">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Protection Level Name</th>
-                    </tr>
-                </thead>
-                <tbody data-bind="foreach: protectionlevels">
-                    <tr>
-                        <td data-bind="text: ProtectionId"></td>
-                        <td data-bind="text: ProtectionName"></td>
-
-                        <td>
-                            <button data-bind="click: $root.edit">Edit</button>
-                            <button data-bind="click: $root.delete">Delete</button>
-
-                        </td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-lg-4">
-            <table id="ethnologicals" class="table" data-bind="visible: ethnologicals().length > 0">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Ethnological Name</th>
-                    </tr>
-                </thead>
-                <tbody data-bind="foreach: ethnologicals">
-                    <tr>
-                        <td data-bind="text: EthnologicalId"></td>
-                        <td data-bind="text: EthnologicalName"></td>
-
-                        <td>
-                            <button data-bind="click: $root.edit">Edit</button>
-                            <button data-bind="click: $root.delete">Delete</button>
-
-                        </td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-lg-4">
-            <table id="religions" class="table" data-bind="visible: religions().length > 0">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Religion Name</th>
-                    </tr>
-                </thead>
-                <tbody data-bind="foreach: religions">
-                    <tr>
-                        <td data-bind="text: ReligionId"></td>
-                        <td data-bind="text: ReligionName"></td>
-
-                        <td>
-                            <button data-bind="click: $root.edit">Edit</button>
-                            <button data-bind="click: $root.delete">Delete</button>
-
-                        </td>
-
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    
 
 
 </div>

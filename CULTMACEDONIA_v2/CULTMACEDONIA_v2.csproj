@@ -231,6 +231,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KoController.cs" />
@@ -339,6 +340,7 @@
     <Content Include="Content\css\hoverlist\style_common.css" />
     <Content Include="Content\css\image-dropzone.css" />
     <Content Include="Content\css\landing-page.css" />
+    <Content Include="Content\css\simple-sidebar.css" />
     <Content Include="Content\font-awesome\font-awesome.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
@@ -514,6 +516,7 @@
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
     <Content Include="Scripts\ko-pointsgrid.js" />
+    <Content Include="Scripts\ko-sysparams.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\respond.js" />
@@ -568,9 +571,13 @@
       <DependentUpon>ko-pointsgrid.js</DependentUpon>
     </Content>
     <Content Include="Views\Shared\_PageHeader.cshtml" />
+    <Content Include="Scripts\ko-sysparams.min.js.map">
+      <DependentUpon>ko-sysparams.js</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\App\" />
     <Folder Include="Views\Contact\" />
   </ItemGroup>
   <ItemGroup>
