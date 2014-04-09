@@ -150,107 +150,40 @@
 
 
             <h3>List of Products</h3>
-            <button data-bind='click: addGift'>Add Gift</button>
+
+
+            <!-- Όταν γινεται edit η τιμη σε ενα input, τότε γίνεται Update στα αντιστοιχα
+                 viewmodel data.-->
+
             
-            <table id="products1" data-bind="visible: Products().length > 0">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>lang</th>
-                    </tr>
-                </thead>
-                <tbody data-bind="foreach: Products">
-                    <tr>
-                        <td data-bind="text: id"></td>
-                        <td><input class='required' data-bind='value: name, uniqueName: true' /></td>
-                        <td data-bind="text: lang"></td>
-                        @*<td data-bind="text: formatCurrency(Price)"></td>*@
+            <p data-bind="text:theTemplate"></p>
 
-                        <td>
-                            <button data-bind="click: $root.update">update</button>
-                            <button data-bind="click: $root.delete">Delete</button>
-
-                        </td>
-
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>Total :</td>
-                        @*<td data-bind="text: formatCurrency($root.Total())"></td>*@
-                        <td></td>
-                    </tr>
-                </tfoot>
-            </table>
-            <br />
-            <div style="border-top: solid 2px #282828; width: 430px; height: 10px"> </div>
-
-            @*<div data-bind="if: Product">
-                <div>
-                    <h2>Update Product</h2>
-                </div>
-                <div>
-                    <label for="productId" data-bind="visible: false">ID</label>
-                    <label data-bind="text: Product().Id, visible: false"></label>
-
-                </div>
-                <div>
-                    <label for="name">Name</label>
-                    <input data-bind="value: Product().Name" type="text" title="Name" />
-                </div>
-
-                <div>
-                    <label for="category">Category</label>
-                    <input data-bind="value: Product().Category" type="text" title="Category" />
-                </div>
-
-                <div>
-                    <label for="price">Price</label>
-                    <input data-bind="value: Product().Price" type="text" title="Price" />
-
-                </div>
-                <br />
-                <div>
-                    <button data-bind="click: $root.update">Update</button>
-                    <button data-bind="click: $root.cancel">Cancel</button>
-
-                </div>
-            </div>
-
-            <div data-bind="ifnot: Product()">
-                <div>
-                    <h2>Add New Product</h2>
-                </div>
-                <div>
-                    <label for="name">Name</label>
-                    <input data-bind="value: $root.Name" type="text" title="Name" />
-                </div>
-
-                <div>
-                    <label for="category">Category</label>
-                    <input data-bind="value: $root.Category" type="text" title="Category" />
-                </div>
-
-                <div>
-                    <label for="price">Price</label>
-                    <input data-bind="value: $root.Price" type="text" title="Price" />
-                </div>
-                <br />
-                <div>
-                    <button data-bind="click: $root.create">Save</button>
-                    <button data-bind="click: $root.reset">Reset</button>
-
-                </div>
-            </div>*@
-        
+            <table data-bind="template:{name: displayMode, foreach: categories}, visible: categories().length > 0"></table>
 
 
+            <script type="text/html" id="category-view-tmpl">
+                <tr>
 
+                    <td data-bind="text:name"></td>
 
+                    <td data-bind="text:id"></td>
+                    <td data-bind="click: $parent.editCategory">edit</td>
+                    <td data-bind="click: $parent.removeCategory">delete</td>
 
+                </tr>
+            </script>
+
+            <script type="text/html" id="category-edit-tmpl">
+                <tr>
+
+                    <td><input data-bind="text:name"/></td>
+
+                    <td data-bind="text:id"></td>
+                    <td data-bind="click: $parent.doUpdate">update</td>
+                    <td data-bind="click: $parent.cancelUpdate">cancel</td>
+
+                </tr>
+            </script>
 
 
 
@@ -258,11 +191,11 @@
 
 
         </div>
-        
-        
+
+
     </div>
 
-    
+
 
 
 </div>
@@ -273,5 +206,5 @@
     <script src="~/Scripts/knockout.mapping-latest.debug.js"></script>
     <script src="~/Scripts/ko-sysparams.js"></script>
 
-    
+
 }

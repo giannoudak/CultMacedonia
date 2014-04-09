@@ -615,3 +615,17 @@ div#mobile.row div.col-lg-6 div#carousel-example-captions.carousel ol.carousel-i
     padding-left:0!important;
     margin-left:-40px!important;
 }
+
+#over
+{
+    position:absolute;
+    width:100%;
+    height:100%;
+    text-align: center;
+}
+
+.Centered
+{
+    display: inline-block;
+    vertical-align: middle;
+}

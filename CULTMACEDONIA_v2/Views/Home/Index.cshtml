@@ -69,10 +69,10 @@
                     <div class="col-lg-3 view view-fifth">
 
 
-                        <div data-bind="visible: pointImages.length > 0">
-
-                            <div data-bind="foreach: pointImages" class="">
-                                <img data-bind="attr:{'src':  ImagePath}" class="item-preview" />
+                        <div data-bind="visible: pointImages.length > 0" id="over" >
+                            
+                            <div data-bind="foreach: pointImages" class="centerimg">
+                                <img data-bind="attr:{'src':  ImagePath}" class="item-preview centered" />
                             </div>
                         </div>
                         <div data-bind="visible: pointImages.length == 0">

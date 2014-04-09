@@ -43,7 +43,7 @@ namespace CULTMACEDONIA_v2.Controllers
                          id = c.CategoryId,
                          name = c.CategoryName,
                          lang = c.Lang
-                     }).Take(3).ToList();
+                     }).ToList();
             
             return Json(q, JsonRequestBehavior.AllowGet);
             
