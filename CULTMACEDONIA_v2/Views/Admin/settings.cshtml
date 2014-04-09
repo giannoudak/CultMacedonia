@@ -151,40 +151,44 @@
 
             <h3>List of Products</h3>
 
-
-            <!-- Όταν γινεται edit η τιμη σε ενα input, τότε γίνεται Update στα αντιστοιχα
-                 viewmodel data.-->
-
-            
-            <p data-bind="text:theTemplate"></p>
-
-            <table data-bind="template:{name: displayMode, foreach: categories}, visible: categories().length > 0"></table>
-
-
-            <script type="text/html" id="category-view-tmpl">
+            <table id="categories">
                 <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Lang</th>
+                    <th></th>
+                </tr>
+                <tbody data-bind="template: { name: templateToUse, foreach: items}"></tbody>
+            </table>
 
-                    <td data-bind="text:name"></td>
+            <script id="category-view-tmpl" type="text/html">
+                <tr>
+                    <td data-bind="text: id"></td>
+                    <td data-bind="text: name"></td>
+                    <td data-bind="text: lang"></td>
+                    <td class="buttons">
+                        <button data-bind="click: $root.editItem">Edit</button>
+                        <button data-bind="click: $root.deleteItem">Delete</button>
 
-                    <td data-bind="text:id"></td>
-                    <td data-bind="click: $parent.editCategory">edit</td>
-                    <td data-bind="click: $parent.removeCategory">delete</td>
-
+                    </td>
                 </tr>
             </script>
 
-            <script type="text/html" id="category-edit-tmpl">
+            <button data-bind="click: addItem">New Item</button>
+
+            <script id="category-edit-tmpl" type="text/html">
                 <tr>
-
-                    <td><input data-bind="text:name"/></td>
-
-                    <td data-bind="text:id"></td>
-                    <td data-bind="click: $parent.doUpdate">update</td>
-                    <td data-bind="click: $parent.cancelUpdate">cancel</td>
-
+                    <td data-bind="text: id"></td>
+                    <td>
+                        <input class="editvalue" data-bind="value: name" />
+                    </td>
+                    <td data-bind="text: lang"></td>
+                    <td class="buttons">
+                        <button data-bind="click: $root.acceptItemEdit">Accept</button>
+                        <button data-bind="click: $root.cancelItemEdit">Cancel</button>
+                    </td>
                 </tr>
             </script>
-
 
 
 
@@ -204,7 +208,37 @@
 @section Scripts{
     <script src="~/Scripts/knockout-3.0.0.debug.js"></script>
     <script src="~/Scripts/knockout.mapping-latest.debug.js"></script>
+    <script src="~/Scripts/ko-protectedObservable.js"></script>
     <script src="~/Scripts/ko-sysparams.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            // Load categories
+
+            $.ajax({
+                url: "/api/categories",
+                type: "GET",
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+            }).done(function (data) {
+                
+                var _elem = $("#categories")[0];
+                var _vmcategories = new cultLutViewModel();
+
+                $.each(data, function (i, item) {
+                    var item = new cultLut(item.name, item.id, item.lang);
+                    _vmcategories.items.push(item);
+                });
+
+                ko.applyBindings(_vmcategories, _elem);
+            }).error(function (jqXHR, textStatus, errorThrown) {
+                alert(errorThrown);
+            });
+
+
+        });
+    </script>
 
 
 }

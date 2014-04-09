@@ -232,6 +232,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KoController.cs" />
@@ -304,6 +305,8 @@
     <Compile Include="Models\CultMacedoniaModel\UserFavorites.cs">
       <DependentUpon>CultMacedoniaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\demoController.cs" />
+    <Compile Include="Models\DTOs\LutCategoryViewModel.cs" />
     <Compile Include="Models\DTOs\PointActionResultDto.cs" />
     <Compile Include="Models\DTOs\PointCreateDto.cs" />
     <Compile Include="Models\DTOs\PointDetailDto.cs" />
@@ -516,6 +519,7 @@
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
     <Content Include="Scripts\ko-pointsgrid.js" />
+    <Content Include="Scripts\ko-protectedObservable.js" />
     <Content Include="Scripts\ko-sysparams.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment.min.js" />
@@ -573,6 +577,9 @@
     <Content Include="Views\Shared\_PageHeader.cshtml" />
     <Content Include="Scripts\ko-sysparams.min.js.map">
       <DependentUpon>ko-sysparams.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ko-protectedObservable.min.js.map">
+      <DependentUpon>ko-protectedObservable.js</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

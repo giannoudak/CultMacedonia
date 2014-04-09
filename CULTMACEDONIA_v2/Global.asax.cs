@@ -28,8 +28,14 @@ namespace CULTMACEDONIA_v2
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 
+            //GlobalConfiguration.Configuration.Formatters.Clear();
+            //GlobalConfiguration.Configuration.Formatters.Add(new JsonpMediaTypeFormatter(new JsonMediaTypeFormatter()));
+
             GlobalConfiguration.Configuration.Formatters.Clear();
-            GlobalConfiguration.Configuration.Formatters.Add(new JsonpMediaTypeFormatter(new JsonMediaTypeFormatter()));
+            //GlobalConfiguration.Configuration.Formatters.Add(new XmlMediaTypeFormatter());
+            GlobalConfiguration.Configuration.Formatters.Add(new JsonMediaTypeFormatter());
+            GlobalConfiguration.Configuration.Formatters.Add(new FormUrlEncodedMediaTypeFormatter());
+            
 
             // Καλούμε το task για την δημιουργία του Διαχειριστή
             bool x = await AddRoleAndUser();
