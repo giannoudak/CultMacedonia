@@ -151,45 +151,53 @@
 
             <h3>List of Products</h3>
 
-            <table id="categories">
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Lang</th>
-                    <th></th>
-                </tr>
-                <tbody data-bind="template: { name: templateToUse, foreach: items}"></tbody>
-            </table>
 
-            <script id="category-view-tmpl" type="text/html">
-                <tr>
-                    <td data-bind="text: id"></td>
-                    <td data-bind="text: name"></td>
-                    <td data-bind="text: lang"></td>
-                    <td class="buttons">
-                        <button data-bind="click: $root.editItem">Edit</button>
-                        <button data-bind="click: $root.deleteItem">Delete</button>
+            <div id="categories">
 
-                    </td>
-                </tr>
-            </script>
+                <table id="tbl_categories">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Lang</th>
+                        <th></th>
+                    </tr>
+                    <tbody data-bind="template: { name: templateToUse, foreach: items}"></tbody>
+                </table>
 
-            <button data-bind="click:addItem">New Item</button>
+                <script id="category-view-tmpl" type="text/html">
+                    <tr>
+                        <td data-bind="text: id"></td>
+                        <td data-bind="text: name"></td>
+                        <td data-bind="text: lang"></td>
+                        <td class="buttons">
+                            <button data-bind="click: $root.editItem">Edit</button>
+                            <button data-bind="click: $root.deleteItem">Delete</button>
 
-            <script id="category-edit-tmpl" type="text/html">
-                <tr>
-                    <td data-bind="text: id"></td>
-                    <td>
-                        <input class="editvalue" data-bind="value: name" />
-                    </td>
-                    <td data-bind="text: lang"></td>
-                    <td class="buttons">
-                        <button data-bind="click: $root.acceptItemEdit">Accept</button>
-                        <button data-bind="click: $root.cancelItemEdit">Cancel</button>
-                    </td>
-                </tr>
-            </script>
+                        </td>
+                    </tr>
+                </script>
 
+                <button data-bind="click: addItem">New Item</button>
+
+                <script id="category-edit-tmpl" type="text/html">
+                    <tr>
+
+                        
+                        <td ><span data-bind="text:id,visible: isNotNew"></span></td>
+                        
+                        <td>
+                            <input class="editvalue" data-bind="value: name" />
+                        </td>
+                        <td data-bind="text: lang"></td>
+                        <td class="buttons">
+                            <button data-bind="click: $root.acceptItemEdit">Accept</button>
+                            <button data-bind="click: $root.cancelItemEdit">Cancel</button>
+                        </td>
+                    </tr>
+                </script>
+
+
+            </div>
 
 
 
@@ -217,8 +225,7 @@
             
 
             // Load categories
-            var _vmcategories = new cultLutViewModel();
-            var _elem = $("#categories")[0];
+            
 
             $.ajax({
                 url: "/api/categories",
@@ -227,7 +234,8 @@
                 dataType: 'json',
             }).done(function (data) {
                 
-                
+                var _vmcategories = new cultLutViewModel();
+                var _elem = $("#categories")[0];
                 
 
                 $.each(data, function (i, item) {
@@ -235,13 +243,14 @@
                     _vmcategories.items.push(item);
                 });
 
+                ko.applyBindings(_vmcategories, _elem);
                 
             }).error(function (jqXHR, textStatus, errorThrown) {
                 alert(errorThrown);
             });
 
 
-            ko.applyBindings(_vmcategories, _elem);
+            
 
 
         });

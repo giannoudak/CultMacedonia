@@ -45,9 +45,35 @@ namespace CULTMACEDONIA_v2.Controllers
             return null;
         }
 
+        [System.Web.Http.HttpPost]
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post(LutCategoryViewModel category)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+
+            Category cat = new Category();
+
+            cat.CategoryName = category.name;
+            cat.Lang = category.lang;
+
+            db.Category.Add(cat);
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+
+            
         }
 
         // PUT api/<controller>/5

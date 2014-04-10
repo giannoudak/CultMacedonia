@@ -4,6 +4,10 @@ var cultLut = function (name,id,lang) {
     this.name = ko.protectedObservable(name);
     this.id = ko.protectedObservable(id);
     this.lang = ko.protectedObservable(lang);
+    this.isNotNew = ko.computed(function(){
+        return (this.id() != -1);
+    },this);
+
 }
 
 
@@ -24,13 +28,12 @@ var cultLutViewModel = function () {
         return self.selectedItem() === item ? "category-edit-tmpl" : "category-view-tmpl";
     };
 
-
-    // onAdding new item handler
+    // adding item handler
     this.addItem = function () {
-        alert('asdas');
-        //var newItem = new Item("new item", 0);
-        //self.items.push(newItem);
-        //self.selectedItem(newItem);
+       
+        var newItem = new cultLut("", -1,"");
+        self.items.push(newItem);
+        self.selectedItem(newItem);
     };
 
     // delete item handler
@@ -70,30 +73,63 @@ var cultLutViewModel = function () {
     this.acceptItemEdit = function (data) {
         var lutNewValue = $(".editvalue").val();
 
-        var category = {
-            id: data.id._latestValue,
-            name: lutNewValue,
-            lang: data.lang._latestValue
-        };
+
+        // if data.id is -1 we have to POST a new item
+        if (data.id() == -1) {
+
+            var category = {
+                id: data.id(),
+                name: lutNewValue,
+                lang: "en"
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: "/api/categories",
+                data: JSON.stringify(category),
+                contentType: "application/json; charset=utf-8",
+            }).done(function (data, textStatus, xhr) {
+                if (textStatus == "success") {
+                    self.selectedItem().name.commit();
+                    //self.selectedItem().id.commit();
+                    self.selectedItem(null);
+                } else {
+                    // do sthnig...
+                }
+
+            }).error(function (jqXHR, textStatus, errorThrown) {
+                alert(errorThrown);
+            });
+
+        } else {
+
+            var category = {
+                id: data.id(),
+                name: lutNewValue,
+                lang: data.lang()
+            };
+
+
+            $.ajax({
+                type: 'PUT',
+                url: "/api/categories/" + +category.id,
+                data: JSON.stringify(category),
+                contentType: "application/json;charset=utf-8"
+            }).done(function (data, textStatus, xhr) {
+                if (textStatus == "success") {
+                    self.selectedItem().name.commit();
+                    //self.selectedItem().id.commit();
+                    self.selectedItem(null);
+                } else {
+                    // do sthnig...
+                }
+
+            }).error(function (jqXHR, textStatus, errorThrown) {
+                alert(errorThrown);
+            });
+        }
 
         
-        $.ajax({
-            type: 'PUT',
-            url: "/api/categories/" + +category.id,
-            data: JSON.stringify(category),
-            contentType: "application/json;charset=utf-8"
-        }).done(function (data, textStatus, xhr) {
-            if(textStatus =="success"){
-                self.selectedItem().name.commit();
-                //self.selectedItem().id.commit();
-                self.selectedItem(null);
-            } else {
-                // do sthnig...
-            }
-            
-        }).error(function (jqXHR, textStatus, errorThrown) {
-            alert(errorThrown);
-        });
 
 
 
@@ -102,6 +138,15 @@ var cultLutViewModel = function () {
 
     // undo-reset changes
     this.cancelItemEdit = function () {
+
+        // if cancel clicked and item is temporary (id == -1)
+        // we remove it!
+
+        if (self.selectedItem().id() == -1)
+        {
+            self.items.remove(self.selectedItem());
+        }
+        
         self.selectedItem().name.reset();
         self.selectedItem().id.reset();
         self.selectedItem(null);
