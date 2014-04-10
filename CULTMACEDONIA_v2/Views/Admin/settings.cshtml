@@ -174,7 +174,7 @@
                 </tr>
             </script>
 
-            <button data-bind="click: addItem">New Item</button>
+            <button data-bind="click:addItem">New Item</button>
 
             <script id="category-edit-tmpl" type="text/html">
                 <tr>
@@ -214,7 +214,11 @@
     <script type="text/javascript">
         $(function () {
 
+            
+
             // Load categories
+            var _vmcategories = new cultLutViewModel();
+            var _elem = $("#categories")[0];
 
             $.ajax({
                 url: "/api/categories",
@@ -223,18 +227,21 @@
                 dataType: 'json',
             }).done(function (data) {
                 
-                var _elem = $("#categories")[0];
-                var _vmcategories = new cultLutViewModel();
+                
+                
 
                 $.each(data, function (i, item) {
                     var item = new cultLut(item.name, item.id, item.lang);
                     _vmcategories.items.push(item);
                 });
 
-                ko.applyBindings(_vmcategories, _elem);
+                
             }).error(function (jqXHR, textStatus, errorThrown) {
                 alert(errorThrown);
             });
+
+
+            ko.applyBindings(_vmcategories, _elem);
 
 
         });

@@ -27,15 +27,38 @@ var cultLutViewModel = function () {
 
     // onAdding new item handler
     this.addItem = function () {
-        var newItem = new Item("new item", 0);
-        self.items.push(newItem);
-        self.selectedItem(newItem);
+        alert('asdas');
+        //var newItem = new Item("new item", 0);
+        //self.items.push(newItem);
+        //self.selectedItem(newItem);
     };
 
     // delete item handler
     this.deleteItem = function (itemToDelete) {
-        self.items.remove(itemToDelete);
-        self.selectedItem(null);
+
+
+        // get elementId
+        var id = itemToDelete.id._latestValue;
+
+
+        $.ajax({
+            type: 'DELETE',
+            url: "/api/categories/" + +id,
+            contentType: "application/json;charset=utf-8"
+        }).done(function (data, textStatus, xhr) {
+            if (textStatus == "success") {
+                self.items.remove(itemToDelete);
+                self.selectedItem(null);
+            } else {
+                // do sthnig...
+            }
+
+        }).error(function (jqXHR, textStatus, errorThrown) {
+            alert(errorThrown);
+        });
+
+
+        
     };
 
     // onEdditing item handler
@@ -74,8 +97,6 @@ var cultLutViewModel = function () {
 
 
 
-
-
         
     };
 
@@ -90,5 +111,3 @@ var cultLutViewModel = function () {
 };
 
 
-//// Activate knockout.js
-//ko.applyBindings(new CategoryViewModel());

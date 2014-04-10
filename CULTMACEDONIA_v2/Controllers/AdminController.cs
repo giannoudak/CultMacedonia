@@ -10,6 +10,7 @@ using CULTMACEDONIA_v2.Models.CultMacedoniaModel;
 
 namespace CULTMACEDONIA_v2.Controllers
 {
+    [Authorize(Roles="CultMacedoniaAdmin")]
     public class AdminController : Controller
     {
         private CultMacedoniaDBEntities db = new CultMacedoniaDBEntities();
