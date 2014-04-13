@@ -18,6 +18,36 @@ var cultLutViewModel = function () {
 
     // our collection
     self.items = ko.observableArray([]);
+
+
+    // paging info
+    self.currentPage = ko.observable();
+    self.pageSize = ko.observable(10);
+    self.currentPageIndex = ko.observable(0);
+    self.currentPage = ko.computed(function () {
+        var pagesize = parseInt(self.pageSize(), 10),
+        startIndex = pagesize * self.currentPageIndex(),
+        endIndex = startIndex + pagesize;
+        return self.items.slice(startIndex, endIndex);
+    });
+    self.nextPage = function () {
+        if (((self.currentPageIndex() + 1) * self.pageSize()) < self.items().length) {
+            self.currentPageIndex(self.currentPageIndex() + 1);
+        }
+        else {
+            self.currentPageIndex(0);
+        }
+    }
+    self.previousPage = function () {
+        if (self.currentPageIndex() > 0) {
+            self.currentPageIndex(self.currentPageIndex() - 1);
+        }
+        else {
+            self.currentPageIndex((Math.ceil(self.items().length / self.pageSize())) - 1);
+        }
+    }
+
+
     this.selectedItem = ko.observable();
     
 
@@ -31,6 +61,11 @@ var cultLutViewModel = function () {
     // adding item handler
     this.addItem = function () {
        
+        // when adding jump to lastpage
+        // find last page and set to curretnPageIndex observable
+        self.currentPageIndex(7);
+
+        // push new empty item in edit mode
         var newItem = new cultLut("", -1,"");
         self.items.push(newItem);
         self.selectedItem(newItem);
@@ -85,20 +120,22 @@ var cultLutViewModel = function () {
 
             $.ajax({
                 type: 'POST',
-                url: "/api/categories",
+                url: "/api/categories/new",
                 data: JSON.stringify(category),
-                contentType: "application/json; charset=utf-8",
+                contentType: "application/json;charset=utf-8"
             }).done(function (data, textStatus, xhr) {
                 if (textStatus == "success") {
+                    //alert(data.id);
+                    self.selectedItem().id(data.id)
                     self.selectedItem().name.commit();
-                    //self.selectedItem().id.commit();
+                    self.selectedItem().id.commit();
                     self.selectedItem(null);
                 } else {
                     // do sthnig...
                 }
 
             }).error(function (jqXHR, textStatus, errorThrown) {
-                alert(errorThrown);
+                alert('Status: ' + jqXHR.status + ', Error Thrown: ' + errorThrown);
             });
 
         } else {
@@ -145,6 +182,8 @@ var cultLutViewModel = function () {
         if (self.selectedItem().id() == -1)
         {
             self.items.remove(self.selectedItem());
+            // if we cancel new item insertion we return to first page
+            self.currentPageIndex(0);
         }
         
         self.selectedItem().name.reset();

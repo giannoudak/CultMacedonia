@@ -28,13 +28,13 @@ namespace CULTMACEDONIA_v2.Controllers
             //return new string[] { "value1", "value2" };
             var q = (from c in db.Category
                     orderby c.CategoryId descending
-
+                    where c.CategoryName != "-"
                     select new LutCategoryViewModel
                     {
                         id = c.CategoryId,
                         name = c.CategoryName,
                         lang = c.Lang
-                    }).Take(3);
+                    }).ToList();
 
             return q;
         }
@@ -45,8 +45,11 @@ namespace CULTMACEDONIA_v2.Controllers
             return null;
         }
 
-        [System.Web.Http.HttpPost]
         // POST api/<controller>
+        [RouteAttribute("POST")]
+        [AcceptVerbs("POST")]
+        [Route("new")]
+
         public HttpResponseMessage Post(LutCategoryViewModel category)
         {
 
@@ -65,13 +68,15 @@ namespace CULTMACEDONIA_v2.Controllers
             try
             {
                 db.SaveChanges();
+                category.id = cat.CategoryId;
             }
             catch (Exception ex)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK);
+
+            return Request.CreateResponse(HttpStatusCode.OK, category);
 
             
         }
