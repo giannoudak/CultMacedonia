@@ -1,0 +1,25 @@
+﻿.lang-label {
+  padding-left: 20px;
+}
+.langlink {
+  clear: both;
+  color: #333333 !important;
+  font-weight: normal;
+  line-height: 1.6;
+  padding-top: 5px;
+  white-space: nowrap;
+}
+.langlink:hover {
+  text-decoration: none;
+  color: #428BCA!important;
+}
+form#logoutForm > a {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  line-height: 20px;
+  display: block;
+  text-decoration: none;
+  position: relative;
+}

@@ -1,33 +1,28 @@
 ﻿
-<ul class="nav navbar-nav">
-    <li class="langslist">
-        <a class="dropdown-toggle" name="recordinput" data-toggle="dropdown" href="#">
 
-            <span class="caret"></span>
-        </a>
+<li class="langslist dropdown pull-right">
+    <a class="dropdown-toggle" name="recordinput" data-toggle="dropdown" href="#">
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li>
+            <label class="code-label lang-label" for="gr">
+                <img alt="Greece" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="flag flag-gr">
+                @Html.ActionLink("Ελληνικά", "ChangeCulture",
+                                    "Home", new { lang = "el-gr", returnUrl = @Url.Action("Index", "Home") }, new { @class = "el el-GR langlink" })
+            </label>
+        </li>
+        <li>
+            <label class="code-label lang-label" for="gb">
+                <img alt="United kingdom" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw ==" class="flag flag-gb">
+                @Html.ActionLink(" English", "ChangeCulture",
+                            "Home", new { lang = "en-gb", returnUrl = @Url.Action("Index", "Home") }, new { @class = "en en-GB langlink" })
+            </label>
+        </li>
+    </ul>
+</li>
+<!-- / .langlist .dropdown -->
 
-        <ul class="dropdown-menu">
-            <li>
-
-                <label class="code-label lang-label" for="gr">
-                    <img alt="Greece" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="flag flag-gr">
-                    @Html.ActionLink("Ελληνικά", "ChangeCulture",
-                                     "Home", new { lang = "el-gr", returnUrl = @Url.Action("Index", "Home") }, new { @class = "el el-GR langlink" })
-
-                </label>
-
-            </li>
-            <li>
-                <label class="code-label lang-label" for="gb">
-                    <img alt="United kingdom" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw ==" class="flag flag-gb">
-                    @Html.ActionLink(" English", "ChangeCulture",
-                             "Home", new { lang = "en-gb", returnUrl = @Url.Action("Index", "Home") }, new { @class = "en en-GB langlink" })
-                </label>
-            </li>
-        </ul>
-
-    </li>
-</ul>
 
 
 

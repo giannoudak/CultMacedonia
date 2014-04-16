@@ -328,6 +328,12 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap-image-gallery.css" />
     <Content Include="Content\css\bootstrap-social.css" />
+    <Content Include="Content\css\cultmaced.general.css">
+      <DependentUpon>cultmaced.general.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\cultmaced.general.min.css">
+      <DependentUpon>cultmaced.general.less</DependentUpon>
+    </Content>
     <Content Include="Content\css\cultmaced.sidebar.css" />
     <Content Include="Content\css\cultmaced.theme.css" />
     <Content Include="Content\css\bootstrap.css" />
@@ -338,6 +344,7 @@
     <Content Include="Content\css\CultMacedoniaLESS.min.css">
       <DependentUpon>CultMacedoniaLESS.less</DependentUpon>
     </Content>
+    <Content Include="Content\css\dashboard\cm-admin.css" />
     <Content Include="Content\css\flags.css" />
     <Content Include="Content\css\hoverlist\style5.css" />
     <Content Include="Content\css\hoverlist\style_common.css" />
@@ -364,6 +371,11 @@
     <Content Include="Content\scripts\ace-elements.min.js" />
     <Content Include="Content\scripts\ace-extra.min.js" />
     <Content Include="Content\scripts\ace.min.js" />
+    <Content Include="Content\scripts\admin\dashboard-demo.js" />
+    <Content Include="Content\scripts\admin\jquery.metisMenu.js" />
+    <Content Include="Content\scripts\admin\morris-demo.js" />
+    <Content Include="Content\scripts\admin\raphael-2.1.0.min.js" />
+    <Content Include="Content\scripts\admin\sb-admin.js" />
     <Content Include="Content\scripts\bootstrap-image-gallery.js" />
     <Content Include="Content\scripts\cult-elements.min.js" />
     <Content Include="Content\scripts\cult-extra.min.js" />
@@ -459,6 +471,7 @@
       <LastGenOutput>Shared.el-gr.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="Content\css\cultmaced.general.less" />
     <None Include="Content\css\CultMacedoniaLESS.less" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />

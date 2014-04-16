@@ -1,4 +1,7 @@
 ﻿<!-- navigation bar -->
+
+
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -24,30 +27,34 @@
 
         </div>
         <!-- make navigation links togglable -->
-        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse ">
 
-            @if (controller.Equals("Home") && action.Equals("Index"))
-            {
+            <ul class="nav navbar-nav col-lg-10">
 
-                <ul class="nav navbar-nav">
+                @if (controller.Equals("Home") && action.Equals("Index"))
+                {
+
+
                     <li>@Html.ActionLink(@CultResources.Shared.About, "About", "Home")</li>
                     <li><a href="#points">@CultResources.Shared.Points</a></li>
                     <li><a href="#mobile">@CultResources.Shared.Mobile</a></li>
                     <li><a href="#contact">@CultResources.Shared.Contact</a></li>
-                </ul>
-            }
 
-            <div class="pull-right">
+                }
 
-                @*Φορτώνουμε τo partial view που δημιουργήσαμε για την επιλογή γλώσσας*@
+                <li class="dropdown pull-right">
+                    @Html.Partial("_LoginPartial")
+                </li>
+
                 @if (controller.Equals("Home") && action.Equals("Index"))
                 {
 
                     @Html.Partial("_CultureChooserUserControl")
                 }
 
-                @Html.Partial("_LoginPartial")
-            </div>
+
+            </ul>
+            
         </div>
         <!-- /.navbar-collapse -->
     </div>

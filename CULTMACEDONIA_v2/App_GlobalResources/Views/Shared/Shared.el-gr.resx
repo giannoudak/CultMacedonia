@@ -240,4 +240,7 @@
   <data name="Points" xml:space="preserve">
     <value>Αξιοθέατα</value>
   </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Διαχείριση</value>
+  </data>
 </root>

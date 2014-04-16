@@ -30,8 +30,7 @@ namespace CULTMACEDONIA_v2
             bundles.Add(new StyleBundle("~/cultmaced/css").Include(
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/cultmaced.styles.css",
-                      "~/Content/css/image-drop.css",
-                      "~/Content/css/flags.css"));
+                      "~/Content/css/image-drop.css"));
 
             bundles.Add(new StyleBundle("~/cultmaced/dropingfiles").Include(
                       "~/Content/css/image-dropzone.css"));
