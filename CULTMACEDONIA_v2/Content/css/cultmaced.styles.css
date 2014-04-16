@@ -117,12 +117,6 @@ html, body {
 }
 
 
-
-
-
-
-
-
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select {
@@ -132,8 +126,6 @@ select {
 #divLoading{
     margin-top:4px;
 }
-
-
 
 .pointPageCarousel{
     top:-15px!important;
@@ -201,9 +193,6 @@ select {
 }
 
 
-
-
-
 .infoDiv {
     height: 90px;
     width: 200px;
@@ -233,8 +222,6 @@ select {
     z-index: 1;
     
 }
-
-
 
 
 .container-relative{
