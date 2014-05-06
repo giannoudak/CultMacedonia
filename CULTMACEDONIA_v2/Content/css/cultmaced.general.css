@@ -26,3 +26,11 @@ form#logoutForm > a {
 .text-justify {
   text-align: justify;
 }
+.navbar-brand .one {
+  font-size: 24px;
+  font-weight: 700;
+}
+.navbar-brand .two {
+  font-size: 24px;
+  font-weight: 700;
+}
