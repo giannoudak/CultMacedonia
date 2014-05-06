@@ -1,4 +1,24 @@
 ﻿
+@{
+    
+    string controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+    string action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"].ToString();
+    string action2return;
+    
+    
+    if (controller.Equals("Home") && ( action.Equals("Index") || action.Equals("About") ))
+    {
+        action2return = this.Request.RawUrl;
+    }else{
+        action2return = @Url.Action("Index", "Home");  
+    }
+
+
+}
+
+
+
+
 
 <li class="langslist dropdown pull-right">
     <a class="dropdown-toggle" name="recordinput" data-toggle="dropdown" href="#">
@@ -9,14 +29,14 @@
             <label class="code-label lang-label" for="gr">
                 <img alt="Greece" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" class="flag flag-gr">
                 @Html.ActionLink("Ελληνικά", "ChangeCulture",
-                                    "Home", new { lang = "el-gr", returnUrl = @Url.Action("Index", "Home") }, new { @class = "el el-GR langlink" })
+                                             "Home", new { lang = "el-gr", returnUrl = action2return }, new { @class = "el el-GR langlink" })
             </label>
         </li>
         <li>
             <label class="code-label lang-label" for="gb">
                 <img alt="United kingdom" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw ==" class="flag flag-gb">
                 @Html.ActionLink(" English", "ChangeCulture",
-                            "Home", new { lang = "en-gb", returnUrl = @Url.Action("Index", "Home") }, new { @class = "en en-GB langlink" })
+                                     "Home", new { lang = "en-gb", returnUrl = action2return }, new { @class = "en en-GB langlink" })
             </label>
         </li>
     </ul>

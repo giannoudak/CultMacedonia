@@ -37,10 +37,12 @@ namespace CULTMACEDONIA_v2.Controllers
             return Json(new { success = success});
         }
 
-        
+
+        [Route("about")]
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            
+            ViewBag.TItle = CultResources.Shared.About;
 
             return View();
         }

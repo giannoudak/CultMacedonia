@@ -348,7 +348,7 @@ namespace CULTMACEDONIA_v2.Controllers
                 lang = cultinfo.Name.Split(new Char[] { '-' })[0];
 
             // Διαβάζουμε την λίστα με όλες τις κατηγορίες άξιοθέατων
-            var q = (from p in db.Point
+            var q = (from p in db.Point.Include("PointImage")
                      where p.PointLocalization == lang
                      select new PointMapViewModel
 
@@ -359,7 +359,9 @@ namespace CULTMACEDONIA_v2.Controllers
                          GeoLat = p.PointY,
                          PlaceAddress = p.PointAddress,
                          PlaceId = p.PointId,
-                         Category = p.Category.CategoryName
+                         Category = p.Category.CategoryName,
+                         SingleImage = p.PointImage.Take(1).FirstOrDefault().ImageFilePath
+                         
                      }).Take(15).ToList();
 
             return Json(q, JsonRequestBehavior.AllowGet);

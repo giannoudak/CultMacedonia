@@ -243,4 +243,16 @@
   <data name="Dashboard" xml:space="preserve">
     <value>Dashboard</value>
   </data>
+  <data name="AboutSubText" xml:space="preserve">
+    <value>For more information please visit us : &lt;a href="http://http://4-elements.org/" target="_blank" title="four ELEMENTS"&gt;four ELEMENTS&lt;/a&gt;</value>
+  </data>
+  <data name="AboutText" xml:space="preserve">
+    <value>Four ELEMENTS is a Non-Profit and Non-Governmental Organization (NGO) based in Athens. Four ELEMENTS was established in 2008 and is an innovative and pioneering Greek organization, with international cooperation and activity undertaking sensitivization actions concerning health, welfare, culture, sensitive social groups and human resources development. Four ELEMENTS has great experience and intends to play a major role for future awareness campaigns and assistance in various areas, organizing workshops and other events and support people with disabilities, setting as a goal to solve people’s problems, awakening of social consciousness and awareness both in Greece and worldwide.</value>
+  </data>
+  <data name="CultAboutText" xml:space="preserve">
+    <value>The innovative application CultMacedonia has as its object the presentation of the monuments of Central Macedonia through new mobile technology, making it easy to use it as a new and enjoyable digital "walk" over cultural landmarks. Discover culture through the CultMacedonia!</value>
+  </data>
+  <data name="OurProfile" xml:space="preserve">
+    <value>Our Profile</value>
+  </data>
 </root>

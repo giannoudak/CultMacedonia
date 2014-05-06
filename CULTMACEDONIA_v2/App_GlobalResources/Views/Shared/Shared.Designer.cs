@@ -70,6 +70,24 @@ namespace CultResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to For more information please visit us : &lt;a href=&quot;http://http://4-elements.org/&quot; target=&quot;_blank&quot; title=&quot;four ELEMENTS&quot;&gt;four ELEMENTS&lt;/a&gt;.
+        /// </summary>
+        public static string AboutSubText {
+            get {
+                return ResourceManager.GetString("AboutSubText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Four ELEMENTS is a Non-Profit and Non-Governmental Organization (NGO) based in Athens. Four ELEMENTS was established in 2008 and is an innovative and pioneering Greek organization, with international cooperation and activity undertaking sensitivization actions concerning health, welfare, culture, sensitive social groups and human resources development. Four ELEMENTS has great experience and intends to play a major role for future awareness campaigns and assistance in various areas, organizing workshops and  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AboutText {
+            get {
+                return ResourceManager.GetString("AboutText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manage.
         /// </summary>
         public static string AccountManage {
@@ -214,6 +232,15 @@ namespace CultResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The innovative application CultMacedonia has as its object the presentation of the monuments of Central Macedonia through new mobile technology, making it easy to use it as a new and enjoyable digital &quot;walk&quot; over cultural landmarks. Discover culture through the CultMacedonia!.
+        /// </summary>
+        public static string CultAboutText {
+            get {
+                return ResourceManager.GetString("CultAboutText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dashboard.
         /// </summary>
         public static string Dashboard {
@@ -309,6 +336,15 @@ namespace CultResources {
         public static string NotificationsMessage {
             get {
                 return ResourceManager.GetString("NotificationsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our Profile.
+        /// </summary>
+        public static string OurProfile {
+            get {
+                return ResourceManager.GetString("OurProfile", resourceCulture);
             }
         }
         

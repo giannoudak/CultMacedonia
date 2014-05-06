@@ -35,7 +35,7 @@
                 {
 
 
-                    <li>@Html.ActionLink(@CultResources.Shared.About, "About", "Home")</li>
+                    <li>@Html.ActionLink(@CultResources.Shared.About, "about", "Home")</li>
                     <li><a href="#points">@CultResources.Shared.Points</a></li>
                     <li><a href="#mobile">@CultResources.Shared.Mobile</a></li>
                     <li><a href="#contact">@CultResources.Shared.Contact</a></li>
@@ -46,7 +46,7 @@
                     @Html.Partial("_LoginPartial")
                 </li>
 
-                @if (controller.Equals("Home") && action.Equals("Index"))
+                @if (controller.Equals("Home") && ( action.Equals("Index") || action.Equals("About") ))
                 {
 
                     @Html.Partial("_CultureChooserUserControl")

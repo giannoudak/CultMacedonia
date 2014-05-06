@@ -23,3 +23,6 @@ form#logoutForm > a {
   text-decoration: none;
   position: relative;
 }
+.text-justify {
+  text-align: justify;
+}

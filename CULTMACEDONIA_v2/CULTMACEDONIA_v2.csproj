@@ -354,6 +354,7 @@
     <Content Include="Content\font-awesome\font-awesome.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\images\4elements.jpg" />
     <Content Include="Content\images\bgimg.jpg" />
     <Content Include="Content\images\blank.gif" />
     <Content Include="Content\images\flags.png" />
