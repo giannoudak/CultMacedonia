@@ -180,4 +180,16 @@
   <data name="NoResultsTemplate" xml:space="preserve">
     <value>No results found</value>
   </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Your E-mail is required!</value>
+  </data>
+  <data name="PasswordConfirmFail" xml:space="preserve">
+    <value>The new password and confirmation password do not match.</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Password is required!</value>
+  </data>
+  <data name="UserNameRequired" xml:space="preserve">
+    <value>Username is required!</value>
+  </data>
 </root>

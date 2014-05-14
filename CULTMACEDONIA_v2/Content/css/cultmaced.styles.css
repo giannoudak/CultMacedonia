@@ -488,6 +488,11 @@ div#mobile.row div.col-lg-6 div#carousel-example-captions.carousel ol.carousel-i
     max-width: 420px;
     padding: 15px;
 }
+.form-register {
+    margin: 0 auto;
+    max-width: 620px;
+    padding: 15px;
+}
 .cult-login-form{
     margin-top:50px;
 }

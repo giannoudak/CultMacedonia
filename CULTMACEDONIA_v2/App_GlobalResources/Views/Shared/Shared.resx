@@ -184,7 +184,7 @@
     <value>See All Notifications</value>
   </data>
   <data name="UseLocalAccount" xml:space="preserve">
-    <value>Use a local CultMacedonia account to log in.</value>
+    <value>Use a local CultMacedonia account to log in</value>
   </data>
   <data name="UserNamePlhdr" xml:space="preserve">
     <value>enter your username</value>
@@ -254,5 +254,14 @@
   </data>
   <data name="OurProfile" xml:space="preserve">
     <value>Our Profile</value>
+  </data>
+  <data name="CreateLocalAccount" xml:space="preserve">
+    <value>Create a local CultMacedonia account to log in</value>
+  </data>
+  <data name="PasswordConfirmPlhdr" xml:space="preserve">
+    <value>please confirm your password</value>
+  </data>
+  <data name="UserEmailPlhdr" xml:space="preserve">
+    <value>enter your e-mail</value>
   </data>
 </root>

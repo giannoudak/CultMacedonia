@@ -10,46 +10,54 @@
 
     <div class="container ">
 
-        <h2>@ViewBag.Title.</h2>
+        
 
-        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-signin cult-login-form", role = "form" }))
-    {
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary()
-            
-            
-            
-         @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })   
-         @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })  
-            
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-register cult-login-form", role = "form" }))
+        {
             
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.UserEmail, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.UserEmail, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-    }
+            <h2 class="form-signin-heading">@ViewBag.Title</h2>
+            <h4>@CultResources.Shared.CreateLocalAccount</h4>
+            
+            
+            @Html.AntiForgeryToken()
+           
+            @Html.ValidationSummary(true)
+
+
+            <div class="form-group">
+
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = @CultResources.Shared.UserNamePlhdr })
+                    @Html.ValidationMessageFor(m => m.UserName)
+            </div>
+            
+            <div class="form-group">
+
+                    @Html.TextBoxFor(m => m.UserEmail, new { @class = "form-control", @placeholder = @CultResources.Shared.UserEmailPlhdr })
+                    @Html.ValidationMessageFor(m => m.UserEmail)
+            </div>
+            
+            
+            
+            <div class="form-group">
+               
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = @CultResources.Shared.PasswordPlhdr })
+                    @Html.ValidationMessageFor(m => m.Password)
+            </div>
+            
+            
+            <div class="form-group">
+                
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = @CultResources.Shared.PasswordConfirmPlhdr })
+                    @Html.ValidationMessageFor(m => m.Password)
+                
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Register" />
+                </div>
+            </div>
+        }
 
 
     </div>

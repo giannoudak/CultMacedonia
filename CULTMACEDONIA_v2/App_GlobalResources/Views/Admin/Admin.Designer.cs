@@ -124,6 +124,15 @@ namespace CultResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your E-mail is required!.
+        /// </summary>
+        public static string EmailRequired {
+            get {
+                return ResourceManager.GetString("EmailRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable.
         /// </summary>
         public static string EnableCaption {
@@ -187,6 +196,24 @@ namespace CultResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The new password and confirmation password do not match..
+        /// </summary>
+        public static string PasswordConfirmFail {
+            get {
+                return ResourceManager.GetString("PasswordConfirmFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is required!.
+        /// </summary>
+        public static string PasswordRequired {
+            get {
+                return ResourceManager.GetString("PasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manage all Monuments.
         /// </summary>
         public static string PointsAll {
@@ -246,6 +273,15 @@ namespace CultResources {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username is required!.
+        /// </summary>
+        public static string UserNameRequired {
+            get {
+                return ResourceManager.GetString("UserNameRequired", resourceCulture);
             }
         }
     }

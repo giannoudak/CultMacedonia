@@ -255,4 +255,13 @@
   <data name="OurProfile" xml:space="preserve">
     <value>Προφίλ</value>
   </data>
+  <data name="CreateLocalAccount" xml:space="preserve">
+    <value>Δημιουργήστε έναν νέο λογαριασμό στο CultMacedonia</value>
+  </data>
+  <data name="PasswordConfirmPlhdr" xml:space="preserve">
+    <value>επιβεβαίωση κωδικού</value>
+  </data>
+  <data name="UserEmailPlhdr" xml:space="preserve">
+    <value>το e-mail σας</value>
+  </data>
 </root>

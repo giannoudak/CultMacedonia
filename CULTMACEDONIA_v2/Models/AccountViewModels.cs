@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CultResources;
+using System.ComponentModel.DataAnnotations;
 
 namespace CULTMACEDONIA_v2.Models
 {
@@ -33,11 +34,12 @@ namespace CULTMACEDONIA_v2.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessageResourceName = "UserNameRequired", ErrorMessageResourceType = typeof(Admin))]
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
-        [Required]
+        
+        [Required(ErrorMessageResourceName = "PasswordRequired", ErrorMessageResourceType = typeof(Admin))]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -48,26 +50,26 @@ namespace CULTMACEDONIA_v2.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessageResourceName = "UserNameRequired", ErrorMessageResourceType = typeof(Admin))]
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessageResourceName = "PasswordRequired", ErrorMessageResourceType = typeof(Admin))]
         [DataType(DataType.Password)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessageResourceName = "PasswordConfirmFail", ErrorMessageResourceType = typeof(Admin))]
         public string ConfirmPassword { get; set; }
 
         /// <summary>
         /// Προσθέτουμε και το email του χρήστη για το Registration
         /// To email ειναι υποχρεωτικό και δεν επιτρέπεται το κενό string
         /// </summary>
-        [Required(ErrorMessage = "User email is required for registration", AllowEmptyStrings = false)]
+        [Required(ErrorMessageResourceName = "EmailRequired", ErrorMessageResourceType = typeof(Admin), AllowEmptyStrings = false)]
         public string UserEmail { get; set; }
     }
 }

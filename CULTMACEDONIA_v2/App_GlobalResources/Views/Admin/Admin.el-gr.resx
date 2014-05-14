@@ -180,4 +180,16 @@
   <data name="NoResultsTemplate" xml:space="preserve">
     <value>Δεν βρέθηκαν αποτελέσματα</value>
   </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>Το E-mail είναι υποχρεωτικό!</value>
+  </data>
+  <data name="PasswordConfirmFail" xml:space="preserve">
+    <value>Ο νέος κωδικός δεν συμφωνεί με τον κωδικό επιβεβαίωσης!</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Ο κωδικός πρέπει να συμπληρωθεί υποχρεωτικά!</value>
+  </data>
+  <data name="UserNameRequired" xml:space="preserve">
+    <value>Το όνομα χρήστη είναι υποχρεωτικό!</value>
+  </data>
 </root>
