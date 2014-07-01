@@ -264,4 +264,31 @@
   <data name="UserEmailPlhdr" xml:space="preserve">
     <value>enter your e-mail</value>
   </data>
+  <data name="MobileAppCaption1" xml:space="preserve">
+    <value>&lt;strong&gt;CultMacedonia&lt;/strong&gt; - Mobile Application Menu</value>
+  </data>
+  <data name="MobileAppCaption2" xml:space="preserve">
+    <value>&lt;strong&gt;CultMacedonia&lt;/strong&gt; - Monuments Gallery Showcase</value>
+  </data>
+  <data name="MobileAppCaption3" xml:space="preserve">
+    <value>&lt;strong&gt;CultMacedonia&lt;/strong&gt; - Monument List</value>
+  </data>
+  <data name="MobileAppCaption4" xml:space="preserve">
+    <value>&lt;strong&gt;CultMacedonia&lt;/strong&gt; - Monuments Map</value>
+  </data>
+  <data name="MobileAppDescription" xml:space="preserve">
+    <value>Η καινοτόμα εφαρμογή CultMacedonia έχει ως αντικείμενο την παρουσίαση των μνημείων της Κεντρικής Μακεδονίας μέσα από τις νέες τεχνολογίες κινητής τηλεφωνίας, αποτελώντας έναν νέο εύχρηστο και ευχάριστο τρόπο ψηφιακού "περίπατου" στα πολιτιστικά σημεία ενδιαφέροντος. Ανακαλύψτε τον πολιτισμό μέσα από το CultMacedonia!</value>
+  </data>
+  <data name="MobileApp_1" xml:space="preserve">
+    <value>/Content/images/cult_macedonia_en_1.png</value>
+  </data>
+  <data name="MobileApp_2" xml:space="preserve">
+    <value>/Content/images/cult_macedonia_en_2.png</value>
+  </data>
+  <data name="MobileApp_3" xml:space="preserve">
+    <value>/Content/images/cult_macedonia_en_3.png</value>
+  </data>
+  <data name="MobileApp_4" xml:space="preserve">
+    <value>/Content/images/cult_macedonia_en_4.png</value>
+  </data>
 </root>

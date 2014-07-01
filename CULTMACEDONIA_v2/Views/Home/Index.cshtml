@@ -5,6 +5,7 @@
 
 @section styles{
     @Styles.Render("~/cultmaced/showcase")
+    @Styles.Render("~/cultmaced/slider")
 }
 
 
@@ -69,8 +70,8 @@
                     <div class="col-lg-3 view view-fifth">
 
 
-                        <div data-bind="visible: pointImages.length > 0" id="over" >
-                            
+                        <div data-bind="visible: pointImages.length > 0" id="over">
+
                             <div data-bind="foreach: pointImages" class="centerimg">
                                 <img data-bind="attr:{'src':  ImagePath}" class="item-preview centered" />
                             </div>
@@ -127,46 +128,31 @@
                     <h2 class="section-heading">
                         One your mobile way
                     </h2>
-                    <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+                    <p class="lead">
+                        Ανακαλύψτε τον πολιτισμό μέσα από το CultMacedonia!
+                        @CultResources.Shared.MobileAppDescription
+                        
+                    </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <div data-ride="carousel" class="carousel slide" id="carousel-example-captions">
-                        <ol class="carousel-indicators">
-                            <li class="active" data-slide-to="0" data-target="#carousel-example-captions"></li>
-                            <li data-slide-to="1" data-target="#carousel-example-captions" class=""></li>
-                            <li data-slide-to="2" data-target="#carousel-example-captions" class=""></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="item active">
 
-                                <img src="~/Content/images/cultmaced_mobapp_1.png" />
-                                @*<div class="carousel-caption">
-                                        <h3>First slide label</h3>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                    </div>*@
-                            </div>
-                            <div class="item">
-                                <img src="~/Content/images/cultmaced_mobapp_2.png" />
-                                @*<div class="carousel-caption">
-                                        <h3>Second slide label</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>*@
-                            </div>
-                            <div class="item">
-                                <img src="~/Content/images/cultmaced_mobapp_3.png" />
-                                @*<div class="carousel-caption">
-                                        <h3>Third slide label</h3>
-                                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                                    </div>*@
-                            </div>
-                        </div>
-                        <a data-slide="prev" href="#carousel-example-captions" class="left carousel-control">
-                            <span class="fa fa-chevron-left"></span>
-                        </a>
-                        <a data-slide="next" href="#carousel-example-captions" class="right carousel-control">
-                            <span class="fa fa-chevron-right"></span>
-                        </a>
+                    <!--  Outer wrapper for presentation only, this can be anything you like -->
+                    <div id="banner-slide">
+
+                        <!-- start Basic Jquery Slider -->
+                        <ul class="bjqs">
+                            <li><a href=""><img src="@CultResources.Shared.MobileApp_1" width="300" height="480" title="@CultResources.Shared.MobileAppCaption1"></a></li>
+                            <li><img src="@CultResources.Shared.MobileApp_2" width="300" height="480" title="@CultResources.Shared.MobileAppCaption2"></li>
+                            <li><img src="@CultResources.Shared.MobileApp_3" width="300" height="480" title="@CultResources.Shared.MobileAppCaption3"></li>
+                            <li><img src="@CultResources.Shared.MobileApp_4" width="300" height="480" title="@CultResources.Shared.MobileAppCaption4"></li>
+                        </ul>
+                        <!-- end Basic jQuery Slider -->
+
                     </div>
+                    <!-- End outer wrapper -->
+                    
+
+
                 </div>
             </div>
 
@@ -234,21 +220,24 @@
 @section scripts {
     <script src="~/Scripts/knockout-3.0.0.debug.js"></script>
     <script src="~/Scripts/knockout.mapping-latest.debug.js"></script>
+    <script src="~/Content/scripts/bjqs-1.3.min.js"></script>
     <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
 
     <script>
         $(function () {
 
 
-            $('.carousel-control.left').click(function () {
-
-                $('#carousel-example-captions').carousel('prev');
+            $('#banner-slide').bjqs({
+                animtype: 'slide',
+                height: 480,
+                width: 300,
+                responsive: true,
+                randomstart: true,
+                keyboardnav: true, // enable keyboard navigation
+                hoverpause: true // pause the slider on hover
             });
 
-            $('.carousel-control.right').click(function () {
 
-                $('#carousel-example-captions').carousel('next');
-            });
 
             $('#points').pagify({
                 dataUrl: '@Url.Action("GetPointList", "Points")',

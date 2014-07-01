@@ -39,7 +39,8 @@ namespace CULTMACEDONIA_v2
                       "~/Content/css/hoverlist/style_common.css",
                       "~/Content/css/hoverlist/style5.css" ));
 
-
+            bundles.Add(new StyleBundle("~/cultmaced/slider").Include(
+                        "~/Content/css/slider.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

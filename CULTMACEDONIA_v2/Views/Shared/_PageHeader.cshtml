@@ -46,7 +46,8 @@
                     @Html.Partial("_LoginPartial")
                 </li>
 
-                @if (controller.Equals("Home") && ( action.Equals("Index") || action.Equals("About") ))
+                @if ( (controller == "Home" &&      ( action == "Index" || action == "About" )) ||
+                      (controller == "Account" &&   ( action == "Register" || action == "Login"))  )
                 {
 
                     @Html.Partial("_CultureChooserUserControl")

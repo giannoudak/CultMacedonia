@@ -322,6 +322,87 @@ namespace CultResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /Content/images/cult_macedonia_en_1.png.
+        /// </summary>
+        public static string MobileApp_1 {
+            get {
+                return ResourceManager.GetString("MobileApp_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Content/images/cult_macedonia_en_2.png.
+        /// </summary>
+        public static string MobileApp_2 {
+            get {
+                return ResourceManager.GetString("MobileApp_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Content/images/cult_macedonia_en_3.png.
+        /// </summary>
+        public static string MobileApp_3 {
+            get {
+                return ResourceManager.GetString("MobileApp_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Content/images/cult_macedonia_en_4.png.
+        /// </summary>
+        public static string MobileApp_4 {
+            get {
+                return ResourceManager.GetString("MobileApp_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;CultMacedonia&lt;/strong&gt; - Mobile Application Menu.
+        /// </summary>
+        public static string MobileAppCaption1 {
+            get {
+                return ResourceManager.GetString("MobileAppCaption1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;CultMacedonia&lt;/strong&gt; - Monuments Gallery Showcase.
+        /// </summary>
+        public static string MobileAppCaption2 {
+            get {
+                return ResourceManager.GetString("MobileAppCaption2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;CultMacedonia&lt;/strong&gt; - Monument List.
+        /// </summary>
+        public static string MobileAppCaption3 {
+            get {
+                return ResourceManager.GetString("MobileAppCaption3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;strong&gt;CultMacedonia&lt;/strong&gt; - Monuments Map.
+        /// </summary>
+        public static string MobileAppCaption4 {
+            get {
+                return ResourceManager.GetString("MobileAppCaption4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Η καινοτόμα εφαρμογή CultMacedonia έχει ως αντικείμενο την παρουσίαση των μνημείων της Κεντρικής Μακεδονίας μέσα από τις νέες τεχνολογίες κινητής τηλεφωνίας, αποτελώντας έναν νέο εύχρηστο και ευχάριστο τρόπο ψηφιακού &quot;περίπατου&quot; στα πολιτιστικά σημεία ενδιαφέροντος. Ανακαλύψτε τον πολιτισμό μέσα από το CultMacedonia!.
+        /// </summary>
+        public static string MobileAppDescription {
+            get {
+                return ResourceManager.GetString("MobileAppDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to My Favorites.
         /// </summary>
         public static string MyFavorites {
