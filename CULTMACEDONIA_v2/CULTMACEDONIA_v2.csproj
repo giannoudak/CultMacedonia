@@ -366,6 +366,7 @@
     <Content Include="Content\images\cult_macedonia_en_2.png" />
     <Content Include="Content\images\cult_macedonia_en_3.png" />
     <Content Include="Content\images\cult_macedonia_en_4.png" />
+    <Content Include="Content\images\en_generic_rgb_wo_45.png" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\favicon.png" />
     <Content Include="Content\images\flags.png" />
