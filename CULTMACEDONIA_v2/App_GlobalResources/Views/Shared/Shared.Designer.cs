@@ -394,11 +394,30 @@ namespace CultResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Η καινοτόμα εφαρμογή CultMacedonia έχει ως αντικείμενο την παρουσίαση των μνημείων της Κεντρικής Μακεδονίας μέσα από τις νέες τεχνολογίες κινητής τηλεφωνίας, αποτελώντας έναν νέο εύχρηστο και ευχάριστο τρόπο ψηφιακού &quot;περίπατου&quot; στα πολιτιστικά σημεία ενδιαφέροντος. Ανακαλύψτε τον πολιτισμό μέσα από το CultMacedonia!.
+        ///   Looks up a localized string similar to Η καινοτόμα εφαρμογή CultMacedonia έχει ως αντικείμενο την παρουσίαση των μνημείων της Κεντρικής Μακεδονίας μέσα από τις νέες τεχνολογίες κινητής τηλεφωνίας, αποτελώντας έναν νέο εύχρηστο και ευχάριστο τρόπο ψηφιακού &quot;περίπατου&quot; στα πολιτιστικά σημεία ενδιαφέροντος. .
         /// </summary>
         public static string MobileAppDescription {
             get {
                 return ResourceManager.GetString("MobileAppDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ανακαλύψτε τον πολιτισμό μέσα από το CultMacedonia!.
+        /// </summary>
+        public static string MobileAppTitle {
+            get {
+                return ResourceManager.GetString("MobileAppTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Η εφαρμογή είναι διαθέσιμη δωρεάν στο Goolgle Play από
+        ///                        &lt;a href=&quot;https://play.google.com/store/apps/details?id=four.elements.cultmacedonia&amp;hl=el&quot; target=&quot;_blank&quot; title=&quot;Cult Macedonia  Mobile&quot;&gt;εδώ&lt;/a&gt;..
+        /// </summary>
+        public static string MobileGooglePlay {
+            get {
+                return ResourceManager.GetString("MobileGooglePlay", resourceCulture);
             }
         }
         
