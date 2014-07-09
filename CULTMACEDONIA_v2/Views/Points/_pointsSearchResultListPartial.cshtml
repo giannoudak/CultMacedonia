@@ -1,7 +1,87 @@
 ﻿@model List<CULTMACEDONIA_v2.Models.CultMacedoniaModel.Point>
 
 
+<style type="text/css">
+    .test {
+        border:1px solid #0094ff;
+        margin:1px;
+    }
+</style> 
 
+@{
+    int groupSize = 6;
+    int total = Model.Count;
+    int groups = total / groupSize;
+
+}
+
+<!--  Outer wrapper for presentation only, this can be anything you like -->
+<div id="search-slide">
+
+    <!-- start Basic Jquery Slider -->
+    <ul class="bjqs">
+
+        @*για καθε group κανω και ενα li*@
+
+        @for (int i = 0; i<= groups; i++)
+        {
+
+            <li >
+                @if (i == 0)
+                {
+                <div class="item row active" >
+                    @foreach (var item in Model.Skip(i * groupSize).Take(groupSize))
+                    {
+
+                        <a href="#" class="itmpoint list-group-item" data-id="@item.PointId" data-category="@item.Category.CategoryName" data-x="@item.PointX" data-y="@item.PointY">
+                            <h5 class="list-group-item-heading">@item.PointName</h5>
+                            <p class="list-group-item-text">
+                                @item.PointAddress
+                            </p>
+
+                        </a>
+
+
+                    }
+                </div>
+                }
+                else
+                {
+                <div class="item">
+                    @foreach (var item in Model.Skip(i * groupSize).Take(groupSize))
+                    {
+
+                        <a href="#" class="itmpoint list-group-item" data-id="@item.PointId" data-category="@item.Category.CategoryName" data-x="@item.PointX" data-y="@item.PointY">
+                            <h5 class="list-group-item-heading">@item.PointName</h5>
+                            <p class="list-group-item-text">
+                                @item.PointAddress
+                            </p>
+
+                        </a>
+
+                    }
+                </div>
+                }
+
+            </li>
+            
+        }
+
+
+        
+
+        
+    </ul>
+    <!-- end Basic jQuery Slider -->
+
+</div>
+<!-- End outer wrapper -->
+
+
+
+
+
+@*
 @{
     int groupSize = 6;
     int total = Model.Count;
@@ -57,17 +137,17 @@
             {
                 <div class="item">
                     @foreach (var item in Model.Skip(i * groupSize).Take(groupSize))
-{
+                    {
 
-    <a href="#" class="itmpoint list-group-item" data-id="@item.PointId" data-category="@item.Category.CategoryName" data-x="@item.PointX" data-y="@item.PointY">
-        <h5 class="list-group-item-heading">@item.PointName</h5>
-        <p class="list-group-item-text">
-            @item.PointAddress
-        </p>
+                        <a href="#" class="itmpoint list-group-item" data-id="@item.PointId" data-category="@item.Category.CategoryName" data-x="@item.PointX" data-y="@item.PointY">
+                            <h5 class="list-group-item-heading">@item.PointName</h5>
+                            <p class="list-group-item-text">
+                                @item.PointAddress
+                            </p>
 
-    </a>
+                        </a>
 
-}
+                    }
                 </div>
             }
 
@@ -77,4 +157,21 @@
 
 
 
-</div><!-- myCarousels ends-->
+</div>
+<!-- myCarousels ends-->
+    *@
+<script type="text/javascript">
+
+    $('#search-slide').bjqs({
+        animtype: 'slide',
+        height: 480,
+        width: 300,
+        automatic:false,
+        responsive: true,
+        randomstart: true,
+        keyboardnav: true, // enable keyboard navigation
+        hoverpause: true // pause the slider on hover
+    });
+
+
+</script>

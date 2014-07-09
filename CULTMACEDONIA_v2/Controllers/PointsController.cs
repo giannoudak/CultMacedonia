@@ -1178,14 +1178,22 @@ namespace CULTMACEDONIA_v2.Controllers
 
         #region Αναζήτησης
         public ActionResult Search()
+        
         {
 
-            ViewBag.PointCategoryId = new SelectList(db.Category, "CategoryId", "CategoryName");
-            ViewBag.PointEraId = new SelectList(db.Era, "EraId", "EraName");
-            ViewBag.PointEthnologicalId = new SelectList(db.Ethnological, "EthnologicalId", "EthnologicalName");
-            ViewBag.PointPropertyId = new SelectList(db.Property, "PropertyId", "PropertyName");
-            ViewBag.PointProtectionId = new SelectList(db.ProtectionLevel, "ProtectionId", "ProtectionName");
-            ViewBag.PointReligionId = new SelectList(db.Religion, "ReligionId", "ReligionName");
+            string lang = string.Empty;
+            // Διαβάζουμε το Culture του session ώστε να ξέρουμε σε ποια γλώσσα θα
+            // κάνουμε save το νέο Point
+            CultureInfo cultinfo = (Session["Culture"] as CultureInfo);
+            if (cultinfo != null)
+                lang = cultinfo.Name.Split(new Char[] { '-' })[0];
+
+            ViewBag.PointCategoryId = new SelectList(db.Category.Where(s => s.Lang == lang), "CategoryId", "CategoryName");
+            ViewBag.PointEraId = new SelectList(db.Era.Where(s => s.Lang == lang), "EraId", "EraName");
+            ViewBag.PointEthnologicalId = new SelectList(db.Ethnological.Where(s => s.Lang == lang), "EthnologicalId", "EthnologicalName");
+            ViewBag.PointPropertyId = new SelectList(db.Property.Where(s => s.Lang == lang), "PropertyId", "PropertyName");
+            ViewBag.PointProtectionId = new SelectList(db.ProtectionLevel.Where(s => s.Lang == lang), "ProtectionId", "ProtectionName");
+            ViewBag.PointReligionId = new SelectList(db.Religion.Where(s => s.Lang == lang), "ReligionId", "ReligionName");
 
             return View();
         }
