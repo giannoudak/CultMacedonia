@@ -319,6 +319,7 @@
     <Compile Include="Models\PointListViewModel.cs" />
     <Compile Include="Models\PointMapViewModel.cs" />
     <Compile Include="Models\PointSearchCriteriaViewModel.cs" />
+    <Compile Include="Models\PointSearchListViewModel.cs" />
     <Compile Include="PointController_old.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CultMacedoniaGenericRepo.cs" />

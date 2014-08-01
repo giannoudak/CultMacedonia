@@ -5259,9 +5259,9 @@ a.thumbnail:focus {
   position: relative;
   display: block;
   padding: 10px 15px;
-  margin-bottom: -1px;
+  margin-bottom: 1px;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
+
 }
 
 .list-group-item:first-child {
@@ -5285,6 +5285,7 @@ a.thumbnail:focus {
 
 a.list-group-item {
   color: #555555;
+    border-bottom: 1px solid #dddddd;
 }
 
 a.list-group-item .list-group-item-heading {

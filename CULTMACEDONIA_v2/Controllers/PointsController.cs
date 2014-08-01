@@ -1202,7 +1202,7 @@ namespace CULTMACEDONIA_v2.Controllers
         public PartialViewResult Search(PointSearchCriteriaViewModel criteria)
         {
 
-            List<Point> points = new List<Point>();
+            List<PointSearchListViewModel> points = new List<PointSearchListViewModel>();
 
             string lang = string.Empty;
             // Διαβάζουμε το Culture του session ώστε να ξέρουμε σε ποια γλώσσα θα
@@ -1211,10 +1211,23 @@ namespace CULTMACEDONIA_v2.Controllers
             if (cultinfo != null)
                 lang = cultinfo.Name.Split(new Char[] { '-' })[0];
 
-            var q = from p in db.Point
+            var q = from p in db.Point.Include("PointImage")
                     join pou in db.PointOfUser on p.PointId equals pou.PointId
+                    
+
                     where pou.isActivated == 1 && p.PointLocalization == lang
-                    select p;
+                    select new PointSearchListViewModel
+                    {
+                         PointId = p.PointId,
+                         PointName = p.PointName,
+                         PointAddress = p.PointAddress,
+                         PointCategory = p.Category.CategoryName,
+                         PointCategoryId = p.PointCategoryId,
+                         PointX = p.PointX,
+                         PointY = p.PointY,
+                         PointShortDescription = p.PointDescription,
+                         pointSingleImage = p.PointImage.Take(1).FirstOrDefault(),
+                    };
 
 
             // @@@@@@@@@ Apply search criteria @@@@@@@@@
@@ -1225,21 +1238,21 @@ namespace CULTMACEDONIA_v2.Controllers
 
 
 
-            // 2] By Year
-            // 0-before, 1-after
-            if (!string.IsNullOrEmpty(criteria.year))
-            {
-                var filtered = from p in points
-                               select p;
+            //// 2] By Year
+            //// 0-before, 1-after
+            //if (!string.IsNullOrEmpty(criteria.year))
+            //{
+            //    var filtered = from p in points
+            //                   select p;
 
-                if (criteria.yearWhen == '0')
-                    filtered = filtered.Where(y => y.PointYear <= Convert.ToInt32(criteria.year));
-                else if (criteria.yearWhen == '1')
-                    filtered = filtered.Where(y => y.PointYear >= Convert.ToInt32(criteria.year));
+            //    if (criteria.yearWhen == '0')
+            //        filtered = filtered.Where(y => y.PointYear <= Convert.ToInt32(criteria.year));
+            //    else if (criteria.yearWhen == '1')
+            //        filtered = filtered.Where(y => y.PointYear >= Convert.ToInt32(criteria.year));
 
                 
-                points = filtered.ToList();
-            }
+            //    points = filtered.ToList();
+            //}
 
 
             points = q.ToList();

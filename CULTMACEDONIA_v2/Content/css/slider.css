@@ -17,6 +17,18 @@ ul.bjqs-controls.v-centered li a:hover{
 	color:#fff;
 }
 
+
+#search-slide{
+    width:335px;
+    /*border:1px solid red!important;*/
+}
+
+
+.item{
+    max-width:320px;
+    padding:2px;
+}
+
 ol.bjqs-markers li a{
 	padding:5px 10px;
 	background:#000;
