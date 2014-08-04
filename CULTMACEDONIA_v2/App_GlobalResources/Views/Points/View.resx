@@ -405,4 +405,13 @@
   <data name="ViewonMap" xml:space="preserve">
     <value>View on Map</value>
   </data>
+  <data name="phdEthnological" xml:space="preserve">
+    <value>select sight ethnology</value>
+  </data>
+  <data name="phdrCateogry" xml:space="preserve">
+    <value>select sight cateogry</value>
+  </data>
+  <data name="phdrEra" xml:space="preserve">
+    <value>select sight era</value>
+  </data>
 </root>

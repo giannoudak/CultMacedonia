@@ -28,6 +28,10 @@ ul.bjqs-controls.v-centered li a:hover{
     max-width:320px;
     padding:2px;
 }
+.list-group-item:hover {
+    background-color:#ebebeb;
+    cursor:pointer;
+}
 
 ol.bjqs-markers li a{
 	padding:5px 10px;

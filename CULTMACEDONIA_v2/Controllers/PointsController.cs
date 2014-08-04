@@ -1223,8 +1223,13 @@ namespace CULTMACEDONIA_v2.Controllers
                          PointAddress = p.PointAddress,
                          PointCategory = p.Category.CategoryName,
                          PointCategoryId = p.PointCategoryId,
+                         PointEraId = p.PointEraId,
+                         PointEra = p.Era.EraName,
+                         PointEthnological = p.Ethnological.EthnologicalName,
+                         PointEthnologicalId = p.PointEthnologicalId,
                          PointX = p.PointX,
                          PointY = p.PointY,
+                         PointYear = p.PointYear,
                          PointShortDescription = p.PointDescription,
                          pointSingleImage = p.PointImage.Take(1).FirstOrDefault(),
                     };
@@ -1238,21 +1243,25 @@ namespace CULTMACEDONIA_v2.Controllers
 
 
 
-            //// 2] By Year
-            //// 0-before, 1-after
-            //if (!string.IsNullOrEmpty(criteria.year))
-            //{
-            //    var filtered = from p in points
-            //                   select p;
-
-            //    if (criteria.yearWhen == '0')
-            //        filtered = filtered.Where(y => y.PointYear <= Convert.ToInt32(criteria.year));
-            //    else if (criteria.yearWhen == '1')
-            //        filtered = filtered.Where(y => y.PointYear >= Convert.ToInt32(criteria.year));
-
+            // 2] By Year
+            // 0-before, 1-after
+            if (!string.IsNullOrEmpty(criteria.year))
+            {
                 
-            //    points = filtered.ToList();
-            //}
+                if (criteria.yearWhen == '0')
+                    q = q.Where(y => y.PointYear <= Convert.ToInt32(criteria.year));
+                else if (criteria.yearWhen == '1')
+                    q = q.Where(y => y.PointYear >= Convert.ToInt32(criteria.year));
+
+            }
+
+            // 3] By CategoryId
+            if (criteria.catId != null) q = q.Where(c => c.PointCategoryId == criteria.catId);
+            // 4] By EraId
+            if (criteria.eraId != null) q = q.Where(c => c.PointEraId == criteria.eraId);
+            // 5] By Ethnology
+            if (criteria.ethnId != null) q = q.Where(c => c.PointEthnologicalId == criteria.ethnId);
+            
 
 
             points = q.ToList();

@@ -405,4 +405,13 @@
   <data name="ViewonMap" xml:space="preserve">
     <value>Δείτε στο χάρτη</value>
   </data>
+  <data name="phdEthnological" xml:space="preserve">
+    <value>εθνικότητα αξιοθέατου...</value>
+  </data>
+  <data name="phdrCateogry" xml:space="preserve">
+    <value>κατηγορία αξιοθέατου...</value>
+  </data>
+  <data name="phdrEra" xml:space="preserve">
+    <value>χρονολογική περίοδος αξιοθέατου..</value>
+  </data>
 </root>

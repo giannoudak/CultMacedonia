@@ -5263,6 +5263,9 @@ a.thumbnail:focus {
   background-color: #ffffff;
 
 }
+.itm-img-wrap{
+    margin:0 0 0 3px;
+}
 
 .list-group-item:first-child {
   border-top-right-radius: 4px;
@@ -5340,6 +5343,15 @@ a.list-group-item:focus {
 
 .panel-body {
   padding: 15px;
+}
+
+
+.panel-body h4 a:hover {
+    text-decoration:none;
+}
+
+.panel-body h4 a {
+    outline:none;
 }
 
 .panel-body:before,

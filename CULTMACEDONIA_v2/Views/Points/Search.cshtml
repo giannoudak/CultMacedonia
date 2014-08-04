@@ -44,37 +44,23 @@
                             <h5>@CultResources.View.LabelPointName</h5>
                             <input id="title" type="text" class="form-control " placeholder="enter monument name part...">
                         </div>
-                        <div class="col-lg-12 ">
-                            <div class="row">
-                                <div class="col-md-5 input-group input-group-sm">
-                                    <h5 class="block">@CultResources.View.Year</h5>
-                                    <input id="year" type="number" class="form-control" placeholder="enter year...">
-                                </div>
-
-                                <div class="col-md-6 col-md-offset-1 input-group input-group-sm">
-                                    <h5>@CultResources.View.When</h5>
-                                    @Html.DropDownList("ddlYearWhen", new List<SelectListItem>
-                                        {
-                                            new SelectListItem{ Text=CultResources.View.WhenBefore, Value = "0" },
-                                            new SelectListItem{ Text=CultResources.View.WhenAfter, Value = "1" }
-                                        }, new { @id = "yearWhen",@class = "form-control" })
-                                </div>
-                            </div>
+                        <div class="col-lg-12 input-group input-group-sm ">
+                            <h5>@CultResources.View.CategoryCaption</h5>
+                            
+                            @Html.DropDownList("PointCategoryId", String.Empty) 
                         </div>
-                        @*<div class="col-lg-12">
-                            <h5>@CultResources.View.CloseToMe</h5>
-                            <div class="input-group input-group-sm">
-
-                                <span class="input-group-addon close-chk">
-                                    <input type="checkbox" id="closeToMe">
-                                </span>
-                                <input type="text" placeholder="@CultResources.View.Radius" class="form-control">
-                            </div>
-                        </div>*@
+                      
 
                         <div class="col-lg-12">
-                            @Html.DropDownList("PointCategoryId", String.Empty)
+                            <h5>@CultResources.View.EraCaption</h5>
+                            @Html.DropDownList("PointEraId", String.Empty)
                             
+                        </div>
+
+                        <div class="col-lg-12">
+                            <h5>@CultResources.View.EthnologicalCaption</h5>
+                            @Html.DropDownList("PointEthnologicalId", String.Empty)
+
                         </div>
 
 
@@ -146,6 +132,15 @@
     $(function () {
 
 
+
+        $("#filters select").addClass("form-control input-sm");
+
+        $("#filters select#PointCategoryId").find('option:empty').text("@CultResources.View.phdrCateogry");
+        $("#filters select#PointEraId").find('option:empty').text("@CultResources.View.phdrEra");
+        $("#filters select#PointEthnologicalId").find('option:empty').text("@CultResources.View.phdEthnological");
+
+
+
         // Load google map
         var map = new google.maps.Map(document.getElementById("gmap"), {
             center: new google.maps.LatLng(0, 0),
@@ -161,6 +156,7 @@
 
         $("#searchResults").on("click", ".itmpoint", function () {
 
+            clearMarkers();
             // set reference to current item
             var elem = $(this);
 
@@ -201,28 +197,50 @@
 
             // Set marker also
             marker = new google.maps.Marker({
-                position: coords,
+                position: new google.maps.LatLng(lat, long),
                 map: map
+
             });
+
+            markers.push(marker);
 
             var pointName = elem.find("h5.list-group-item-heading").html();
             var pointAddr = elem.find("p.list-group-item-text").html();
             var pointId = elem.data("id");
             var pointCategory = elem.data("category");
+            var pointImage = elem.find(".itm-img-wrap img").attr("src");
+            
+
 
             var infowindow = new google.maps.InfoWindow({
-                content: "<div class='infoDiv'><h2><span class=\"infowin-label\">" +
-                  '@CultResources.View.LabelPointName' + "</span>: " +pointName + "</h2>" + "<div><h2><span class=\"infowin-label\">" +
-                  '@CultResources.View.PlaceAddress' + "</span>: "  + pointAddr + "</h2></div><h2><span class=\"infowin-label\">" +
-                  '@CultResources.View.CategoryCaption' + "</span>: " + pointCategory + "</h2></div>" +
-                  "<a role=\"button\" href=\"@Url.Action("view", "points")/" + pointId + "\" class=\"btn btn-success btn-xs pull-right\">@CultResources.View.ViewMonument</a></div>"
+                content: "<div class='infoDiv media'>"
+                    + "  <a class='pull-left'><img class='media-object' style='width:50px; height:50px;' src='" +
+                    pointImage + "' alt=''></a><div class='media-body'><h6 class='media-heading'>" +
+                    pointName + "</h5><p>" +
+                    pointAddr + "<a role=\"button\" href=\"@Url.Action("view", "points")/" + pointId + "\" class=\"btn btn-success btn-xs pull-left\">@CultResources.View.ViewMonument</a></p></div>"
+
             });
+
+
+            
+
+
 
             infowindow.open(map,marker);
 
 
             google.maps.event.addListener(marker, 'click', function () {
+                var lat = marker.position.lat();
+                var long = marker.position.lng();
+
+
+
+                // create the coordinates
+                var coords = new google.maps.LatLng(lat,long);
+                // center map to point
+                map.setCenter(coords);
                 infowindow.open(map, marker);
+                
             });
 
 
@@ -258,61 +276,7 @@
 
                     $('#searchResults').html(data);
 
-                    /*
-
-                    // loop through all carousel page items
-                    $("#myCarousel .carousel-inner .item").each(function (index) {
-                        // grad current .item class element
-                        var $pg_item = $(this);
-
-                        // foreach .itmpoint class element draw a marker
-                        $pg_item.find(".itmpoint").each(function (itm_index) {
-                            var $pnt_itm = $(this);
-
-
-
-
-                            var pointId = $pnt_itm.data("id");
-                            var plat = $pnt_itm.data("x");
-                            var plong = $pnt_itm.data("y");
-
-
-                            // create the coordinates
-                            var coords = new google.maps.LatLng(plat,plong);
-
-                            // center map to point
-                            map.setCenter(coords);
-                            map.setZoom(6);
-
-                            // Set marker also
-                            marker = new google.maps.Marker({
-                                position: coords,
-                                map: map
-                            });
-
-                            markers.push(marker);
-
-                            var pointName = $pnt_itm.find("h5.list-group-item-heading").html();
-                            var pointAddr = $pnt_itm.find("p.list-group-item-text").html();
-
-                            var pointCategory = $pnt_itm.data("category");
-
-                            \
-
-                            });
-
-                            google.maps.event.addListener(marker, 'click', function () {
-
-                                infowindow.setPosition(coords);
-                                infowindow.open(map);
-                            });
-
-
-
-                        });
-
-
-                    });*/
+                    
 
 
                 },
@@ -332,13 +296,20 @@
             var year = $("#year").val();
             var yearfunction = $("#yearWhen").val();
             var close = $("#closeToMe").val();
+            var catId = $("#PointCategoryId").val();
+            var eraId = $("#PointEraId").val();
+            var ethnId = $("#PointEthnologicalId").val();
+
 
 
             return {
                 title: title,
                 closeToMe: close,
                 year: year,
-                yearWhen : yearfunction
+                yearWhen: yearfunction,
+                catId: catId,
+                eraId: eraId,
+                ethnId : ethnId
             };
         }
 
