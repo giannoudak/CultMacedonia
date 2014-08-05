@@ -28,6 +28,7 @@ namespace CULTMACEDONIA_v2.Controllers
             
             var q = from p in db.Point.Include("PointImage").Include("AspNetUsers")
                     join u in db.PointOfUser on p.PointId equals u.PointId 
+                    
                         
                     select new PointGridViewModel
                     {
@@ -84,6 +85,10 @@ namespace CULTMACEDONIA_v2.Controllers
 
         public IEnumerable<PointGridViewModel> Get(string term, string addr, int? year,byte? active,int? when)
         {
+
+
+            
+
             var q = from p in db.Point.Include("PointImage").Include("AspNetUsers")
                     join u in db.PointOfUser on p.PointId equals u.PointId
 
@@ -158,9 +163,6 @@ namespace CULTMACEDONIA_v2.Controllers
 
             return q;
         }
-
-
-
 
 
 

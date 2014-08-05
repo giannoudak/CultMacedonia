@@ -232,9 +232,6 @@
             google.maps.event.addListener(marker, 'click', function () {
                 var lat = marker.position.lat();
                 var long = marker.position.lng();
-
-
-
                 // create the coordinates
                 var coords = new google.maps.LatLng(lat,long);
                 // center map to point
@@ -299,7 +296,6 @@
             var catId = $("#PointCategoryId").val();
             var eraId = $("#PointEraId").val();
             var ethnId = $("#PointEthnologicalId").val();
-
 
 
             return {

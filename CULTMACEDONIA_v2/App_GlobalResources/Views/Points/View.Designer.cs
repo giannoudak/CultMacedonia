@@ -295,11 +295,29 @@ namespace CultResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Favorite sights.
+        /// </summary>
+        public static string FavoriteSights {
+            get {
+                return ResourceManager.GetString("FavoriteSights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First.
         /// </summary>
         public static string First {
             get {
                 return ResourceManager.GetString("First", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to from user.
+        /// </summary>
+        public static string fromUser {
+            get {
+                return ResourceManager.GetString("fromUser", resourceCulture);
             }
         }
         
@@ -480,6 +498,15 @@ namespace CultResources {
         public static string Next {
             get {
                 return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There aren&apos;t any sights marked as favorite.
+        /// </summary>
+        public static string noFavoriteSights {
+            get {
+                return ResourceManager.GetString("noFavoriteSights", resourceCulture);
             }
         }
         

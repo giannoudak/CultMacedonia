@@ -414,4 +414,13 @@
   <data name="phdrEra" xml:space="preserve">
     <value>χρονολογική περίοδος αξιοθέατου..</value>
   </data>
+  <data name="FavoriteSights" xml:space="preserve">
+    <value>Αγαπημένα αξιοθέατα</value>
+  </data>
+  <data name="fromUser" xml:space="preserve">
+    <value>από το χρήστη</value>
+  </data>
+  <data name="noFavoriteSights" xml:space="preserve">
+    <value>Δεν υπάρχουν ακόμα αξιοθέτα στην λίστα αγαπημένων</value>
+  </data>
 </root>

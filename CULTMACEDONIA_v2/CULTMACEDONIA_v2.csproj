@@ -240,6 +240,8 @@
     <Compile Include="Controllers\PointsAdminController.cs" />
     <Compile Include="Controllers\PointsController.cs" />
     <Compile Include="Controllers\UnobtrusiveAjaxController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserFavoritesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -320,6 +322,7 @@
     <Compile Include="Models\PointMapViewModel.cs" />
     <Compile Include="Models\PointSearchCriteriaViewModel.cs" />
     <Compile Include="Models\PointSearchListViewModel.cs" />
+    <Compile Include="Models\PointUserFavoriteViewModel.cs" />
     <Compile Include="PointController_old.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CultMacedoniaGenericRepo.cs" />
@@ -547,6 +550,7 @@
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout.mapping-latest.debug.js" />
     <Content Include="Scripts\ko-pointsgrid.js" />
+    <Content Include="Scripts\ko-pointsuserfav.js" />
     <Content Include="Scripts\ko-protectedObservable.js" />
     <Content Include="Scripts\ko-sysparams.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -609,6 +613,7 @@
     <Content Include="Scripts\ko-protectedObservable.min.js.map">
       <DependentUpon>ko-protectedObservable.js</DependentUpon>
     </Content>
+    <Content Include="Views\User\UserFavorites.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

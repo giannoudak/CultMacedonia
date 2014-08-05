@@ -414,4 +414,13 @@
   <data name="phdrEra" xml:space="preserve">
     <value>select sight era</value>
   </data>
+  <data name="FavoriteSights" xml:space="preserve">
+    <value>Favorite sights</value>
+  </data>
+  <data name="fromUser" xml:space="preserve">
+    <value>from user</value>
+  </data>
+  <data name="noFavoriteSights" xml:space="preserve">
+    <value>There aren't any sights marked as favorite</value>
+  </data>
 </root>
