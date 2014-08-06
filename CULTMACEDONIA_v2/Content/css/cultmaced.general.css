@@ -18,9 +18,21 @@
   border-top: 1px solid #e2e2e2;
   margin-top: 1px;
 }
-.full-height span {
-  height: 64px;
-  vertical-align: middle;
+.favitem:hover {
+  cursor: pointer;
+}
+.favitem:hover a.favitem-link {
+  color: #428BCA;
+}
+.favitem:hover a.favitem-link:hover {
+  text-decoration: underline;
+}
+.favitem .un-favitem {
+  float: right;
+}
+.vcenter {
+  height: 60px;
+  line-height: 60px;
 }
 form#logoutForm > a {
   padding-left: 5px;

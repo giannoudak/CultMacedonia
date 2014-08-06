@@ -49,25 +49,27 @@ var viewModel = function () {
 
 
 
-        $.ajax({
-            url: '/user/favorite_remove',
-            type: "POST",
+        //$.ajax({
+        //    url: '/user/favorite_remove',
+        //    type: "POST",
 
-            data: { pointId: _ufplaceId, username: _ufuserName, userId: _ufuserId, pointName: _ufplaceName }
+        //    data: { pointId: _ufplaceId, username: _ufuserName, userId: _ufuserId, pointName: _ufplaceName }
 
-        }).done(function (result) {
+        //}).done(function (result) {
 
-            if (result.success == true) {
-                self.userfavorites.remove(favorite);
-            }
-
-
+        //    if (result.success == true) {
+        //        self.userfavorites.remove(favorite);
+        //    }
 
 
 
-        }).error(function (request, status, err) {
-            alert('error in enable monument');
-        });
+
+
+        //}).error(function (request, status, err) {
+        //    alert('error in enable monument');
+        //});
+
+
     }.bind(this);
 
 }
