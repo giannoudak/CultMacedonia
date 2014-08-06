@@ -29,5 +29,21 @@ namespace CULTMACEDONIA_v2.Controllers
         }
 
 
+        [Route("favorite_remove")]
+        [Authorize(Roles="CultMacedoniaUser")]
+        public ActionResult RemoveUserFavoriteSight(int pointId, string username, int userId, string pointName)
+        {
+            bool success = false;
+            string message = string.Empty;
+
+
+            return Json(new { success = success, message = message });
+        }
+
+
+
+      
+
+
 	}
 }

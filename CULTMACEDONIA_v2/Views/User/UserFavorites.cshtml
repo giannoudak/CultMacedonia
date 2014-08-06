@@ -67,20 +67,24 @@
 
 
 
-            <div class="container" style="display: none" data-bind=" foreach: userfavorites,visible: true">
+            <div id="favlist" class="container" style="display: none" data-bind=" foreach: userfavorites,visible: true">
 
-                <div class="row">
-                    <div class="col-lg-1"><span data-bind="text:$index() + 1"></span></div>
-                    <div class="col-lg-2">
+                <div class="row favitem">
+                    <div class="col-lg-1 full-height"><span data-bind="text:$index() + 1"></span></div>
+                    <div class="col-lg-2 full-height">
                         <img data-bind="attr:{'src':  OneImagePath}" class=" media-object" style="width: 64px; height: 64px; " />
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 full-height">
                         <a data-toggle="tooltip" data-placement="right"
                            title="" data-original-title="@CultResources.View.view" class="action-links tlp" data-bind="text: PointName,attr: { 'href': '@Url.Action("View","Points")/' + PointId }">
-                            
+
                         </a>
                     </div>
-                    <div class="col-lg-3"></div>
+                    <div class="col-lg-3 full-height">
+
+                        <a href="#" class="un-favitem" style="display:none">remove this</a>
+
+                    </div>
 
 
                         
@@ -108,6 +112,15 @@
 
 
             $('.tlp').tooltip();
+
+            $("#favlist").on({
+                mouseenter: function () {
+                    $(this).find(".un-favitem").slideDown("slow");
+                },
+                mouseleave: function () {
+                    $(this).find(".un-favitem").slideUp();
+                }
+            }, 'div');
 
         });
     </script>
