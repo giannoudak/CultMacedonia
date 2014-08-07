@@ -11,10 +11,17 @@
 
 @Html.Partial("_PageHeader")
 <div id="wrap">
+
+    
+
+
     <div class="container panel offset-top">
+
+        
+
         <div class="row ">
 
-
+            
             <div class="container row favlist-header">
                 <div class="col-lg-4">
 
@@ -47,6 +54,14 @@
                             <span data-bind="text:userfavorites().length == 1 ?  userfavorites().length + ' sight': userfavorites().length + ' sights'"></span>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div id="favorite-msg-panel" class="alert alert-dismissable col-md-10" style="display:none;">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <p class="favorite-msg"></p>
+                        </div>
+                    </div>
+
                 </div>
 
 
@@ -82,13 +97,9 @@
                     </div>
                     <div class="col-lg-3 ">
 
-                        <a href="" class="un-favitem top-right btn btn-default btn-sm"
+                        <button type="button" class="un-favitem top-right btn btn-default btn-sm"
                            style="display:none"
-                           data-bind="click: $root.unFavorite"><span class="fa fa-times" ></span></a>
-
-
-
-
+                           data-bind="click: $root.unFavorite"><span class="fa fa-times" ></span></button>
                     </div>
 
 
@@ -128,6 +139,9 @@
             }, 'div');
 
         });
+
+
+        
     </script>
 }
 

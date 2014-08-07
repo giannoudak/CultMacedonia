@@ -39,6 +39,8 @@ var viewModel = function () {
 
     $this.unFavorite = function (favorite) {
 
+       
+
         var self = this; // Retain scope of view model
 
         // do the ajax call to enable the monument
@@ -49,29 +51,56 @@ var viewModel = function () {
 
 
 
-        //$.ajax({
-        //    url: '/user/favorite_remove',
-        //    type: "POST",
+        $.ajax({
+            url: '/user/favorite_remove',
+            type: "POST",
 
-        //    data: { pointId: _ufplaceId, username: _ufuserName, userId: _ufuserId, pointName: _ufplaceName }
+            data: { pointId: _ufplaceId, username: _ufuserName, userId: _ufuserId, pointName: _ufplaceName }
 
-        //}).done(function (result) {
+        }).done(function (result) {
 
-        //    if (result.success == true) {
-        //        self.userfavorites.remove(favorite);
-        //    }
+            if (result.success == true) {
+                self.userfavorites.remove(favorite);
+            } else {
+                //
+            }
+
+
+            toggleUnFavoritePanel(result.success,result.message);
 
 
 
 
 
-        //}).error(function (request, status, err) {
-        //    alert('error in enable monument');
-        //});
+        }).error(function (xhr, status, thrownError) {
+            console.log(xhr.status);
+            console.log(thrownError);
+            console.log(xhr.responseText);
+
+            
+            toggleUnFavoritePanel(false, "A system error occurred! Please try again later.");
+
+
+
+        });
 
 
     }.bind(this);
 
+}
+
+var toggleUnFavoritePanel = function (success,message) {
+
+    $("#favorite-msg-panel").show();
+    if (success == true){
+        $("#favorite-msg-panel").addClass("alert-success");
+    } else {
+        $("#favorite-msg-panel").addClass("alert-danger");
+    }
+
+    $(".favorite-msg").html(message);
+
+    
 }
 
 

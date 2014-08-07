@@ -423,4 +423,10 @@
   <data name="noFavoriteSights" xml:space="preserve">
     <value>Δεν υπάρχουν ακόμα αξιοθέτα στην λίστα αγαπημένων</value>
   </data>
+  <data name="unFavoriteFailure" xml:space="preserve">
+    <value>Η διαγραφή του αξιοθέατου από την λίστα αγαπημένων απέτυχε.</value>
+  </data>
+  <data name="unFavoriteSuccess" xml:space="preserve">
+    <value>Η διαγραφή του αξιοθέατου από την λίστα αγαπημένων έγινε επιτυχώς</value>
+  </data>
 </root>

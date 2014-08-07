@@ -880,6 +880,24 @@ namespace CultResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Favorite sight removal failed..
+        /// </summary>
+        public static string unFavoriteFailure {
+            get {
+                return ResourceManager.GetString("unFavoriteFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favorite sight removed successfully.
+        /// </summary>
+        public static string unFavoriteSuccess {
+            get {
+                return ResourceManager.GetString("unFavoriteSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image Upload Result.
         /// </summary>
         public static string UploadDialogTitle {

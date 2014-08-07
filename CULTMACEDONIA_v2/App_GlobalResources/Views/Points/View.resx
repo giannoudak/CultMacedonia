@@ -423,4 +423,10 @@
   <data name="noFavoriteSights" xml:space="preserve">
     <value>There aren't any sights marked as favorite</value>
   </data>
+  <data name="unFavoriteFailure" xml:space="preserve">
+    <value>Favorite sight removal failed.</value>
+  </data>
+  <data name="unFavoriteSuccess" xml:space="preserve">
+    <value>Favorite sight removed successfully</value>
+  </data>
 </root>
