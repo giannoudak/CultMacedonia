@@ -25,6 +25,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -382,6 +383,8 @@
     <Content Include="Content\images\cultmaced_mobapp_3.png" />
     <Content Include="Content\images\default_user_img.png" />
     <Content Include="Content\images\gplus.png" />
+    <Content Include="Content\images\logo_praxh_nees_2015_el.png" />
+    <Content Include="Content\images\logo_praxh_nees_2015_en.png" />
     <Content Include="Content\images\noise.png" />
     <Content Include="Content\images\cultmaced_mobapp_1.png" />
     <Content Include="Content\images\white_texture.jpg" />

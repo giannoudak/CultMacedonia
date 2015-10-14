@@ -298,4 +298,7 @@
     <value>Η εφαρμογή είναι διαθέσιμη δωρεάν στο Goolgle Play από
                         &lt;a href="https://play.google.com/store/apps/details?id=four.elements.cultmacedonia&amp;hl=el" target="_blank" title="Cult Macedonia  Mobile"&gt;εδώ&lt;/a&gt;.</value>
   </data>
+  <data name="LogoPraxhsNees2015" xml:space="preserve">
+    <value>/Content/images/logo_praxh_nees_2015_en.png</value>
+  </data>
 </root>
